@@ -12,7 +12,7 @@ import org.junit.Test;
 /**
  * Tests the class {@link JavacParser}.
  */
-public class JavacParserTest extends ParserTest {
+public class JavacParserTest extends ParserTester {
     /**
      * Parses a file with two deprecation warnings.
      *
@@ -21,7 +21,7 @@ public class JavacParserTest extends ParserTest {
      */
     @Test
     public void parseDeprecation() throws IOException {
-        Collection<FileAnnotation> warnings = new JavacParser().parse(getStream("javac.log"));
+        Collection<FileAnnotation> warnings = new JavacParser().parse(JavacParserTest.class.getResourceAsStream("javac.txt"));
 
         assertEquals("Wrong number of warnings detected.", 2, warnings.size());
 
