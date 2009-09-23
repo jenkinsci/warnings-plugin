@@ -4,8 +4,9 @@ import hudson.plugins.warnings.util.model.FileAnnotation;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.LineIterator;
@@ -40,7 +41,7 @@ public abstract class RegexpLineParser extends RegexpParser {
      * @throws IOException Signals that an I/O exception has occurred.
      */
     public Collection<FileAnnotation> parse(final Reader file) throws IOException {
-        ArrayList<FileAnnotation> warnings = new ArrayList<FileAnnotation>();
+        Set<FileAnnotation> warnings = new HashSet<FileAnnotation>();
 
         LineIterator iterator = IOUtils.lineIterator(file);
         while (iterator.hasNext()) {

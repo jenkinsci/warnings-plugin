@@ -29,7 +29,7 @@ public class IntelCParserTest extends ParserTester {
      */
     @Test
     public void testWarningsParser() throws IOException {
-        Collection<FileAnnotation> warnings = new IntelCParser().parse(openFile());
+        Collection<FileAnnotation> warnings = sort(new IntelCParser().parse(openFile()));
 
         assertEquals("Wrong number of warnings detected.", 4, warnings.size());
 

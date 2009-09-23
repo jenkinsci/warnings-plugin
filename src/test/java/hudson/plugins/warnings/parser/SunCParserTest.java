@@ -34,7 +34,7 @@ public class SunCParserTest extends ParserTester {
      */
     @Test
     public void parseSunCpp() throws IOException {
-        Collection<FileAnnotation> warnings = new SunCParser().parse(openFile());
+        Collection<FileAnnotation> warnings = sort(new SunCParser().parse(openFile()));
 
         assertEquals("Wrong number of warnings detected.", 5, warnings.size());
 

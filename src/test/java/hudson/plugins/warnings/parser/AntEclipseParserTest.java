@@ -32,7 +32,7 @@ public class AntEclipseParserTest extends ParserTester {
      */
     @Test
     public void parseDeprecation() throws IOException {
-        Collection<FileAnnotation> warnings = new AntEclipseParser().parse(openFile());
+        Collection<FileAnnotation> warnings = sort(new AntEclipseParser().parse(openFile()));
 
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 8, warnings.size());
 

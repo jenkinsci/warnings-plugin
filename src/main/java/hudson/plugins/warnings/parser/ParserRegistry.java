@@ -53,7 +53,7 @@ public class ParserRegistry {
      * @param defaultEncoding
      *            the default encoding to be used when reading and parsing files
      */
-    public ParserRegistry(final List<WarningsParser> parsers, final String defaultEncoding) {
+    public ParserRegistry(final List<? extends WarningsParser> parsers, final String defaultEncoding) {
         this(parsers, defaultEncoding, StringUtils.EMPTY, StringUtils.EMPTY);
     }
 
@@ -71,7 +71,7 @@ public class ParserRegistry {
      * @param defaultEncoding
      *            the default encoding to be used when reading and parsing files
      */
-    public ParserRegistry(final List<WarningsParser> parsers, final String defaultEncoding, final String includePattern, final String excludePattern) {
+    public ParserRegistry(final List<? extends WarningsParser> parsers, final String defaultEncoding, final String includePattern, final String excludePattern) {
         defaultCharset = EncodingValidator.defaultCharset(defaultEncoding);
         this.parsers = new ArrayList<WarningsParser>(parsers);
         if (this.parsers.isEmpty()) {
@@ -106,7 +106,7 @@ public class ParserRegistry {
      * @throws IOException Signals that an I/O exception has occurred.
      */
     public Collection<FileAnnotation> parse(final File file) throws IOException {
-        List<FileAnnotation> allAnnotations = new ArrayList<FileAnnotation>();
+        Set<FileAnnotation> allAnnotations = new HashSet<FileAnnotation>();
         for (WarningsParser parser : parsers) {
             allAnnotations.addAll(parser.parse(createReader(file)));
         }
@@ -138,7 +138,7 @@ public class ParserRegistry {
      *            all annotations
      * @return the filtered annotations if there is a filter defined
      */
-    private Collection<FileAnnotation> applyExcludeFilter(final List<FileAnnotation> allAnnotations) {
+    private Collection<FileAnnotation> applyExcludeFilter(final Collection<FileAnnotation> allAnnotations) {
         if (fileFilter == null) {
             return allAnnotations;
         }
@@ -154,8 +154,8 @@ public class ParserRegistry {
      *            the annotations to filter
      * @return the annotations that are not excluded in the filter
      */
-    private Collection<FileAnnotation> filterAnnotations(final List<FileAnnotation> annotations) {
-        List<FileAnnotation> filteredAnnotations = new ArrayList<FileAnnotation>();
+    private Collection<FileAnnotation> filterAnnotations(final Collection<FileAnnotation> annotations) {
+        Set<FileAnnotation> filteredAnnotations = new HashSet<FileAnnotation>();
         for (FileAnnotation annotation : annotations) {
             if (fileFilter.matches(annotation.getFileName())) {
                 filteredAnnotations.add(annotation);

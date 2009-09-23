@@ -36,7 +36,7 @@ public class GccParserTest extends ParserTester {
      */
     @Test
     public void testWarningsParser() throws IOException {
-        Collection<FileAnnotation> warnings = new GccParser().parse(openFile());
+        Collection<FileAnnotation> warnings = sort(new GccParser().parse(openFile()));
 
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 8, warnings.size());
 
@@ -100,7 +100,7 @@ public class GccParserTest extends ParserTester {
      */
     @Test
     public void issue3897and3898() throws IOException {
-        Collection<FileAnnotation> warnings = new GccParser().parse(openFile("issue3897.txt"));
+        Collection<FileAnnotation> warnings = sort(new GccParser().parse(openFile("issue3897.txt")));
 
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 3, warnings.size());
         Iterator<FileAnnotation> iterator = warnings.iterator();
@@ -130,7 +130,7 @@ public class GccParserTest extends ParserTester {
      */
     @Test
     public void issue4274() throws IOException {
-        Collection<FileAnnotation> warnings = new GccParser().parse(openFile("issue4274.txt"));
+        Collection<FileAnnotation> warnings = sort(new GccParser().parse(openFile("issue4274.txt")));
 
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 4, warnings.size());
         Iterator<FileAnnotation> iterator = warnings.iterator();

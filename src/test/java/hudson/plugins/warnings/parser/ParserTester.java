@@ -9,6 +9,8 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 import org.junit.Test;
 
@@ -100,4 +102,22 @@ public abstract class ParserTester {
      * @return the warnings file name
      */
     protected abstract String getWarningsFile();
+
+    /**
+     * Sorts the warnings by occurrence in the file (ID).
+     *
+     * @param annotations
+     *            the annotations to sort
+     * @return the sorted annotations
+     */
+    protected ArrayList<FileAnnotation> sort(final Collection<FileAnnotation> annotations) {
+        ArrayList<FileAnnotation> sortedWarnings = new ArrayList<FileAnnotation>(annotations);
+        Collections.sort(sortedWarnings, new Comparator<FileAnnotation>() {
+            /** {@inheritDoc} */
+            public int compare(final FileAnnotation o1, final FileAnnotation o2) {
+                return (int)(o1.getKey() - o2.getKey());
+            }
+        });
+        return sortedWarnings;
+    }
 }

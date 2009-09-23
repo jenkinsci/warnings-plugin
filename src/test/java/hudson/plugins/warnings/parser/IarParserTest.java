@@ -31,7 +31,7 @@ public class IarParserTest extends ParserTester {
      */
     @Test
     public void testWarningsParser() throws IOException {
-        Collection<FileAnnotation> warnings = new IarParser().parse(openFile());
+        Collection<FileAnnotation> warnings = sort(new IarParser().parse(openFile()));
 
         assertEquals("Wrong number of warnings detected.", 8, warnings.size());
 

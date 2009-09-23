@@ -189,7 +189,8 @@ public class ParserRegistryTest {
      * @return the registry
      */
     @edu.umd.cs.findbugs.annotations.SuppressWarnings("SIC")
-    private ParserRegistry createRegistryUnderTest(final String fileName, final String includePattern, final String excludePattern, final List<WarningsParser> parsers) {
+    static ParserRegistry createRegistryUnderTest(final String fileName,
+            final String includePattern, final String excludePattern, final List<? extends WarningsParser> parsers) {
         ParserRegistry parserRegistry = new ParserRegistry(parsers, "", includePattern, excludePattern) {
             /** {@inheritDoc} */
             @Override

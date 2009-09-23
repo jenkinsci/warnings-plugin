@@ -30,7 +30,7 @@ public class HpiCompileParserTest extends ParserTester {
      */
     @Test
     public void parseDeprecation() throws IOException {
-        Collection<FileAnnotation> warnings = new AntJavacParser().parse(openFile());
+        Collection<FileAnnotation> warnings = sort(new AntJavacParser().parse(openFile()));
 
         assertEquals("Wrong number of warnings detected.", 2, warnings.size());
 

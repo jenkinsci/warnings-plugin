@@ -33,7 +33,7 @@ public class JavaDocParserTest extends ParserTester {
      */
     @Test
     public void parseJavaDocWarnings() throws IOException {
-        Collection<FileAnnotation> warnings = new JavaDocParser().parse(openFile());
+        Collection<FileAnnotation> warnings = sort(new JavaDocParser().parse(openFile()));
 
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 6, warnings.size());
 

@@ -29,7 +29,7 @@ public class BuckminsterParserTest extends ParserTester {
      */
     @Test
     public void testWarningsParser() throws IOException {
-        Collection<FileAnnotation> warnings = new BuckminsterParser().parse(openFile());
+        Collection<FileAnnotation> warnings = sort(new BuckminsterParser().parse(openFile()));
 
         assertEquals("Wrong number of warnings detected.", 3, warnings.size());
 

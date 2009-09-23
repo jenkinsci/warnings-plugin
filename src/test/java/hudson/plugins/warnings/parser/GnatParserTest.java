@@ -29,7 +29,7 @@ public class GnatParserTest extends ParserTester {
      */
     @Test
     public void testWarningsParser() throws IOException {
-        Collection<FileAnnotation> warnings = new GnatParser().parse(openFile());
+        Collection<FileAnnotation> warnings = sort(new GnatParser().parse(openFile()));
 
         assertEquals("Wrong number of warnings detected.", 9, warnings.size());
 

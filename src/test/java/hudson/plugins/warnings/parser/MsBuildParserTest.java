@@ -1,11 +1,14 @@
 package hudson.plugins.warnings.parser;
 
 import static junit.framework.Assert.*;
+import hudson.plugins.warnings.util.ParserResult;
 import hudson.plugins.warnings.util.model.FileAnnotation;
 import hudson.plugins.warnings.util.model.Priority;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -41,6 +44,28 @@ public class MsBuildParserTest extends ParserTester {
         assertEquals("Wrong file name.", "TestLib.lib", annotation.getFileName());
     }
 
+    /**
+     * Parses a file with 6 warnings of the MS Build tools.
+     *
+     * @throws IOException
+     *      if the file could not be read
+     */
+    @Test
+    public void issue4472() throws IOException {
+        Collection<FileAnnotation> warnings = new MsBuildParser().parse(openFile("issue4472.txt"));
+        ParserResult parserResult = new ParserResult(warnings);
+        ArrayList<MsBuildParser> parsers = new ArrayList<MsBuildParser>();
+        parsers.add(new MsBuildParser());
+        ParserRegistry registry = ParserRegistryTest.createRegistryUnderTest("issue4472.txt", null, null, parsers);
+        Collection<FileAnnotation> registryResult = registry.parse(new File("issue4472.txt"));
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 6, warnings.size());
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 6, registryResult.size());
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 6, parserResult.getNumberOfAnnotations());
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 0, parserResult.getNumberOfAnnotations(Priority.HIGH));
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 6, parserResult.getNumberOfAnnotations(Priority.NORMAL));
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 0, parserResult.getNumberOfAnnotations(Priority.LOW));
+    }
+
 
     /**
      * Parses a file with warnings of the MS Build tools.
@@ -50,11 +75,11 @@ public class MsBuildParserTest extends ParserTester {
      */
     @Test
     public void parseWarnings() throws IOException {
-        Collection<FileAnnotation> warnings = new MsBuildParser().parse(openFile());
+        ArrayList<FileAnnotation> sortedWarnings = sort(new MsBuildParser().parse(openFile()));
 
-        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 6, warnings.size());
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 6, sortedWarnings.size());
 
-        Iterator<FileAnnotation> iterator = warnings.iterator();
+        Iterator<FileAnnotation> iterator = sortedWarnings.iterator();
         FileAnnotation annotation = iterator.next();
         checkWarning(annotation,
                 2242,

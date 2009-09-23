@@ -3,7 +3,7 @@ package hudson.plugins.warnings.parser;
 import hudson.plugins.warnings.util.JavaPackageDetector;
 import hudson.plugins.warnings.util.model.FileAnnotation;
 
-import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -68,7 +68,7 @@ public abstract class RegexpParser implements WarningsParser {
      * @param content the content to scan
      * @param warnings the found annotations
      */
-    protected void findAnnotations(final String content, final List<FileAnnotation> warnings) {
+    protected void findAnnotations(final String content, final Set<FileAnnotation> warnings) {
         Matcher matcher = pattern.matcher(content);
 
         while (matcher.find()) {

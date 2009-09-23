@@ -1,16 +1,16 @@
-    [compass-compile] C:\.hudson\jobs\Static analysis (trunk)\workspace\trunk\compass-core\src\com\northgateis\compass\common\CompassEhCacheProvider.java:62: warning: [deprecation] org.hibernate.cache.Cache in org.hibernate.cache has been deprecated
+    [compass-compile] C:\.hudson\jobs\Static analysis (trunk)\workspace\trunk\compass-core\src\com\northgateis\compass\common\CompassEhCacheProvider1.java:62: warning: [deprecation] org.hibernate.cache.Cache in org.hibernate.cache has been deprecated
     [compass-compile]     public final Cache buildCache(String name, Properties properties) throws CacheException {
     [compass-compile]                  ^
 
 instead of the default:
 
-    [javac] C:\.hudson\jobs\Static analysis (trunk)\workspace\trunk\compass-core\src\com\northgateis\compass\common\CompassEhCacheProvider.java:62: warning: [deprecation] org.hibernate.cache.Cache in org.hibernate.cache has been deprecated
+    [javac] C:\.hudson\jobs\Static analysis (trunk)\workspace\trunk\compass-core\src\com\northgateis\compass\common\CompassEhCacheProvider2.java:62: warning: [deprecation] org.hibernate.cache.Cache in org.hibernate.cache has been deprecated
     [javac]     public final Cache buildCache(String name, Properties properties) throws CacheException {
     [javac]                  ^
 
 Maybe if you insist that "javac" must appear somewhere in the taskname, e.g.
 
-    [compass-javac] C:\.hudson\jobs\Static analysis (trunk)\workspace\trunk\compass-core\src\com\northgateis\compass\common\CompassEhCacheProvider.java:62: warning: [deprecation] org.hibernate.cache.Cache in org.hibernate.cache has been deprecated
+    [compass-javac] C:\.hudson\jobs\Static analysis (trunk)\workspace\trunk\compass-core\src\com\northgateis\compass\common\CompassEhCacheProvider3.java:62: warning: [deprecation] org.hibernate.cache.Cache in org.hibernate.cache has been deprecated
     [compass-javac]     public final Cache buildCache(String name, Properties properties) throws CacheException {
     [compass-javac]                  ^
 

@@ -29,7 +29,7 @@ public class MavenParserTest extends ParserTester {
      */
     @Test
     public void parseMaven() throws IOException {
-        Collection<FileAnnotation> warnings = new JavacParser().parse(openFile());
+        Collection<FileAnnotation> warnings = sort(new JavacParser().parse(openFile()));
 
         assertEquals("Wrong number of warnings detected.", 5, warnings.size());
 

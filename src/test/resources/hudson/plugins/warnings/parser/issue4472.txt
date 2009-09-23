@@ -1,0 +1,861 @@
+A SCM change trigger started this job
+[workspace] $ cmd.exe /C '"C:\Program Files\SourceGear\Vault Client\vault.exe"' HISTORY -host %VAULT_HOST% -username %VAULT_USERNAME% -password %VAULT_PASSWORD% -repository MyRepo -begindate 09/14/2009 -excludeactions label -rowlimit 0 $/Projects/MyProject/ &amp;&amp; exit %%ERRORLEVEL%%
+Exit code: 0
+Getting version 2524
+[workspace] $ cmd.exe /C '"C:\Program Files\SourceGear\Vault Client\vault.exe"' GETVERSION -host %VAULT_HOST% -username %VAULT_USERNAME% -password %VAULT_PASSWORD% -repository MyRepo -backup no -merge overwrite -makewritable 2524 $/Projects/MyProject/ . &amp;&amp; exit %%ERRORLEVEL%%
+Exit code: 0
+[workspace] $ cmd /c call "C:\Program Files\Apache Software Foundation\Tomcat\temp\hudson6848274154306327957.bat"
+
+C:\.hudson\jobs\MyJob\workspace>rem del . /s /q
+
+C:\.hudson\jobs\MyJob\workspace>exit 0
+Path To MSBuild.exe: C:\Windows\Microsoft.NET\Framework\v3.5\MSBuild.exe
+Executing command: hudson.util.ArgumentListBuilder@1cbedaf
+[workspace] $ cmd.exe /C C:\Windows\Microsoft.NET\Framework\v3.5\MSBuild.exe MyNamespace.sln &amp;&amp; exit %%ERRORLEVEL%%
+Microsoft (R) Build Engine Version 3.5.30729.1
+[Microsoft .NET Framework, Version 2.0.50727.3082]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+Build started 9/14/2009 9:31:55 PM.
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" on node 0 (default targets).
+  Building solution configuration "Debug|Any CPU".
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (1) is building "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\MyNamespace.DomainModel.csproj" (2) on node 0 (default targets).
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+PlayerAuthentication\Authentication.cs(15,22): warning CS0414: The field 'MyNamespace.DomainModel.PlayerAuthentication.Authentication._authenticated' is assigned but its value is never used
+_CopyFilesMarkedCopyLocal:
+  Copying file from "..\Lib\StringTemplate\Antlr3.StringTemplate.dll" to "bin\Debug\Antlr3.StringTemplate.dll".
+  Copying file from "..\Lib\ABC\ABC.AppSettings.dll" to "bin\Debug\ABC.AppSettings.dll".
+  Copying file from "..\Lib\ABC\ABC.Game.Data.dll" to "bin\Debug\ABC.Game.Data.dll".
+  Copying file from "..\Lib\ABC\ABC.Game.Services.dll" to "bin\Debug\ABC.Game.Services.dll".
+  Copying file from "..\Lib\ABC\ABC.Game.Services.Interfaces.dll" to "bin\Debug\ABC.Game.Services.Interfaces.dll".
+  Copying file from "..\Lib\ABC\ABC.Data.dll" to "bin\Debug\ABC.Data.dll".
+  Copying file from "..\Lib\ABC\ABC.Diagnostics.dll" to "bin\Debug\ABC.Diagnostics.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.Unity.Configuration.dll" to "bin\Debug\Microsoft.Practices.Unity.Configuration.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.Unity.dll" to "bin\Debug\Microsoft.Practices.Unity.dll".
+  Copying file from "..\Lib\StringTemplate\Antlr3.Runtime.Debug.dll" to "bin\Debug\Antlr3.Runtime.Debug.dll".
+  Copying file from "..\Lib\ABC\ABC.Game.GameScoreAgent.dll" to "bin\Debug\ABC.Game.GameScoreAgent.dll".
+  Copying file from "..\Lib\ABC\ABC.XML.dll" to "bin\Debug\ABC.XML.dll".
+  Copying file from "..\Lib\ABC\ABC.Log.Base.dll" to "bin\Debug\ABC.Log.Base.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.ObjectBuilder2.dll" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.dll".
+  Copying file from "..\Lib\StringTemplate\Antlr3.Runtime.Debug.pdb" to "bin\Debug\Antlr3.Runtime.Debug.pdb".
+  Copying file from "..\Lib\StringTemplate\Antlr3.StringTemplate.pdb" to "bin\Debug\Antlr3.StringTemplate.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.Unity.xml" to "bin\Debug\Microsoft.Practices.Unity.xml".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.ObjectBuilder2.xml" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\Debug\MyNamespace.DomainModel.dll" to "bin\Debug\MyNamespace.DomainModel.dll".
+  MyNamespace.DomainModel -> C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\MyNamespace.DomainModel.dll
+  Copying file from "obj\Debug\MyNamespace.DomainModel.pdb" to "bin\Debug\MyNamespace.DomainModel.pdb".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\MyNamespace.DomainModel.csproj" (default targets).
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (1) is building "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\MyNamespace.AppServices.Core.csproj" (3) on node 0 (default targets).
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\MyNamespace.DomainModel.dll" to "bin\Debug\MyNamespace.DomainModel.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Data.dll" to "bin\Debug\ABC.Data.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.ObjectBuilder2.dll" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.Configuration.dll" to "bin\Debug\Microsoft.Practices.Unity.Configuration.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.XML.dll" to "bin\Debug\ABC.XML.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Services.Interfaces.dll" to "bin\Debug\ABC.Game.Services.Interfaces.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.GameScoreAgent.dll" to "bin\Debug\ABC.Game.GameScoreAgent.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.dll" to "bin\Debug\Microsoft.Practices.Unity.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Data.dll" to "bin\Debug\ABC.Game.Data.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Logging.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.Runtime.Debug.dll" to "bin\Debug\Antlr3.Runtime.Debug.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.StringTemplate.dll" to "bin\Debug\Antlr3.StringTemplate.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Services.dll" to "bin\Debug\ABC.Game.Services.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Common.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.ObjectBuilder2.xml" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.xml".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.xml" to "bin\Debug\Microsoft.Practices.Unity.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\MyNamespace.DomainModel.pdb" to "bin\Debug\MyNamespace.DomainModel.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Logging.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Logging.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.Runtime.Debug.pdb" to "bin\Debug\Antlr3.Runtime.Debug.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.StringTemplate.pdb" to "bin\Debug\Antlr3.StringTemplate.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Common.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Common.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml".
+_CopyAppConfigFile:
+  Copying file from "App.config" to "bin\Debug\MyNamespace.AppServices.Core.dll.config".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\Debug\MyNamespace.AppServices.Core.dll" to "bin\Debug\MyNamespace.AppServices.Core.dll".
+  MyNamespace.AppServices.Core -> C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\MyNamespace.AppServices.Core.dll
+  Copying file from "obj\Debug\MyNamespace.AppServices.Core.pdb" to "bin\Debug\MyNamespace.AppServices.Core.pdb".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\MyNamespace.AppServices.Core.csproj" (default targets).
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (1) is building "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel.Test\MyNamespace.DomainModel.Test.csproj" (4) on node 0 (default targets).
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+_CopyFilesMarkedCopyLocal:
+  Copying file from "..\Lib\StringTemplate\Antlr3.StringTemplate.dll" to "bin\Debug\Antlr3.StringTemplate.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\MyNamespace.DomainModel.dll" to "bin\Debug\MyNamespace.DomainModel.dll".
+  Copying file from "..\Lib\Moq\Moq.dll" to "bin\Debug\Moq.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Services.dll" to "bin\Debug\ABC.Game.Services.dll".
+  Copying file from "..\Lib\StringTemplate\Antlr3.Runtime.Debug.dll" to "bin\Debug\Antlr3.Runtime.Debug.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Data.dll" to "bin\Debug\ABC.Game.Data.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.dll" to "bin\Debug\Microsoft.Practices.Unity.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.GameScoreAgent.dll" to "bin\Debug\ABC.Game.GameScoreAgent.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.Configuration.dll" to "bin\Debug\Microsoft.Practices.Unity.Configuration.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Services.Interfaces.dll" to "bin\Debug\ABC.Game.Services.Interfaces.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.XML.dll" to "bin\Debug\ABC.XML.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Data.dll" to "bin\Debug\ABC.Data.dll".
+  Copying file from "..\Lib\StringTemplate\Antlr3.Runtime.Debug.pdb" to "bin\Debug\Antlr3.Runtime.Debug.pdb".
+  Copying file from "..\Lib\StringTemplate\Antlr3.StringTemplate.pdb" to "bin\Debug\Antlr3.StringTemplate.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.xml" to "bin\Debug\Microsoft.Practices.Unity.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\MyNamespace.DomainModel.pdb" to "bin\Debug\MyNamespace.DomainModel.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.ObjectBuilder2.xml" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.xml".
+  Copying file from "..\Lib\Moq\Moq.pdb" to "bin\Debug\Moq.pdb".
+  Copying file from "..\Lib\Moq\Moq.xml" to "bin\Debug\Moq.xml".
+_CopyAppConfigFile:
+  Copying file from "App.config" to "bin\Debug\MyNamespace.DomainModel.Test.dll.config".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\Debug\MyNamespace.DomainModel.Test.dll" to "bin\Debug\MyNamespace.DomainModel.Test.dll".
+  MyNamespace.DomainModel.Test -> C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel.Test\bin\Debug\MyNamespace.DomainModel.Test.dll
+  Copying file from "obj\Debug\MyNamespace.DomainModel.Test.pdb" to "bin\Debug\MyNamespace.DomainModel.Test.pdb".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel.Test\MyNamespace.DomainModel.Test.csproj" (default targets).
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (1) is building "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\MyNamespace.Infrastructure.csproj" (5) on node 0 (default targets).
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+ResolveAssemblyReferences:
+  No way to resolve conflict between "Antlr3.Runtime, Version=3.1.3.6002, Culture=neutral, PublicKeyToken=eb42632606e9261f" and "Antlr3.Runtime, Version=3.1.0.39271, Culture=neutral, PublicKeyToken=3a9cab8f8d22bfb7". Choosing "Antlr3.Runtime, Version=3.1.3.6002, Culture=neutral, PublicKeyToken=eb42632606e9261f" arbitrarily.
+_CopyFilesMarkedCopyLocal:
+  Copying file from "..\Lib\NHibernate\Castle\Castle.Core.dll" to "bin\Debug\Castle.Core.dll".
+  Copying file from "..\Lib\NHibernate\Castle\Castle.DynamicProxy2.dll" to "bin\Debug\Castle.DynamicProxy2.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\MyNamespace.DomainModel.dll" to "bin\Debug\MyNamespace.DomainModel.dll".
+  Copying file from "..\Lib\PayFlowProAgent\MyNamespace.PaymentProcessors.PayFlowProAgent.dll" to "bin\Debug\MyNamespace.PaymentProcessors.PayFlowProAgent.dll".
+  Copying file from "..\Lib\NHibernate\Castle\NHibernate.ByteCode.Castle.dll" to "bin\Debug\NHibernate.ByteCode.Castle.dll".
+  Copying file from "..\Lib\NHibernate\NHibernate.dll" to "bin\Debug\NHibernate.dll".
+  Copying file from "..\Lib\NHibernate\NHibernate.Linq.dll" to "bin\Debug\NHibernate.Linq.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.StringTemplate.dll" to "bin\Debug\Antlr3.StringTemplate.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.GameScoreAgent.dll" to "bin\Debug\ABC.Game.GameScoreAgent.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.dll".
+  Copying file from "..\Lib\PayFlowProAgent\ABC.AppSettings.dll" to "bin\Debug\ABC.AppSettings.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.Configuration.dll" to "bin\Debug\Microsoft.Practices.Unity.Configuration.dll".
+  Copying file from "..\Lib\PayFlowProAgent\Payflow_dotNET.dll" to "bin\Debug\Payflow_dotNET.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.XML.dll" to "bin\Debug\ABC.XML.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Services.Interfaces.dll" to "bin\Debug\ABC.Game.Services.Interfaces.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Data.dll" to "bin\Debug\ABC.Data.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.dll" to "bin\Debug\Microsoft.Practices.Unity.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Data.dll" to "bin\Debug\ABC.Game.Data.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Services.dll" to "bin\Debug\ABC.Game.Services.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.Runtime.Debug.dll" to "bin\Debug\Antlr3.Runtime.Debug.dll".
+  Copying file from "..\Lib\NHibernate\Iesi.Collections.dll" to "bin\Debug\Iesi.Collections.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.StringTemplate.pdb" to "bin\Debug\Antlr3.StringTemplate.pdb".
+  Copying file from "..\Lib\NHibernate\Castle\Castle.DynamicProxy2.xml" to "bin\Debug\Castle.DynamicProxy2.xml".
+  Copying file from "..\Lib\NHibernate\Castle\NHibernate.ByteCode.Castle.xml" to "bin\Debug\NHibernate.ByteCode.Castle.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.ObjectBuilder2.xml" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.xml".
+  Copying file from "..\Lib\PayFlowProAgent\MyNamespace.PaymentProcessors.PayFlowProAgent.pdb" to "bin\Debug\MyNamespace.PaymentProcessors.PayFlowProAgent.pdb".
+  Copying file from "..\Lib\NHibernate\NHibernate.Linq.xml" to "bin\Debug\NHibernate.Linq.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.xml" to "bin\Debug\Microsoft.Practices.Unity.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\MyNamespace.DomainModel.pdb" to "bin\Debug\MyNamespace.DomainModel.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.Runtime.Debug.pdb" to "bin\Debug\Antlr3.Runtime.Debug.pdb".
+  Copying file from "..\Lib\NHibernate\Castle\Castle.Core.xml" to "bin\Debug\Castle.Core.xml".
+  Copying file from "..\Lib\NHibernate\Iesi.Collections.xml" to "bin\Debug\Iesi.Collections.xml".
+  Copying file from "..\Lib\NHibernate\NHibernate.xml" to "bin\Debug\NHibernate.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\Debug\MyNamespace.Infrastructure.dll" to "bin\Debug\MyNamespace.Infrastructure.dll".
+  MyNamespace.Infrastructure -> C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\MyNamespace.Infrastructure.dll
+  Copying file from "obj\Debug\MyNamespace.Infrastructure.pdb" to "bin\Debug\MyNamespace.Infrastructure.pdb".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\MyNamespace.Infrastructure.csproj" (default targets).
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (1) is building "C:\.hudson\jobs\MyJob\workspace\ABC.Persistence.LTS\ABC.Persistence.L2S.csproj" (6) on node 0 (default targets).
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\MyNamespace.DomainModel.dll" to "bin\Debug\MyNamespace.DomainModel.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Data.dll" to "bin\Debug\ABC.Game.Data.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.Runtime.Debug.dll" to "bin\Debug\Antlr3.Runtime.Debug.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.StringTemplate.dll" to "bin\Debug\Antlr3.StringTemplate.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.GameScoreAgent.dll" to "bin\Debug\ABC.Game.GameScoreAgent.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.Configuration.dll" to "bin\Debug\Microsoft.Practices.Unity.Configuration.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Services.Interfaces.dll" to "bin\Debug\ABC.Game.Services.Interfaces.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.XML.dll" to "bin\Debug\ABC.XML.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.dll" to "bin\Debug\Microsoft.Practices.Unity.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Services.dll" to "bin\Debug\ABC.Game.Services.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Data.dll" to "bin\Debug\ABC.Data.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.Runtime.Debug.pdb" to "bin\Debug\Antlr3.Runtime.Debug.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.StringTemplate.pdb" to "bin\Debug\Antlr3.StringTemplate.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\MyNamespace.DomainModel.pdb" to "bin\Debug\MyNamespace.DomainModel.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.xml" to "bin\Debug\Microsoft.Practices.Unity.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.ObjectBuilder2.xml" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.xml".
+_CopyAppConfigFile:
+  Copying file from "app.config" to "bin\Debug\ABC.Persistence.L2S.dll.config".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\Debug\ABC.Persistence.L2S.dll" to "bin\Debug\ABC.Persistence.L2S.dll".
+  ABC.Persistence.L2S -> C:\.hudson\jobs\MyJob\workspace\ABC.Persistence.LTS\bin\Debug\ABC.Persistence.L2S.dll
+  Copying file from "obj\Debug\ABC.Persistence.L2S.pdb" to "bin\Debug\ABC.Persistence.L2S.pdb".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\ABC.Persistence.LTS\ABC.Persistence.L2S.csproj" (default targets).
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (1) is building "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.ProductRules\MyNamespace.AppServices.ProductRules.csproj" (7) on node 0 (default targets).
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\MyNamespace.AppServices.Core.dll" to "bin\Debug\MyNamespace.AppServices.Core.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.Unity.dll" to "bin\Debug\Microsoft.Practices.Unity.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.Unity.xml" to "bin\Debug\Microsoft.Practices.Unity.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.ObjectBuilder2.xml" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\MyNamespace.AppServices.Core.pdb" to "bin\Debug\MyNamespace.AppServices.Core.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\Debug\MyNamespace.AppServices.ProductRules.dll" to "bin\Debug\MyNamespace.AppServices.ProductRules.dll".
+  MyNamespace.AppServices.ProductRules -> C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.ProductRules\bin\Debug\MyNamespace.AppServices.ProductRules.dll
+  Copying file from "obj\Debug\MyNamespace.AppServices.ProductRules.pdb" to "bin\Debug\MyNamespace.AppServices.ProductRules.pdb".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.ProductRules\MyNamespace.AppServices.ProductRules.csproj" (default targets).
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (1) is building "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer\MyNamespace.Consumer.csproj" (8) on node 0 (default targets).
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\MyNamespace.AppServices.Core.dll" to "bin\Debug\MyNamespace.AppServices.Core.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.Unity.dll" to "bin\Debug\Microsoft.Practices.Unity.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.Unity.xml" to "bin\Debug\Microsoft.Practices.Unity.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.ObjectBuilder2.xml" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\MyNamespace.AppServices.Core.pdb" to "bin\Debug\MyNamespace.AppServices.Core.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\Debug\MyNamespace.Consumer.dll" to "bin\Debug\MyNamespace.Consumer.dll".
+  MyNamespace.Consumer -> C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer\bin\Debug\MyNamespace.Consumer.dll
+  Copying file from "obj\Debug\MyNamespace.Consumer.pdb" to "bin\Debug\MyNamespace.Consumer.pdb".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer\MyNamespace.Consumer.csproj" (default targets).
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (1) is building "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel.IntTests\MyNamespace.DomainModel.IntTests.csproj" (9) on node 0 (default targets).
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+ResolveAssemblyReferences:
+  No way to resolve conflict between "Antlr3.Runtime, Version=3.1.3.6002, Culture=neutral, PublicKeyToken=eb42632606e9261f" and "Antlr3.Runtime, Version=3.1.0.39271, Culture=neutral, PublicKeyToken=3a9cab8f8d22bfb7". Choosing "Antlr3.Runtime, Version=3.1.3.6002, Culture=neutral, PublicKeyToken=eb42632606e9261f" arbitrarily.
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\MyNamespace.DomainModel.dll" to "bin\Debug\MyNamespace.DomainModel.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\MyNamespace.Infrastructure.dll" to "bin\Debug\MyNamespace.Infrastructure.dll".
+  Copying file from "..\Lib\NHibernate\Castle\NHibernate.ByteCode.Castle.dll" to "bin\Debug\NHibernate.ByteCode.Castle.dll".
+  Copying file from "..\Lib\NHibernate\NHibernate.dll" to "bin\Debug\NHibernate.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\NHibernate.Linq.dll" to "bin\Debug\NHibernate.Linq.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.StringTemplate.dll" to "bin\Debug\Antlr3.StringTemplate.dll".
+  Copying file from "..\Lib\NHibernate\Castle\Castle.DynamicProxy2.dll" to "bin\Debug\Castle.DynamicProxy2.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.dll".
+  Copying file from "..\Lib\NHibernate\Castle\Castle.Core.dll" to "bin\Debug\Castle.Core.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\ABC.AppSettings.dll" to "bin\Debug\ABC.AppSettings.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.Configuration.dll" to "bin\Debug\Microsoft.Practices.Unity.Configuration.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\Payflow_dotNET.dll" to "bin\Debug\Payflow_dotNET.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.XML.dll" to "bin\Debug\ABC.XML.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Services.Interfaces.dll" to "bin\Debug\ABC.Game.Services.Interfaces.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Data.dll" to "bin\Debug\ABC.Data.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\MyNamespace.PaymentProcessors.PayFlowProAgent.dll" to "bin\Debug\MyNamespace.PaymentProcessors.PayFlowProAgent.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.dll" to "bin\Debug\Microsoft.Practices.Unity.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Data.dll" to "bin\Debug\ABC.Game.Data.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Services.dll" to "bin\Debug\ABC.Game.Services.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.Runtime.Debug.dll" to "bin\Debug\Antlr3.Runtime.Debug.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\Iesi.Collections.dll" to "bin\Debug\Iesi.Collections.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.GameScoreAgent.dll" to "bin\Debug\ABC.Game.GameScoreAgent.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\NHibernate.Linq.xml" to "bin\Debug\NHibernate.Linq.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.StringTemplate.pdb" to "bin\Debug\Antlr3.StringTemplate.pdb".
+  Copying file from "..\Lib\NHibernate\Castle\Castle.DynamicProxy2.xml" to "bin\Debug\Castle.DynamicProxy2.xml".
+  Copying file from "..\Lib\NHibernate\Castle\NHibernate.ByteCode.Castle.xml" to "bin\Debug\NHibernate.ByteCode.Castle.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.ObjectBuilder2.xml" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.xml".
+  Copying file from "..\Lib\NHibernate\Castle\Castle.Core.xml" to "bin\Debug\Castle.Core.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\MyNamespace.Infrastructure.pdb" to "bin\Debug\MyNamespace.Infrastructure.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\MyNamespace.PaymentProcessors.PayFlowProAgent.pdb" to "bin\Debug\MyNamespace.PaymentProcessors.PayFlowProAgent.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.xml" to "bin\Debug\Microsoft.Practices.Unity.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\MyNamespace.DomainModel.pdb" to "bin\Debug\MyNamespace.DomainModel.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.Runtime.Debug.pdb" to "bin\Debug\Antlr3.Runtime.Debug.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\Iesi.Collections.xml" to "bin\Debug\Iesi.Collections.xml".
+  Copying file from "..\Lib\NHibernate\NHibernate.xml" to "bin\Debug\NHibernate.xml".
+_CopyAppConfigFile:
+  Copying file from "App.config" to "bin\Debug\MyNamespace.DomainModel.IntTests.dll.config".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\Debug\MyNamespace.DomainModel.IntTests.dll" to "bin\Debug\MyNamespace.DomainModel.IntTests.dll".
+  MyNamespace.DomainModel.IntTests -> C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel.IntTests\bin\Debug\MyNamespace.DomainModel.IntTests.dll
+  Copying file from "obj\Debug\MyNamespace.DomainModel.IntTests.pdb" to "bin\Debug\MyNamespace.DomainModel.IntTests.pdb".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel.IntTests\MyNamespace.DomainModel.IntTests.csproj" (default targets).
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (1) is building "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure.IntTest\MyNamespace.Infrastructure.IntTest.csproj" (10) on node 0 (default targets).
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+ResolveAssemblyReferences:
+  No way to resolve conflict between "Antlr3.Runtime, Version=3.1.3.6002, Culture=neutral, PublicKeyToken=eb42632606e9261f" and "Antlr3.Runtime, Version=3.1.0.39271, Culture=neutral, PublicKeyToken=3a9cab8f8d22bfb7". Choosing "Antlr3.Runtime, Version=3.1.3.6002, Culture=neutral, PublicKeyToken=eb42632606e9261f" arbitrarily.
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\MyNamespace.DomainModel.dll" to "bin\Debug\MyNamespace.DomainModel.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\MyNamespace.Infrastructure.dll" to "bin\Debug\MyNamespace.Infrastructure.dll".
+  Copying file from "..\Lib\Enyim.Caching.dll" to "bin\Debug\Enyim.Caching.dll".
+  Copying file from "..\Lib\NHibernate\ICSharpCode.SharpZipLib.dll" to "bin\Debug\ICSharpCode.SharpZipLib.dll".
+  Copying file from "..\Lib\log4net.dll" to "bin\Debug\log4net.dll".
+  Copying file from "..\Lib\NHibernate\Memcached.ClientLibrary.dll" to "bin\Debug\Memcached.ClientLibrary.dll".
+  Copying file from "..\Lib\MemcachedProviders.dll" to "bin\Debug\MemcachedProviders.dll".
+  Copying file from "..\Lib\NHibernate\Castle\NHibernate.ByteCode.Castle.dll" to "bin\Debug\NHibernate.ByteCode.Castle.dll".
+  Copying file from "..\Lib\NHibernate\NHibernate.Caches.MemCache.dll" to "bin\Debug\NHibernate.Caches.MemCache.dll".
+  Copying file from "..\Lib\NHibernate\NHibernate.dll" to "bin\Debug\NHibernate.dll".
+  Copying file from "..\Lib\NHibernate\NHibernate.Linq.dll" to "bin\Debug\NHibernate.Linq.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.StringTemplate.dll" to "bin\Debug\Antlr3.StringTemplate.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.dll".
+  Copying file from "..\Lib\NHibernate\Castle\Castle.DynamicProxy2.dll" to "bin\Debug\Castle.DynamicProxy2.dll".
+  Copying file from "..\Lib\NHibernate\Castle\Castle.Core.dll" to "bin\Debug\Castle.Core.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\ABC.AppSettings.dll" to "bin\Debug\ABC.AppSettings.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.Configuration.dll" to "bin\Debug\Microsoft.Practices.Unity.Configuration.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\Payflow_dotNET.dll" to "bin\Debug\Payflow_dotNET.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.XML.dll" to "bin\Debug\ABC.XML.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Services.Interfaces.dll" to "bin\Debug\ABC.Game.Services.Interfaces.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Data.dll" to "bin\Debug\ABC.Data.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\MyNamespace.PaymentProcessors.PayFlowProAgent.dll" to "bin\Debug\MyNamespace.PaymentProcessors.PayFlowProAgent.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.dll" to "bin\Debug\Microsoft.Practices.Unity.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Data.dll" to "bin\Debug\ABC.Game.Data.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.Services.dll" to "bin\Debug\ABC.Game.Services.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.Runtime.Debug.dll" to "bin\Debug\Antlr3.Runtime.Debug.dll".
+  Copying file from "..\Lib\NHibernate\Iesi.Collections.dll" to "bin\Debug\Iesi.Collections.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\ABC.Game.GameScoreAgent.dll" to "bin\Debug\ABC.Game.GameScoreAgent.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.StringTemplate.pdb" to "bin\Debug\Antlr3.StringTemplate.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.ObjectBuilder2.xml" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.xml".
+  Copying file from "..\Lib\NHibernate\Castle\Castle.DynamicProxy2.xml" to "bin\Debug\Castle.DynamicProxy2.xml".
+  Copying file from "..\Lib\NHibernate\Castle\NHibernate.ByteCode.Castle.xml" to "bin\Debug\NHibernate.ByteCode.Castle.xml".
+  Copying file from "..\Lib\NHibernate\Castle\Castle.Core.xml" to "bin\Debug\Castle.Core.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\MyNamespace.Infrastructure.pdb" to "bin\Debug\MyNamespace.Infrastructure.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\MyNamespace.PaymentProcessors.PayFlowProAgent.pdb" to "bin\Debug\MyNamespace.PaymentProcessors.PayFlowProAgent.pdb".
+  Copying file from "..\Lib\NHibernate\NHibernate.Linq.xml" to "bin\Debug\NHibernate.Linq.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.xml" to "bin\Debug\Microsoft.Practices.Unity.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\MyNamespace.DomainModel.pdb" to "bin\Debug\MyNamespace.DomainModel.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Antlr3.Runtime.Debug.pdb" to "bin\Debug\Antlr3.Runtime.Debug.pdb".
+  Copying file from "..\Lib\NHibernate\Iesi.Collections.xml" to "bin\Debug\Iesi.Collections.xml".
+  Copying file from "..\Lib\NHibernate\NHibernate.xml" to "bin\Debug\NHibernate.xml".
+_CopyAppConfigFile:
+  Copying file from "App.config" to "bin\Debug\MyNamespace.Infrastructure.IntTest.dll.config".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\Debug\MyNamespace.Infrastructure.IntTest.dll" to "bin\Debug\MyNamespace.Infrastructure.IntTest.dll".
+  MyNamespace.Infrastructure.IntTest -> C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure.IntTest\bin\Debug\MyNamespace.Infrastructure.IntTest.dll
+  Copying file from "obj\Debug\MyNamespace.Infrastructure.IntTest.pdb" to "bin\Debug\MyNamespace.Infrastructure.IntTest.pdb".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure.IntTest\MyNamespace.Infrastructure.IntTest.csproj" (default targets).
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (1) is building "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\MyNamespace.Web.Common.csproj" (11) on node 0 (default targets).
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\MyNamespace.AppServices.Core.dll" to "bin\Debug\MyNamespace.AppServices.Core.dll".
+  Copying file from "..\Lib\Enyim.Caching.dll" to "bin\Debug\Enyim.Caching.dll".
+  Copying file from "..\Lib\log4net.dll" to "bin\Debug\log4net.dll".
+  Copying file from "..\Lib\MemcachedProviders.dll" to "bin\Debug\MemcachedProviders.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.ObjectBuilder2.dll" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.ServiceLocation.dll" to "bin\Debug\Microsoft.Practices.ServiceLocation.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.Unity.Configuration.dll" to "bin\Debug\Microsoft.Practices.Unity.Configuration.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.Unity.dll" to "bin\Debug\Microsoft.Practices.Unity.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.ObjectBuilder2.xml" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\MyNamespace.AppServices.Core.pdb" to "bin\Debug\MyNamespace.AppServices.Core.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.Unity.xml" to "bin\Debug\Microsoft.Practices.Unity.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\Debug\MyNamespace.Web.Common.dll" to "bin\Debug\MyNamespace.Web.Common.dll".
+  MyNamespace.Web.Common -> C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MyNamespace.Web.Common.dll
+  Copying file from "obj\Debug\MyNamespace.Web.Common.pdb" to "bin\Debug\MyNamespace.Web.Common.pdb".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\MyNamespace.Web.Common.csproj" (default targets).
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (1) is building "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.ProductRules.Test\MyNamespace.AppServices.ProductRules.Test.csproj" (12) on node 0 (default targets).
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\MyNamespace.AppServices.Core.dll" to "bin\Debug\MyNamespace.AppServices.Core.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.ProductRules\bin\Debug\MyNamespace.AppServices.ProductRules.dll" to "bin\Debug\MyNamespace.AppServices.ProductRules.dll".
+  Copying file from "..\Lib\Moq\Moq.dll" to "bin\Debug\Moq.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.Unity.dll" to "bin\Debug\Microsoft.Practices.Unity.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.ProductRules\bin\Debug\MyNamespace.AppServices.ProductRules.pdb" to "bin\Debug\MyNamespace.AppServices.ProductRules.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.Unity.xml" to "bin\Debug\Microsoft.Practices.Unity.xml".
+  Copying file from "..\Lib\Moq\Moq.pdb" to "bin\Debug\Moq.pdb".
+  Copying file from "..\Lib\Moq\Moq.xml" to "bin\Debug\Moq.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.ObjectBuilder2.xml" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\MyNamespace.AppServices.Core.pdb" to "bin\Debug\MyNamespace.AppServices.Core.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\Debug\MyNamespace.AppServices.ProductRules.Test.dll" to "bin\Debug\MyNamespace.AppServices.ProductRules.Test.dll".
+  MyNamespace.AppServices.ProductRules.Test -> C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.ProductRules.Test\bin\Debug\MyNamespace.AppServices.ProductRules.Test.dll
+  Copying file from "obj\Debug\MyNamespace.AppServices.ProductRules.Test.pdb" to "bin\Debug\MyNamespace.AppServices.ProductRules.Test.pdb".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.ProductRules.Test\MyNamespace.AppServices.ProductRules.Test.csproj" (default targets).
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (1) is building "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\MyNamespace.AppServices.csproj" (13) on node 0 (default targets).
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+ResolveAssemblyReferences:
+  No way to resolve conflict between "Antlr3.Runtime, Version=3.1.3.6002, Culture=neutral, PublicKeyToken=eb42632606e9261f" and "Antlr3.Runtime, Version=3.1.0.39271, Culture=neutral, PublicKeyToken=3a9cab8f8d22bfb7". Choosing "Antlr3.Runtime, Version=3.1.3.6002, Culture=neutral, PublicKeyToken=eb42632606e9261f" arbitrarily.
+OrderService.svc.cs(60,39): warning CS0472: The result of the expression is always 'false' since a value of type 'int' is never equal to 'null' of type 'int?'
+OrderService.svc.cs(60,105): warning CS0472: The result of the expression is always 'false' since a value of type 'int' is never equal to 'null' of type 'int?'
+UserServiceAsync.svc.cs(56,21): warning CS0162: Unreachable code detected
+_CopyFilesMarkedCopyLocal:
+  Copying file from "..\Lib\StringTemplate\Antlr3.StringTemplate.dll" to "bin\Antlr3.StringTemplate.dll".
+  Copying file from "..\Lib\ABC\ABC.AppSettings.dll" to "bin\ABC.AppSettings.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\MyNamespace.AppServices.Core.dll" to "bin\MyNamespace.AppServices.Core.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.ProductRules\bin\Debug\MyNamespace.AppServices.ProductRules.dll" to "bin\MyNamespace.AppServices.ProductRules.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\MyNamespace.DomainModel.dll" to "bin\MyNamespace.DomainModel.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\MyNamespace.Infrastructure.dll" to "bin\MyNamespace.Infrastructure.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.Biz.dll" to "bin\ABC.ABCOnline.Biz.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.Services.dll" to "bin\ABC.ABCOnline.Services.dll".
+  Copying file from "..\Lib\ABC\ABC.Game.Data.dll" to "bin\ABC.Game.Data.dll".
+  Copying file from "..\Lib\ABC\ABC.Game.Services.dll" to "bin\ABC.Game.Services.dll".
+  Copying file from "..\Lib\ABC\ABC.Game.Services.Interfaces.dll" to "bin\ABC.Game.Services.Interfaces.dll".
+  Copying file from "..\Lib\ABC\ABC.Data.dll" to "bin\ABC.Data.dll".
+  Copying file from "..\Lib\ABC\ABC.Documents.Client.dll" to "bin\ABC.Documents.Client.dll".
+  Copying file from "..\Lib\ABC\ABC.JobEngine.Biz.dll" to "bin\ABC.JobEngine.Biz.dll".
+  Copying file from "..\Lib\ABC\ABC.JobEngine.DAL.dll" to "bin\ABC.JobEngine.DAL.dll".
+  Copying file from "..\Lib\ABC\ABC.Security.dll" to "bin\ABC.Security.dll".
+  Copying file from "..\Lib\ABC\ABC.Validation.dll" to "bin\ABC.Validation.dll".
+  Copying file from "..\Lib\ABC\ABC.Web.dll" to "bin\ABC.Web.dll".
+  Copying file from "..\Lib\ABC\ABC.XML.dll" to "bin\ABC.XML.dll".
+  Copying file from "..\Lib\log4net.dll" to "bin\log4net.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll" to "bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll" to "bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll" to "bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Logging.dll" to "bin\Microsoft.Practices.EnterpriseLibrary.Logging.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.ObjectBuilder2.dll" to "bin\Microsoft.Practices.ObjectBuilder2.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.ServiceLocation.dll" to "bin\Microsoft.Practices.ServiceLocation.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.Unity.dll" to "bin\Microsoft.Practices.Unity.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.Unity.ServiceLocatorAdapter.dll" to "bin\Microsoft.Practices.Unity.ServiceLocatorAdapter.dll".
+  Copying file from "..\Lib\NHibernate\NHibernate.dll" to "bin\NHibernate.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.Configuration.dll" to "bin\Microsoft.Practices.Unity.Configuration.dll".
+  Copying file from "..\Lib\ABC\ABC.Game.GameScoreAgent.dll" to "bin\ABC.Game.GameScoreAgent.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.GameProcessorAgent.dll" to "bin\ABC.ABCOnline.GameProcessorAgent.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\NHibernate.ByteCode.Castle.dll" to "bin\NHibernate.ByteCode.Castle.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.SFTAgent.dll" to "bin\ABC.ABCOnline.SFTAgent.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.ReportingServicesAgent.dll" to "bin\ABC.ABCOnline.ReportingServicesAgent.dll".
+  Copying file from "..\Lib\NHibernate\Iesi.Collections.dll" to "bin\Iesi.Collections.dll".
+  Copying file from "..\Lib\ABC\ABC.Log.Base.dll" to "bin\ABC.Log.Base.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Common.dll" to "bin\Microsoft.Practices.EnterpriseLibrary.Common.dll".
+  Copying file from "..\Lib\ABC\ABC.Diagnostics.dll" to "bin\ABC.Diagnostics.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.DAL.dll" to "bin\ABC.ABCOnline.DAL.dll".
+  Copying file from "..\Lib\StringTemplate\Antlr3.Runtime.Debug.dll" to "bin\Antlr3.Runtime.Debug.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\NHibernate.Linq.dll" to "bin\NHibernate.Linq.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\Castle.DynamicProxy2.dll" to "bin\Castle.DynamicProxy2.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\Castle.Core.dll" to "bin\Castle.Core.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.VendorAAVMAgent.dll" to "bin\ABC.ABCOnline.VendorAAVMAgent.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.VendorBAgent.dll" to "bin\ABC.ABCOnline.VendorBAgent.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.VendorCAgent.dll" to "bin\ABC.ABCOnline.VendorCAgent.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.VendorDAgent.dll" to "bin\ABC.ABCOnline.VendorDAgent.dll".
+  Copying file from "..\Lib\StringTemplate\Antlr3.StringTemplate.pdb" to "bin\Antlr3.StringTemplate.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml" to "bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\NHibernate.ByteCode.Castle.xml" to "bin\NHibernate.ByteCode.Castle.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\MyNamespace.DomainModel.pdb" to "bin\MyNamespace.DomainModel.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\MyNamespace.AppServices.Core.pdb" to "bin\MyNamespace.AppServices.Core.pdb".
+  Copying file from "..\Lib\NHibernate\Iesi.Collections.xml" to "bin\Iesi.Collections.xml".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Common.pdb" to "bin\Microsoft.Practices.EnterpriseLibrary.Common.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Common.xml" to "bin\Microsoft.Practices.EnterpriseLibrary.Common.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.ProductRules\bin\Debug\MyNamespace.AppServices.ProductRules.pdb" to "bin\MyNamespace.AppServices.ProductRules.pdb".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.Biz.pdb" to "bin\ABC.ABCOnline.Biz.pdb".
+  Copying file from "..\Lib\NHibernate\NHibernate.xml" to "bin\NHibernate.xml".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.DAL.pdb" to "bin\ABC.ABCOnline.DAL.pdb".
+  Copying file from "..\Lib\StringTemplate\Antlr3.Runtime.Debug.pdb" to "bin\Antlr3.Runtime.Debug.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\NHibernate.Linq.xml" to "bin\NHibernate.Linq.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\Castle.DynamicProxy2.xml" to "bin\Castle.DynamicProxy2.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\Castle.Core.xml" to "bin\Castle.Core.xml".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.Unity.xml" to "bin\Microsoft.Practices.Unity.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\bin\Debug\MyNamespace.Infrastructure.pdb" to "bin\MyNamespace.Infrastructure.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.ObjectBuilder2.xml" to "bin\Microsoft.Practices.ObjectBuilder2.xml".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.xml" to "bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.xml".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb" to "bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml" to "bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.Services.pdb" to "bin\ABC.ABCOnline.Services.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Logging.pdb" to "bin\Microsoft.Practices.EnterpriseLibrary.Logging.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Logging.xml" to "bin\Microsoft.Practices.EnterpriseLibrary.Logging.xml".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.Biz.XmlSerializers.dll" to "bin\ABC.ABCOnline.Biz.XmlSerializers.dll".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\Debug\MyNamespace.AppServices.dll" to "bin\MyNamespace.AppServices.dll".
+  MyNamespace.AppServices -> C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\MyNamespace.AppServices.dll
+  Copying file from "obj\Debug\MyNamespace.AppServices.pdb" to "bin\MyNamespace.AppServices.pdb".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\MyNamespace.AppServices.csproj" (default targets).
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (1) is building "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer.Web.Controls\MyNamespace.Consumer.Web.Controls.csproj" (14) on node 0 (default targets).
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MyNamespace.Web.Common.dll" to "bin\Debug\MyNamespace.Web.Common.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\log4net.dll" to "bin\Debug\log4net.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MyNamespace.AppServices.Core.dll" to "bin\Debug\MyNamespace.AppServices.Core.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.Unity.Configuration.dll" to "bin\Debug\Microsoft.Practices.Unity.Configuration.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.ServiceLocation.dll" to "bin\Debug\Microsoft.Practices.ServiceLocation.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.Unity.dll" to "bin\Debug\Microsoft.Practices.Unity.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MemcachedProviders.dll" to "bin\Debug\MemcachedProviders.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Enyim.Caching.dll" to "bin\Debug\Enyim.Caching.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.ObjectBuilder2.xml" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MyNamespace.AppServices.Core.pdb" to "bin\Debug\MyNamespace.AppServices.Core.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MyNamespace.Web.Common.pdb" to "bin\Debug\MyNamespace.Web.Common.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.Unity.xml" to "bin\Debug\Microsoft.Practices.Unity.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\Debug\MyNamespace.Consumer.Web.Controls.dll" to "bin\Debug\MyNamespace.Consumer.Web.Controls.dll".
+  MyNamespace.Consumer.Web.Controls -> C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer.Web.Controls\bin\Debug\MyNamespace.Consumer.Web.Controls.dll
+  Copying file from "obj\Debug\MyNamespace.Consumer.Web.Controls.pdb" to "bin\Debug\MyNamespace.Consumer.Web.Controls.pdb".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer.Web.Controls\MyNamespace.Consumer.Web.Controls.csproj" (default targets).
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (1) is building "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Security\MyNamespace.Web.Security.csproj" (15) on node 0 (default targets).
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+SecurityService.cs(75,42): warning CS0649: Field 'MyNamespace.Web.Security.SecurityService.pPasswordFormat' is never assigned to, and will always have its default value 0
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MyNamespace.Web.Common.dll" to "bin\Debug\MyNamespace.Web.Common.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.Unity.dll" to "bin\Debug\Microsoft.Practices.Unity.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\log4net.dll" to "bin\Debug\log4net.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.ObjectBuilder2.dll" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MyNamespace.AppServices.Core.dll" to "bin\Debug\MyNamespace.AppServices.Core.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.Unity.Configuration.dll" to "bin\Debug\Microsoft.Practices.Unity.Configuration.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.ServiceLocation.dll" to "bin\Debug\Microsoft.Practices.ServiceLocation.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MemcachedProviders.dll" to "bin\Debug\MemcachedProviders.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Enyim.Caching.dll" to "bin\Debug\Enyim.Caching.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.ObjectBuilder2.xml" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MyNamespace.AppServices.Core.pdb" to "bin\Debug\MyNamespace.AppServices.Core.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MyNamespace.Web.Common.pdb" to "bin\Debug\MyNamespace.Web.Common.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.Unity.xml" to "bin\Debug\Microsoft.Practices.Unity.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml".
+_CopyAppConfigFile:
+  Copying file from "app.config" to "bin\Debug\MyNamespace.Web.Security.dll.config".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\Debug\MyNamespace.Web.Security.dll" to "bin\Debug\MyNamespace.Web.Security.dll".
+  MyNamespace.Web.Security -> C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Security\bin\Debug\MyNamespace.Web.Security.dll
+  Copying file from "obj\Debug\MyNamespace.Web.Security.pdb" to "bin\Debug\MyNamespace.Web.Security.pdb".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Security\MyNamespace.Web.Security.csproj" (default targets).
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (1) is building "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Test\MyNamespace.AppServices.Test.csproj" (16) on node 0 (default targets).
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\MyNamespace.AppServices.Core.dll" to "bin\Debug\MyNamespace.AppServices.Core.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\MyNamespace.AppServices.dll" to "bin\Debug\MyNamespace.AppServices.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\MyNamespace.DomainModel.dll" to "bin\Debug\MyNamespace.DomainModel.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.Biz.dll" to "bin\Debug\ABC.ABCOnline.Biz.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.Services.dll" to "bin\Debug\ABC.ABCOnline.Services.dll".
+  Copying file from "..\MyNamespace.AppServices\bin\ABC.Game.Data.dll" to "bin\Debug\ABC.Game.Data.dll".
+  Copying file from "..\MyNamespace.AppServices\bin\ABC.Game.Services.dll" to "bin\Debug\ABC.Game.Services.dll".
+  Copying file from "..\MyNamespace.AppServices\bin\ABC.Game.Services.Interfaces.dll" to "bin\Debug\ABC.Game.Services.Interfaces.dll".
+  Copying file from "..\Lib\ABC\ABC.Documents.Client.dll" to "bin\Debug\ABC.Documents.Client.dll".
+  Copying file from "..\Lib\ABC\ABC.Validation.dll" to "bin\Debug\ABC.Validation.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\Microsoft.Practices.Unity.Configuration.dll" to "bin\Debug\Microsoft.Practices.Unity.Configuration.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Antlr3.StringTemplate.dll" to "bin\Debug\Antlr3.StringTemplate.dll".
+  Copying file from "..\MyNamespace.AppServices\bin\ABC.Data.dll" to "bin\Debug\ABC.Data.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\log4net.dll" to "bin\Debug\log4net.dll".
+  Copying file from "..\MyNamespace.AppServices\bin\ABC.Game.GameScoreAgent.dll" to "bin\Debug\ABC.Game.GameScoreAgent.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.GameProcessorAgent.dll" to "bin\Debug\ABC.ABCOnline.GameProcessorAgent.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\NHibernate.ByteCode.Castle.dll" to "bin\Debug\NHibernate.ByteCode.Castle.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.SFTAgent.dll" to "bin\Debug\ABC.ABCOnline.SFTAgent.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.ReportingServicesAgent.dll" to "bin\Debug\ABC.ABCOnline.ReportingServicesAgent.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Microsoft.Practices.ServiceLocation.dll" to "bin\Debug\Microsoft.Practices.ServiceLocation.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Iesi.Collections.dll" to "bin\Debug\Iesi.Collections.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\ABC.AppSettings.dll" to "bin\Debug\ABC.AppSettings.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\ABC.JobEngine.DAL.dll" to "bin\Debug\ABC.JobEngine.DAL.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\MyNamespace.AppServices.ProductRules.dll" to "bin\Debug\MyNamespace.AppServices.ProductRules.dll".
+  Copying file from "..\Lib\ABC\ABC.Diagnostics.dll" to "bin\Debug\ABC.Diagnostics.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\NHibernate.dll" to "bin\Debug\NHibernate.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.DAL.dll" to "bin\Debug\ABC.ABCOnline.DAL.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Antlr3.Runtime.Debug.dll" to "bin\Debug\Antlr3.Runtime.Debug.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\NHibernate.Linq.dll" to "bin\Debug\NHibernate.Linq.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Castle.DynamicProxy2.dll" to "bin\Debug\Castle.DynamicProxy2.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Castle.Core.dll" to "bin\Debug\Castle.Core.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\ABC.JobEngine.Biz.dll" to "bin\Debug\ABC.JobEngine.Biz.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\MyNamespace.Infrastructure.dll" to "bin\Debug\MyNamespace.Infrastructure.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Microsoft.Practices.ObjectBuilder2.dll" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Microsoft.Practices.Unity.ServiceLocatorAdapter.dll" to "bin\Debug\Microsoft.Practices.Unity.ServiceLocatorAdapter.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.VendorAAVMAgent.dll" to "bin\Debug\ABC.ABCOnline.VendorAAVMAgent.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.VendorBAgent.dll" to "bin\Debug\ABC.ABCOnline.VendorBAgent.dll".
+  Copying file from "..\Lib\ABC\ABC.Log.Base.dll" to "bin\Debug\ABC.Log.Base.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.VendorCAgent.dll" to "bin\Debug\ABC.ABCOnline.VendorCAgent.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Microsoft.Practices.EnterpriseLibrary.Logging.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Microsoft.Practices.Unity.dll" to "bin\Debug\Microsoft.Practices.Unity.dll".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.VendorDAgent.dll" to "bin\Debug\ABC.ABCOnline.VendorDAgent.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Antlr3.StringTemplate.pdb" to "bin\Debug\Antlr3.StringTemplate.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\NHibernate.ByteCode.Castle.xml" to "bin\Debug\NHibernate.ByteCode.Castle.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\MyNamespace.AppServices.pdb" to "bin\Debug\MyNamespace.AppServices.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\bin\Debug\MyNamespace.DomainModel.pdb" to "bin\Debug\MyNamespace.DomainModel.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\MyNamespace.AppServices.Core.pdb" to "bin\Debug\MyNamespace.AppServices.Core.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Iesi.Collections.xml" to "bin\Debug\Iesi.Collections.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\MyNamespace.AppServices.ProductRules.pdb" to "bin\Debug\MyNamespace.AppServices.ProductRules.pdb".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.Biz.pdb" to "bin\Debug\ABC.ABCOnline.Biz.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\NHibernate.xml" to "bin\Debug\NHibernate.xml".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.DAL.pdb" to "bin\Debug\ABC.ABCOnline.DAL.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Antlr3.Runtime.Debug.pdb" to "bin\Debug\Antlr3.Runtime.Debug.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\NHibernate.Linq.xml" to "bin\Debug\NHibernate.Linq.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Castle.DynamicProxy2.xml" to "bin\Debug\Castle.DynamicProxy2.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Castle.Core.xml" to "bin\Debug\Castle.Core.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\MyNamespace.Infrastructure.pdb" to "bin\Debug\MyNamespace.Infrastructure.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Microsoft.Practices.ObjectBuilder2.xml" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.xml".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.Services.pdb" to "bin\Debug\ABC.ABCOnline.Services.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Microsoft.Practices.EnterpriseLibrary.Common.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Microsoft.Practices.EnterpriseLibrary.Common.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Microsoft.Practices.EnterpriseLibrary.Logging.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Microsoft.Practices.EnterpriseLibrary.Logging.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\bin\Microsoft.Practices.Unity.xml" to "bin\Debug\Microsoft.Practices.Unity.xml".
+  Copying file from "..\Lib\ABC\ABC.ABCOnline.Biz.XmlSerializers.dll" to "bin\Debug\ABC.ABCOnline.Biz.XmlSerializers.dll".
+_CopyAppConfigFile:
+  Copying file from "App.config" to "bin\Debug\MyNamespace.AppServices.Test.dll.config".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\Debug\MyNamespace.AppServices.Test.dll" to "bin\Debug\MyNamespace.AppServices.Test.dll".
+  MyNamespace.AppServices.Test -> C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Test\bin\Debug\MyNamespace.AppServices.Test.dll
+  Copying file from "obj\Debug\MyNamespace.AppServices.Test.pdb" to "bin\Debug\MyNamespace.AppServices.Test.pdb".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Test\MyNamespace.AppServices.Test.csproj" (default targets).
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (1) is building "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer.Web.Controllers\MyNamespace.Consumer.Web.Controllers.csproj" (17) on node 0 (default targets).
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+AccountController.cs(853,20): warning CS0219: The variable 'username' is assigned but its value is never used
+CartController.cs(362,21): warning CS0219: The variable 'total' is assigned but its value is never used
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\MyNamespace.AppServices.Core.dll" to "bin\Debug\MyNamespace.AppServices.Core.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer\bin\Debug\MyNamespace.Consumer.dll" to "bin\Debug\MyNamespace.Consumer.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer.Web.Controls\bin\Debug\MyNamespace.Consumer.Web.Controls.dll" to "bin\Debug\MyNamespace.Consumer.Web.Controls.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MyNamespace.Web.Common.dll" to "bin\Debug\MyNamespace.Web.Common.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Security\bin\Debug\MyNamespace.Web.Security.dll" to "bin\Debug\MyNamespace.Web.Security.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Logging.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.ServiceLocation.dll" to "bin\Debug\Microsoft.Practices.ServiceLocation.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.Unity.dll" to "bin\Debug\Microsoft.Practices.Unity.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\log4net.dll" to "bin\Debug\log4net.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.ObjectBuilder2.dll" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MemcachedProviders.dll" to "bin\Debug\MemcachedProviders.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.Unity.Configuration.dll" to "bin\Debug\Microsoft.Practices.Unity.Configuration.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Enyim.Caching.dll" to "bin\Debug\Enyim.Caching.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Common.dll" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.ObjectBuilder2.xml" to "bin\Debug\Microsoft.Practices.ObjectBuilder2.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer\bin\Debug\MyNamespace.Consumer.pdb" to "bin\Debug\MyNamespace.Consumer.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\MyNamespace.AppServices.Core.pdb" to "bin\Debug\MyNamespace.AppServices.Core.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MyNamespace.Web.Common.pdb" to "bin\Debug\MyNamespace.Web.Common.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices.Core\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Security\bin\Debug\MyNamespace.Web.Security.pdb" to "bin\Debug\MyNamespace.Web.Security.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.Unity.xml" to "bin\Debug\Microsoft.Practices.Unity.xml".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Logging.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Logging.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer.Web.Controls\bin\Debug\MyNamespace.Consumer.Web.Controls.pdb" to "bin\Debug\MyNamespace.Consumer.Web.Controls.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Common.pdb" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Common.xml" to "bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml".
+_CopyAppConfigFile:
+  Copying file from "app.config" to "bin\Debug\MyNamespace.Consumer.Web.Controllers.dll.config".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\Debug\MyNamespace.Consumer.Web.Controllers.dll" to "bin\Debug\MyNamespace.Consumer.Web.Controllers.dll".
+  MyNamespace.Consumer.Web.Controllers -> C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer.Web.Controllers\bin\Debug\MyNamespace.Consumer.Web.Controllers.dll
+  Copying file from "obj\Debug\MyNamespace.Consumer.Web.Controllers.pdb" to "bin\Debug\MyNamespace.Consumer.Web.Controllers.pdb".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer.Web.Controllers\MyNamespace.Consumer.Web.Controllers.csproj" (default targets).
+Build:
+  The project "MyNamespace.AppServices.IntTest" is not selected for building in solution configuration "Debug|Any CPU".
+Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (1) is building "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer.Web.UI\MyNamespace.Consumer.Web.UI.csproj" (18) on node 0 (default targets).
+  Processing 0 EDMX files.
+  Finished processing 0 EDMX files.
+_CopyFilesMarkedCopyLocal:
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer\bin\Debug\MyNamespace.Consumer.dll" to "bin\MyNamespace.Consumer.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer.Web.Controllers\bin\Debug\MyNamespace.Consumer.Web.Controllers.dll" to "bin\MyNamespace.Consumer.Web.Controllers.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer.Web.Controls\bin\Debug\MyNamespace.Consumer.Web.Controls.dll" to "bin\MyNamespace.Consumer.Web.Controls.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MyNamespace.Web.Common.dll" to "bin\MyNamespace.Web.Common.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Security\bin\Debug\MyNamespace.Web.Security.dll" to "bin\MyNamespace.Web.Security.dll".
+  Copying file from "..\Lib\Elmah.dll" to "bin\Elmah.dll".
+  Copying file from "..\Lib\log4net.dll" to "bin\log4net.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll" to "bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.ObjectBuilder2.dll" to "bin\Microsoft.Practices.ObjectBuilder2.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.ServiceLocation.dll" to "bin\Microsoft.Practices.ServiceLocation.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.Unity.Configuration.dll" to "bin\Microsoft.Practices.Unity.Configuration.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.Unity.dll" to "bin\Microsoft.Practices.Unity.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.Unity.ServiceLocatorAdapter.dll" to "bin\Microsoft.Practices.Unity.ServiceLocatorAdapter.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MemcachedProviders.dll" to "bin\MemcachedProviders.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll" to "bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MyNamespace.AppServices.Core.dll" to "bin\MyNamespace.AppServices.Core.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll" to "bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Logging.dll" to "bin\Microsoft.Practices.EnterpriseLibrary.Logging.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Enyim.Caching.dll" to "bin\Enyim.Caching.dll".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Common.dll" to "bin\Microsoft.Practices.EnterpriseLibrary.Common.dll".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer\bin\Debug\MyNamespace.Consumer.pdb" to "bin\MyNamespace.Consumer.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.xml" to "bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.xml".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.ObjectBuilder2.xml" to "bin\Microsoft.Practices.ObjectBuilder2.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MyNamespace.Web.Common.pdb" to "bin\MyNamespace.Web.Common.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml" to "bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Common\bin\Debug\MyNamespace.AppServices.Core.pdb" to "bin\MyNamespace.AppServices.Core.pdb".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Security\bin\Debug\MyNamespace.Web.Security.pdb" to "bin\MyNamespace.Web.Security.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.Unity.xml" to "bin\Microsoft.Practices.Unity.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer.Web.Controllers\bin\Debug\MyNamespace.Consumer.Web.Controllers.pdb" to "bin\MyNamespace.Consumer.Web.Controllers.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb" to "bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml" to "bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Logging.pdb" to "bin\Microsoft.Practices.EnterpriseLibrary.Logging.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Logging.xml" to "bin\Microsoft.Practices.EnterpriseLibrary.Logging.xml".
+  Copying file from "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer.Web.Controls\bin\Debug\MyNamespace.Consumer.Web.Controls.pdb" to "bin\MyNamespace.Consumer.Web.Controls.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Common.pdb" to "bin\Microsoft.Practices.EnterpriseLibrary.Common.pdb".
+  Copying file from "..\Lib\Microsoft\Microsoft.Practices.EnterpriseLibrary.Common.xml" to "bin\Microsoft.Practices.EnterpriseLibrary.Common.xml".
+CopyFilesToOutputDirectory:
+  Copying file from "obj\Debug\MyNamespace.Consumer.Web.UI.dll" to "bin\MyNamespace.Consumer.Web.UI.dll".
+  MyNamespace.Consumer.Web.UI -> C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer.Web.UI\bin\MyNamespace.Consumer.Web.UI.dll
+  Copying file from "obj\Debug\MyNamespace.Consumer.Web.UI.pdb" to "bin\MyNamespace.Consumer.Web.UI.pdb".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer.Web.UI\MyNamespace.Consumer.Web.UI.csproj" (default targets).
+Build:
+  The project "MyNamespace.Consumer.Web.Test" is not selected for building in solution configuration "Debug|Any CPU".
+Done Building Project "C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (default targets).
+
+Build succeeded.
+
+"C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (default target) (1) ->
+"C:\.hudson\jobs\MyJob\workspace\MyNamespace.DomainModel\MyNamespace.DomainModel.csproj" (default target) (2) ->
+(CoreCompile target) ->
+  PlayerAuthentication\Authentication.cs(15,22): warning CS0414: The field 'MyNamespace.DomainModel.PlayerAuthentication.Authentication._authenticated' is assigned but its value is never used
+
+
+"C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (default target) (1) ->
+"C:\.hudson\jobs\MyJob\workspace\MyNamespace.AppServices\MyNamespace.AppServices.csproj" (default target) (13) ->
+  OrderService.svc.cs(60,39): warning CS0472: The result of the expression is always 'false' since a value of type 'int' is never equal to 'null' of type 'int?'
+  OrderService.svc.cs(60,105): warning CS0472: The result of the expression is always 'false' since a value of type 'int' is never equal to 'null' of type 'int?'
+  UserServiceAsync.svc.cs(56,21): warning CS0162: Unreachable code detected
+
+
+"C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (default target) (1) ->
+"C:\.hudson\jobs\MyJob\workspace\MyNamespace.Web.Security\MyNamespace.Web.Security.csproj" (default target) (15) ->
+  SecurityService.cs(75,42): warning CS0649: Field 'MyNamespace.Web.Security.SecurityService.pPasswordFormat' is never assigned to, and will always have its default value 0
+
+
+"C:\.hudson\jobs\MyJob\workspace\MyNamespace.sln" (default target) (1) ->
+"C:\.hudson\jobs\MyJob\workspace\MyNamespace.Consumer.Web.Controllers\MyNamespace.Consumer.Web.Controllers.csproj" (default target) (17) ->
+  AccountController.cs(853,20): warning CS0219: The variable 'username' is assigned but its value is never used
+  CartController.cs(362,21): warning CS0219: The variable 'total' is assigned but its value is never used
+
+    7 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:30.71
+[workspace] $ cmd /c call "C:\Program Files\Apache Software Foundation\Tomcat\temp\hudson346249014547869056.bat"
+
+C:\.hudson\jobs\MyJob\workspace>rmdir /s /q TestResults
+
+C:\.hudson\jobs\MyJob\workspace>mkdir TestResults
+
+C:\.hudson\jobs\MyJob\workspace>"C:\Program Files\Microsoft Visual Studio 9.0\Common7\IDE\MSTest.exe" /runconfig:LocalTestRun.testrunconfig /testcontainer:MyNamespace.DomainModel.Test/bin/Debug/MyNamespace.DomainModel.Test.dll /testcontainer:MyNamespace.AppServices.Test/bin/Debug/MyNamespace.AppServices.Test.dll /testcontainer:MyNamespace.AppServices.ProductRules.Test/bin/Debug/MyNamespace.AppServices.ProductRules.Test.dll /resultsfile:TestResults\HudsonJobTestResults.trx
+Microsoft (R) Test Execution Command Line Tool Version 9.0.30729.1
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Loading LocalTestRun.testrunconfig...
+Loading MyNamespace.DomainModel.Test/bin/Debug/MyNamespace.DomainModel.Test.dll...
+Loading MyNamespace.AppServices.Test/bin/Debug/MyNamespace.AppServices.Test.dll...
+Loading MyNamespace.AppServices.ProductRules.Test/bin/Debug/MyNamespace.AppServices.ProductRules.Test.dll...
+
+Starting execution...
+
+Results               Top Level Tests
+-------               ---------------
+Passed                MyNamespace.AppServices.ProductRules.ProductRulesTest.AssertAvailability_ForDesignOnly_WhenEnrolledInNothing_Succeeds
+Passed                MyNamespace.AppServices.ProductRules.ProductRulesTest.AssertAvailability_ForDesignOnly_WhenEnrolledInDesignAndBuild_Fails
+Passed                MyNamespace.AppServices.ProductRules.ProductRulesTest.AssertProductAvailability_WhenMutuallyExclusive_ThrowsProductRuleException
+Passed                MyNamespace.AppServices.ProductRules.ProductRulesTest.AssertProductAvailability_WhenGameOverExcluded_ThrowsProductRuleException
+Passed                MyNamespace.AppServices.ProductRules.ProductRulesTest.ProductAvailability_ForProductC_WhenGameHasBeenOrdered_YieldsNotAvailable
+Passed                MyNamespace.AppServices.ProductRules.ProductRulesTest.ProductAvailability_ForProductC_WhenEnrolledInProductC_YieldsNotAvailable
+Passed                MyNamespace.AppServices.ProductRules.ProductRulesTest.ProductAvailability_ForProductC_WhenEnrolledInDesignOnly_YieldsWholeUpgrade
+Passed                MyNamespace.AppServices.ProductRules.ProductRulesTest.ProductAvailability_ForProductC_WhenGameOverHasBeenOrdered_YieldsNotAvailable
+Passed                MyNamespace.AppServices.ProductRules.ProductRulesTest.ProductAvailability_ForPremiumProductC_WhenGameHasBeenOrdered_YieldsNotAvailable
+Passed                MyNamespace.AppServices.ProductRules.ProductRulesTest.ProductAvailability_ForPremiumProductC_WhenEnrolledInPremiumProductC_YieldsNotAvailable
+Passed                MyNamespace.AppServices.ProductRules.ProductRulesTest.ProductAvailability_ForPremiumProductC_WhenGameOverHasBeenOrdered_YieldsNotAvailable
+Passed                MyNamespace.AppServices.ProductRules.ProductRulesTest.ProductAvailability_ForSolo_AlwaysYieldsAdd
+Passed                MyNamespace.AppServices.ProductRules.ProductRulesTest.ProductAvailability_ForDesignAndBuild_WhenEnrolledInDesignAndBuild_YieldsNotAvailable
+Passed                MyNamespace.AppServices.ProductRules.ProductRulesTest.ProductAvailability_ForDesignAndBuild_WhenEnrolledInDesignOnly_YieldsDeltaUpgrade
+Passed                MyNamespace.AppServices.ProductRules.ProductRulesTest.ProductAvailability_ForDesignOnly_WhenEnrolledInDesignOnly_YieldsNotAvailable
+Passed                MyNamespace.AppServices.Test.CardAdapterTypeTests.DomainTypeToDtoType_PropogatesNameAndValue
+Passed                MyNamespace.DomainModel.Test.AgreementTests.Apply_ForAppliedAgreement_ThrowsException
+Passed                MyNamespace.DomainModel.Test.AgreementTests.Apply_ForUnappliedAgreement_AppliesNow
+Passed                MyNamespace.DomainModel.Test.AgreementTests.NewAgreement_IsUnapplied
+Passed                MyNamespace.DomainModel.Test.AuthenticationTests.HasAgreement_ForExistingAgreement_ReturnsTrue
+Passed                MyNamespace.DomainModel.Test.AuthenticationTests.HasAgreement_ForNonExistingAgreement_ReturnsFalse
+Passed                MyNamespace.DomainModel.Test.AuthenticationTests.IncludeAgreement_ForAuthenticatedAuthentication_Succeeds
+Passed                MyNamespace.DomainModel.Test.AuthenticationTests.IncludeAgreement_ForExistingAgreement_ThrowsException
+Passed                MyNamespace.DomainModel.Test.AuthenticationTests.IncludeAgreement_ForUnauthenticatedAuthentication_ThrowsException
+Passed                MyNamespace.DomainModel.Test.BillingTests.AuthorizationPrepareCapture_ReferencesAuthorizationId
+Passed                MyNamespace.DomainModel.Test.BillingTests.AuthorizationPrepareCapture_RejectsNonPendingAuthorization
+Passed                MyNamespace.DomainModel.Test.BillingTests.AuthorizePayment_EncounteringDeclinedAuthorization_StoresPayment_WithoutAuthorizationStatus
+Passed                MyNamespace.DomainModel.Test.BillingTests.AuthorizePayment_EncounteringExceptionalAuthorization_StoresPayment_WithoutAuthorizationStatus
+Passed                MyNamespace.DomainModel.Test.BillingTests.AuthorizePayment_EncounteringSuccessfulAuthorization_StoresPayment_WithAuthorizationStatusOfPending
+Passed                MyNamespace.DomainModel.Test.BillingTests.AuthorizePayment_ProcessesPayment_And_SavesPayment
+Passed                MyNamespace.DomainModel.Test.BillingTests.AuthorizePayment_RejectsNonPositiveAmounts
+Passed                MyNamespace.DomainModel.Test.BillingTests.AuthorizePayment_RejectsNullOwner
+Passed                MyNamespace.DomainModel.Test.BillingTests.AuthorizePayment_StoresAuthorization
+Passed                MyNamespace.DomainModel.Test.NotificationTests.Alerts_GetAlertsForConsumer_ReturnsData
+Passed                MyNamespace.DomainModel.Test.TemplateTests.TestVariablesInQuotes
+35/35 test(s) Passed
+
+Summary
+-------
+Test Run Warning.
+  Passed  35
+  ----------
+  Total   35
+Results file:      C:\.hudson\jobs\MyJob\workspace\TestResults\HudsonJobTestResults.trx
+Run Configuration: Local Test Run
+
+Run has the following issue(s):
+Warning: Test Run deployment issue: Failed to get the file for deployment item 'MyNamespace.Infrastructure\hibernate.cfg.xml' specified by the test run configuration: System.IO.FileNotFoundException: Could not find file 'C:\.hudson\jobs\MyJob\workspace\MyNamespace.Infrastructure\hibernate.cfg.xml'.
+Warning: Test Run deployment issue: The assembly or module 'PFProdotNET' directly or indirectly referenced by the test container 'C:\.hudson\jobs\MyJob\workspace\abc.abconlineappservices.test\bin\debug\abc.abconlineappservices.test.dll' was not found.
+Warning: Test Run deployment issue: The assembly or module 'ABC.Web' directly or indirectly referenced by the test container 'C:\.hudson\jobs\MyJob\workspace\abc.abconlineappservices.test\bin\debug\abc.abconlineappservices.test.dll' was not found.
+Warning: Test Run deployment issue: The assembly or module 'Microsoft.Practices.EnterpriseLibrary.Data' directly or indirectly referenced by the test container 'C:\.hudson\jobs\MyJob\workspace\abc.abconlineappservices.test\bin\debug\abc.abconlineappservices.test.dll' was not found.
+Warning: Test Run deployment issue: The assembly or module 'KJF.NADAWrapper' directly or indirectly referenced by the test container 'C:\.hudson\jobs\MyJob\workspace\abc.abconlineappservices.test\bin\debug\abc.abconlineappservices.test.dll' was not found.
+Warning: Test Run deployment issue: The assembly or module 'ABC.ABCOnline.MicroBiltAgent' directly or indirectly referenced by the test container 'C:\.hudson\jobs\MyJob\workspace\abc.abconlineappservices.test\bin\debug\abc.abconlineappservices.test.dll' was not found.
+Warning: Test Run deployment issue: The assembly or module 'ABC.Security' directly or indirectly referenced by the test container 'C:\.hudson\jobs\MyJob\workspace\abc.abconlineappservices.test\bin\debug\abc.abconlineappservices.test.dll' was not found.
+Warning: Test Run deployment issue: The assembly or module 'PasswordGenerator' directly or indirectly referenced by the test container 'C:\.hudson\jobs\MyJob\workspace\abc.abconlineappservices.test\bin\debug\abc.abconlineappservices.test.dll' was not found.
+Warning: Test Run deployment issue: The assembly or module 'ABC.ABCONline.FulfillmentEngines.PercentageGameProcessor' directly or indirectly referenced by the test container 'C:\.hudson\jobs\MyJob\workspace\abc.abconlineappservices.test\bin\debug\abc.abconlineappservices.test.dll' was not found.
+Warning: Test Run deployment issue: The assembly or module 'Antlr3.Runtime' directly or indirectly referenced by the test container 'C:\.hudson\jobs\MyJob\workspace\abc.abconlineappservices.test\bin\debug\abc.abconlineappservices.test.dll' was not found.
+
+C:\.hudson\jobs\MyJob\workspace>exit 0
+Archiving artifacts
+Description found: 2524
+Processing tests results in file TestResults\HudsonJobTestResults.trx
+[TASKS] Scanning workspace files for tasks...
+[TASKS] Found 60 annotations (0 new, 11 high, 49 normal, 0 low)
+[TASKS] Not changing build status, since no threshold has been exceeded
+[WARNINGS] Parsing warnings in console log...
+[WARNINGS] Found 6 annotations (0 new, 0 high, 6 normal, 0 low)
+[WARNINGS] Not changing build status, since no threshold has been exceeded
+Triggering a new build of Deploy AppServices (dev) #618
+Triggering a new build of Deploy Web.UI (dev) #672
+Finished: SUCCESS

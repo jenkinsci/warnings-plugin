@@ -29,7 +29,7 @@ public class ErlcParserTest extends ParserTester {
      */
     @Test
     public void testWarningsParser() throws IOException {
-        Collection<FileAnnotation> warnings = new ErlcParser().parse(openFile());
+        Collection<FileAnnotation> warnings = sort(new ErlcParser().parse(openFile()));
 
         assertEquals("Wrong number of warnings detected.", 2, warnings.size());
 

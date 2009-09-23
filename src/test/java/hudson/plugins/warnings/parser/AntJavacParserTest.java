@@ -57,7 +57,7 @@ public class AntJavacParserTest extends ParserTester {
      */
     @Test
     public void issue2133() throws IOException {
-        Collection<FileAnnotation> warnings = new AntJavacParser().parse(openFile("issue2133.txt"));
+        Collection<FileAnnotation> warnings = sort(new AntJavacParser().parse(openFile("issue2133.txt")));
 
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 2, warnings.size());
 
@@ -85,7 +85,7 @@ public class AntJavacParserTest extends ParserTester {
     public void issue2316() throws IOException {
         Collection<FileAnnotation> warnings = new AntJavacParser().parse(openFile("issue2316.txt"));
 
-        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 20, warnings.size());
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 18, warnings.size());
 
         ParserResult result = new ParserResult();
         result.addAnnotations(warnings);

@@ -29,7 +29,7 @@ public class InvalidsParserTest extends ParserTester {
      */
     @Test
     public void testParser() throws IOException {
-        Collection<FileAnnotation> warnings = new InvalidsParser().parse(openFile());
+        Collection<FileAnnotation> warnings = sort(new InvalidsParser().parse(openFile()));
 
         assertEquals("Wrong number of warnings detected.", 3, warnings.size());
 
