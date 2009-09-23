@@ -262,6 +262,7 @@ public class ParserRegistry {
         pclintParser.setName("PC-Lint");
         parsers.add(pclintParser);
         parsers.add(new BuckminsterParser());
+        parsers.add(new YuiCompressorParser());
         return Collections.unmodifiableList(parsers);
     }
 
