@@ -29,7 +29,7 @@ public class JavacParserTest extends ParserTester {
      */
     @Test
     public void parseDeprecation() throws IOException {
-        Collection<FileAnnotation> warnings = new JavacParser().parse(openFile());
+        Collection<FileAnnotation> warnings = sort(new JavacParser().parse(openFile()));
 
         assertEquals("Wrong number of warnings detected.", 2, warnings.size());
 

@@ -718,3 +718,8 @@ file1.m:640: warning: local declaration of "command" hides instance variable
 
 All warning where generate by compiling ObjectiveC Code (see the *.m in the File-Names)
 
+
+
+In file included from /usr/include/c++/3.3/backward/warn.h:4,
+                 from /usr/include/c++/3.3/backward/iostream.h:31,
+                 from test_clt.cc:1:

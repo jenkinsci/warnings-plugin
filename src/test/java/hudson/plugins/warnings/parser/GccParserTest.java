@@ -165,14 +165,14 @@ public class GccParserTest extends ParserTester {
      */
     @Test
     public void issue4260() throws IOException {
-        Collection<FileAnnotation> warnings = new GccParser().parse(openFile("issue4260.txt"));
+        Collection<FileAnnotation> warnings = sort(new GccParser().parse(openFile("issue4260.txt")));
 
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 1, warnings.size());
     }
 
     @Test
     public void issue4382() throws IOException {
-        Collection<FileAnnotation> warnings = new GccParser().parse(openFile("issue4382.txt"));
+        Collection<FileAnnotation> warnings = sort(new GccParser().parse(openFile("issue4382.txt")));
 
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 2, warnings.size());
     }

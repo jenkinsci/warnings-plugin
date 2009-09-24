@@ -37,7 +37,7 @@ public class MsBuildParserTest extends ParserTester {
      */
     @Test
     public void issue3582() throws IOException {
-        Collection<FileAnnotation> warnings = new MsBuildParser().parse(openFile("issue3582.txt"));
+        Collection<FileAnnotation> warnings = sort(new MsBuildParser().parse(openFile("issue3582.txt")));
 
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 1, warnings.size());
         FileAnnotation annotation = warnings.iterator().next();
@@ -52,7 +52,7 @@ public class MsBuildParserTest extends ParserTester {
      */
     @Test
     public void issue4472() throws IOException {
-        Collection<FileAnnotation> warnings = new MsBuildParser().parse(openFile("issue4472.txt"));
+        Collection<FileAnnotation> warnings = sort(new MsBuildParser().parse(openFile("issue4472.txt")));
         ParserResult parserResult = new ParserResult(warnings);
         ArrayList<MsBuildParser> parsers = new ArrayList<MsBuildParser>();
         parsers.add(new MsBuildParser());
@@ -133,7 +133,7 @@ public class MsBuildParserTest extends ParserTester {
         testData.append("\r\n");
         testData.append("C:\\Src\\Parser\\CSharp\\file.cs (10): Error XXX: An error occurred");
 
-        Collection<FileAnnotation> warnings = new MsBuildParser().parse(new InputStreamReader(IOUtils.toInputStream(testData.toString())));
+        Collection<FileAnnotation> warnings = sort(new MsBuildParser().parse(new InputStreamReader(IOUtils.toInputStream(testData.toString()))));
 
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 2, warnings.size());
 
