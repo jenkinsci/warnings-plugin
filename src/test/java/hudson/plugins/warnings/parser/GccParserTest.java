@@ -170,7 +170,12 @@ public class GccParserTest extends ParserTester {
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 1, warnings.size());
     }
 
+    @Test
+    public void issue4382() throws IOException {
+        Collection<FileAnnotation> warnings = new GccParser().parse(openFile("issue4382.txt"));
 
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 2, warnings.size());
+    }
 
     /** {@inheritDoc} */
     @Override

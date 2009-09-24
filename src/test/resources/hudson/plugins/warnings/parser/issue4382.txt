@@ -1,0 +1,12 @@
+/<somelocation>/cppunit-1.10.0-vx_rtp/include/cppunit/extensions/TestFixtureFactory.h:17:
+warning: class CppUnit::TestFixtureFactory has virtual functions but
+non-virtual destructor
+/<somelocation>/cppunit-1.10.0-vx_rtp/include/cppunit/extensions/TestFixtureFactory.h:
+In instantiation of CppUnit::ConcretTestFixtureFactory&lt;TestCase_MYdvc>:
+TestCase_MYdvc.h:67:   instantiated from here
+
+
+In file included from C:/<path_1>/file_1.h:28,
+                 from C:\<path_2>\file_2.c:31:
+C:/<path_3>/file_3.h:2:2: warning: no newline at end of file
+

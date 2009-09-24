@@ -43,6 +43,9 @@ public class GccParser extends RegexpLineParser {
                    category, matcher.group(4), priority);
         }
         else {
+    	    if (matcher.group(1).contains("                 from")) {
+    	        return FALSE_POSITIVE;
+    	    }
             priority = Priority.HIGH;
             String category = "GCC error";
             return new Warning(matcher.group(1), 0, WARNING_TYPE,
