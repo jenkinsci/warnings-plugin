@@ -25,10 +25,15 @@ public class Pep8Parser extends RegexpLineParser {
     @Override
     protected Warning createWarning(final Matcher matcher) {
         String message = matcher.group(4);
-        String category = classifyIfEmpty(matcher.group(1), message);
+        String category = classifyIfEmpty(matcher.group(3), message);
 
-        return createWarning(matcher.group(3), getLineNumber(matcher.group(2)), category, message);
+        return createWarning(matcher.group(1), getLineNumber(matcher.group(2)), category, message);
     }
 
+
+    @Override
+    protected boolean isLineInteresting(final String line) {
+        return line.contains("E") || line.contains("W");
+    }
 }
 
