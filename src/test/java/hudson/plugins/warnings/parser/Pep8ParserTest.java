@@ -1,11 +1,5 @@
 package hudson.plugins.warnings.parser;
 
-/**
- * FIXME: Document type Pep8ParserTest.
- *
- * @author Ulli Hafner
- */
-
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
@@ -16,7 +10,7 @@ import hudson.plugins.analysis.util.model.FileAnnotation;
 import hudson.plugins.analysis.util.model.Priority;
 
 /**
- * Test Klasse für den Pep8Parser.
+ * A parser for the Pep8 Compiler warning.
  *
  * @author Ulli Hafner
  */
