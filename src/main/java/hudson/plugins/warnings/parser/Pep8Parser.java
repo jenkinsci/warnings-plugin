@@ -2,11 +2,14 @@ package hudson.plugins.warnings.parser;
 
 import java.util.regex.Matcher;
 
+import hudson.Extension;
+
 /**
  * FIXME: Document type Pep8Parser.
  *
  * @author Ulli Hafner
  */
+@Extension
 public class Pep8Parser extends RegexpLineParser {
 
 
