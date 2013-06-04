@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import hudson.Extension;
 
 /**
- * FIXME: Document type Pep8Parser.
+ *  A parser for the Pep8 Compiler warning.
  *
  * @author Ulli Hafner
  */

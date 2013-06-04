@@ -10,7 +10,7 @@ import hudson.plugins.analysis.util.model.FileAnnotation;
 import hudson.plugins.analysis.util.model.Priority;
 
 /**
- * A parser for the Pep8 Compiler warning.
+ * Tests the class {@link Pep8parser}}
  *
  * @author Ulli Hafner
  */
