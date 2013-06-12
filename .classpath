@@ -1,34 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="src" output="target/classes" path="src/main/java">
-		<attributes>
-			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src/main/resources"/>
-	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
-		<attributes>
-			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry including="**/*.java" kind="src" output="target/test-classes" path="src/test/resources"/>
-	<classpathentry kind="src" output="target/classes" path="target/generated-sources/localizer">
-		<attributes>
-			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="output" path="target/classes"/>
-</classpath>
+
+<!-- saved from url=(0066)https://raw.github.com/jenkinsci/warnings-plugin/master/.classpath -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;classpath&gt;
+	&lt;classpathentry kind="src" output="target/classes" path="src/main/java"&gt;
+		&lt;attributes&gt;
+			&lt;attribute name="optional" value="true"/&gt;
+			&lt;attribute name="maven.pomderived" value="true"/&gt;
+		&lt;/attributes&gt;
+	&lt;/classpathentry&gt;
+	&lt;classpathentry including="**/*.java" kind="src" output="target/classes" path="src/main/resources"/&gt;
+	&lt;classpathentry kind="src" output="target/test-classes" path="src/test/java"&gt;
+		&lt;attributes&gt;
+			&lt;attribute name="optional" value="true"/&gt;
+			&lt;attribute name="maven.pomderived" value="true"/&gt;
+		&lt;/attributes&gt;
+	&lt;/classpathentry&gt;
+	&lt;classpathentry including="**/*.java" kind="src" output="target/test-classes" path="src/test/resources"/&gt;
+	&lt;classpathentry kind="src" output="target/classes" path="target/generated-sources/localizer"&gt;
+		&lt;attributes&gt;
+			&lt;attribute name="ignore_optional_problems" value="true"/&gt;
+			&lt;attribute name="optional" value="true"/&gt;
+			&lt;attribute name="maven.pomderived" value="true"/&gt;
+		&lt;/attributes&gt;
+	&lt;/classpathentry&gt;
+	&lt;classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"&gt;
+		&lt;attributes&gt;
+			&lt;attribute name="maven.pomderived" value="true"/&gt;
+		&lt;/attributes&gt;
+	&lt;/classpathentry&gt;
+	&lt;classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER"&gt;
+		&lt;attributes&gt;
+			&lt;attribute name="maven.pomderived" value="true"/&gt;
+		&lt;/attributes&gt;
+	&lt;/classpathentry&gt;
+	&lt;classpathentry kind="output" path="target/classes"/&gt;
+&lt;/classpath&gt;
+</pre></body></html>

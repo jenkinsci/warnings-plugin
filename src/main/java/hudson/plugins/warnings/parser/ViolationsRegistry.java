@@ -6,7 +6,6 @@ import hudson.plugins.violations.types.codenarc.CodenarcParser;
 import hudson.plugins.violations.types.csslint.CssLintParser;
 import hudson.plugins.violations.types.gendarme.GendarmeParser;
 import hudson.plugins.violations.types.jcreport.JcReportParser;
-import hudson.plugins.violations.types.pep8.Pep8Parser;
 import hudson.plugins.violations.types.perlcritic.PerlCriticParser;
 import hudson.plugins.violations.types.pylint.PyLintParser;
 import hudson.plugins.violations.types.stylecop.StyleCopParser;
@@ -41,10 +40,6 @@ public final class ViolationsRegistry {
                 Messages._Warnings_JCReport_ParserName(),
                 Messages._Warnings_JCReport_LinkName(),
                 Messages._Warnings_JCReport_TrendName()));
-        parsers.add(new ViolationsAdapter(new Pep8Parser(),
-                Messages._Warnings_Pep8_ParserName(),
-                Messages._Warnings_Pep8_LinkName(),
-                Messages._Warnings_Pep8_TrendName()));
         parsers.add(new ViolationsAdapter(new PerlCriticParser(),
                 Messages._Warnings_PerlCritic_ParserName(),
                 Messages._Warnings_PerlCritic_LinkName(),
