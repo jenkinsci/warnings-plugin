@@ -26,7 +26,7 @@ public interface WarningsParser {
      * @throws IOException
      *             Signals that an I/O exception has occurred.
      * @throws ParsingCanceledException
-     *             // NOCHECKSTYLE Signals that the user canceled this operation
+     *             Signals that the user canceled this operation
      */
     Collection<Warning> parse(final Reader reader) throws IOException, ParsingCanceledException;
 }

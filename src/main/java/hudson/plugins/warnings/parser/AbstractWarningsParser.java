@@ -6,11 +6,14 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Locale;
 
-import org.apache.commons.lang.StringUtils;
 import org.jvnet.localizer.Localizable;
+
+import com.google.common.collect.Lists;
+import com.ullihafner.warningsparser.WarningsParser;
 
 import hudson.ExtensionPoint;
 
+import hudson.plugins.analysis.util.PackageDetectors;
 import hudson.plugins.analysis.util.model.FileAnnotation;
 import hudson.plugins.analysis.util.model.Priority;
 import hudson.plugins.warnings.Messages;
@@ -103,7 +106,66 @@ public abstract class AbstractWarningsParser implements ExtensionPoint, Serializ
      * @throws ParsingCanceledException
      *             Signals that the user canceled this operation
      */
-    public abstract Collection<FileAnnotation> parse(final Reader reader) throws IOException, ParsingCanceledException;
+    public Collection<FileAnnotation> parse(final Reader reader) throws IOException, ParsingCanceledException {
+        Collection<FileAnnotation> result = Lists.newArrayList();
+
+        Collection<com.ullihafner.warningsparser.Warning> warnings = getParser().parse(reader);
+        for (com.ullihafner.warningsparser.Warning orig : warnings) {
+            Warning warning = new Warning(orig.getFileName(), orig.getLineStart(), orig.getLineEnd(), firstNonNull(orig.getType(),
+                    getGroup()), orig.getCategory(), orig.getMessage(), toPriority(orig.getPriority()));
+            warning.setToolTip(orig.getToolTip());
+
+            if (orig.getOrigin() != null) {
+                warning.setOrigin(orig.getOrigin());
+            }
+
+            if (orig.getWorkspacePath() != null) {
+                warning.setPathName(orig.getWorkspacePath());
+            }
+
+            if (orig.getPackageName() != null) {
+                warning.setPackageName(orig.getPackageName());
+            }
+            else {
+                warning.setPackageName(PackageDetectors.detectPackageName(orig.getFileName()));
+            }
+
+            if (orig.getColumnStart() != -1) {
+                warning.setColumnPosition(orig.getColumnStart(), orig.getColumnEnd());
+            }
+
+            result.add(warning);
+        }
+
+        return result;
+    }
+
+    private Priority toPriority(final com.ullihafner.warningsparser.Warning.Priority priority) {
+        switch (priority) {
+            case HIGH:
+                return Priority.HIGH;
+            case NORMAL:
+                return Priority.NORMAL;
+            default:
+                return Priority.LOW;
+        }
+    }
+
+    private <T> T firstNonNull(final T... args) {
+        for (T arg : args) {
+            if (arg != null) {
+                return arg;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Gets the parser implementation to be used.
+     *
+     * @return The instance to use
+     */
+    protected abstract WarningsParser getParser();
 
     /**
      * Gets the human readable name of this parser. This name is shown in the
@@ -175,99 +237,6 @@ public abstract class AbstractWarningsParser implements ExtensionPoint, Serializ
     }
 
     /**
-     * Creates a new instance of {@link Warning} using the parser's group as
-     * warning type.
-     *
-     * @param fileName
-     *            the name of the file
-     * @param start
-     *            the first line of the line range
-     * @param category
-     *            the warning category
-     * @param message
-     *            the message of the warning
-     * @return the warning
-     */
-    public Warning createWarning(final String fileName, final int start, final String category, final String message) {
-        return new Warning(fileName, start, getGroup(), category, message);
-    }
-
-    /**
-     * Creates a new instance of {@link Warning} using the parser's group as
-     * warning type. No category will be set.
-     *
-     * @param fileName
-     *            the name of the file
-     * @param start
-     *            the first line of the line range
-     * @param message
-     *            the message of the warning
-     * @return the warning
-     */
-    public Warning createWarning(final String fileName, final int start, final String message) {
-        return createWarning(fileName, start, StringUtils.EMPTY, message);
-    }
-
-    /**
-     * Creates a new instance of {@link Warning} using the parser's group as warning type.
-     *
-     * @param fileName
-     *            the name of the file
-     * @param start
-     *            the first line of the line range
-     * @param category
-     *            the warning category
-     * @param message
-     *            the message of the warning
-     * @param priority
-     *            the priority of the warning
-     * @return the warning
-     */
-    public Warning createWarning(final String fileName, final int start, final String category, final String message, final Priority priority) {
-        return new Warning(fileName, start, getGroup(), category, message, priority);
-    }
-
-    /**
-     * Creates a new instance of {@link Warning}.
-     *
-     * @param fileName
-     *            the name of the file
-     * @param start
-     *            the first line of the line range
-     * @param type
-     *            the type of warning
-     * @param category
-     *            the warning category
-     * @param message
-     *            the message of the warning
-     * @param priority
-     *            the priority of the warning
-     * @return the warning
-     * @since 4.24
-     */
-    public Warning createWarning(final String fileName, final int start, final String type, final String category, final String message, final Priority priority) {
-        return new Warning(fileName, start, type, category, message, priority);
-    }
-
-    /**
-     * Creates a new instance of {@link Warning} using the parser's group as
-     * warning type. No category will be set.
-     *
-     * @param fileName
-     *            the name of the file
-     * @param start
-     *            the first line of the line range
-     * @param message
-     *            the message of the warning
-     * @param priority
-     *            the priority of the warning
-     * @return the warning
-     */
-    public Warning createWarning(final String fileName, final int start, final String message, final Priority priority) {
-        return createWarning(fileName, start, StringUtils.EMPTY, message, priority);
-    }
-
-    /**
      * Returns the small image used for the side bar link.
      *
      * @return small image
@@ -285,39 +254,5 @@ public abstract class AbstractWarningsParser implements ExtensionPoint, Serializ
         return WarningsDescriptor.LARGE_ICON_URL;
     }
 
-    /**
-     * Converts a string line number to an integer value. If the string is not a
-     * valid line number, then 0 is returned which indicates a warning at the
-     * top of the file.
-     *
-     * @param lineNumber
-     *            the line number (as a string)
-     * @return the line number
-     */
-    protected final int getLineNumber(final String lineNumber) {
-        return convertLineNumber(lineNumber);
-    }
-
-    /**
-     * Converts a string line number to an integer value. If the string is not a
-     * valid line number, then 0 is returned which indicates a warning at the
-     * top of the file.
-     *
-     * @param lineNumber
-     *            the line number (as a string)
-     * @return the line number
-     * @since 4.37
-     */
-    public static int convertLineNumber(final String lineNumber) {
-        if (StringUtils.isNotBlank(lineNumber)) {
-            try {
-                return Integer.parseInt(lineNumber);
-            }
-            catch (NumberFormatException exception) {
-                // ignore and return 0
-            }
-        }
-        return 0;
-    }
 }
 

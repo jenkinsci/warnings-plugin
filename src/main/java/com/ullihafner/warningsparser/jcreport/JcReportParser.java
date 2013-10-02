@@ -50,7 +50,7 @@ public class JcReportParser extends AbstractWarningsParser {
 
                 warning.setOrigin(item.getOrigin());
                 warning.setPackageName(file.getPackageName());
-                warning.setPathName(file.getSrcdir());
+                warning.setWorkspacePath(file.getSrcdir());
                 warning.setColumnPosition(getLineNumber(item.getColumn()), getLineNumber(item.getEndcolumn()));
                 warnings.add(warning);
             }

@@ -12,16 +12,16 @@ public class Warning {
     private final String fileName;
     private final int lineStart;
     private final int lineEnd;
-    private int columnStart;
-    private int columnEnd;
+    private int columnStart = -1;
+    private int columnEnd = -1;
+    private final String type;
     private final String category;
     private final String message;
     private final Priority priority;
-    private final String type;
     private String packageName;
     private String toolTip;
     private String origin;
-    private String pathName;
+    private String workspacePath;
 
     /**
      * Creates a new instance of {@link Warning}.
@@ -84,9 +84,9 @@ public class Warning {
      *
      * @param fileName
      *            the name of the file
-     * @param start
+     * @param lineStart
      *            the first line of the line range
-     * @param end
+     * @param lineEnd
      *            the end line of the line range
      * @param type
      *            the identifier of the warning type
@@ -97,11 +97,11 @@ public class Warning {
      * @param priority
      *            the priority of the warning
      */
-    public Warning(final String fileName, final int start, final int end, final String type, final String category,
-            final String message, final Priority priority) {
+    public Warning(final String fileName, final int lineStart, final int lineEnd, final String type,
+            final String category, final String message, final Priority priority) {
         this.fileName = fileName;
-        lineStart = start;
-        lineEnd = end;
+        this.lineStart = lineStart;
+        this.lineEnd = lineEnd;
         this.type = type;
         this.category = category;
         this.message = message;
@@ -197,12 +197,12 @@ public class Warning {
         this.origin = origin;
     }
 
-    public String getPathName() {
-        return pathName;
+    public String getWorkspacePath() {
+        return workspacePath;
     }
 
-    public void setPathName(final String pathName) {
-        this.pathName = pathName;
+    public void setWorkspacePath(final String workspacePath) {
+        this.workspacePath = workspacePath;
     }
 
 }
