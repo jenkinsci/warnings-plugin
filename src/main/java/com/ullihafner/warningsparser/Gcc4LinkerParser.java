@@ -13,7 +13,7 @@ import com.ullihafner.warningsparser.Warning.Priority;
  */
 public class Gcc4LinkerParser extends RegexpLineParser {
     /** A GCC error. */
-    static final String WARNING_CATEGORY = "GCC4 Linker Error";
+    public static final String WARNING_CATEGORY = "GCC4 Linker Error";
     /** Pattern of gcc 4 linker warnings. */
     private static final String LINKER_WARNING_PATTERN = "^(?:(.+?)(?:(?::(?:(\\d+):)? (undefined reference to .*))|(?::?\\(\\.\\w+\\+0x[0-9a-fA-F]+\\)): (?:(warning): )?(.*))|.*/ld(?:\\.exe)?: (?:(warning): )?(.*))$";
 

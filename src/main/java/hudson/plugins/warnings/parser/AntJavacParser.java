@@ -39,6 +39,5 @@ public class AntJavacParser extends AbstractWarningsParser {
     protected com.ullihafner.warningsparser.WarningsParser getParser() {
         return new com.ullihafner.warningsparser.AntJavacParser();
     }
-
 }
 

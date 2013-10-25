@@ -12,8 +12,8 @@ import com.ullihafner.warningsparser.Warning.Priority;
  * @author Greg Roth
  */
 public class GccParser extends RegexpLineParser {
-    static final String GCC_ERROR = "GCC error";
-    static final String LINKER_ERROR = "Linker error";
+    public static final String GCC_ERROR = "GCC error";
+    public static final String LINKER_ERROR = "Linker error";
     private static final String GCC_WARNING_PATTERN = "^(?:\\s*(?:\\[.*\\]\\s*)?(.*\\.[chpimxsola0-9]+):(?:(\\d*):(?:\\d*:)*\\s*(?:(warning|error|note)\\s*:|\\s*(.*))|\\s*(undefined reference to.*))(.*)|.*ld:\\s*(.*-l(.*)))$";
 
     /**

@@ -10,7 +10,7 @@ import com.ullihafner.warningsparser.Warning.Priority;
  * @author Shaohua Wen
  */
 public class TnsdlParser extends RegexpLineParser {
-    static final String WARNING_CATEGORY = "Error";
+    public static final String WARNING_CATEGORY = "Error";
     private static final String TNSDL_WARNING_PATTERN = "^tnsdl((.*)?):\\(.*\\) (.*) \\((.*)\\):(.*)$";
 
     /**

@@ -1,5 +1,6 @@
 package hudson.plugins.warnings.parser;
 
+
 import hudson.Extension;
 
 /**

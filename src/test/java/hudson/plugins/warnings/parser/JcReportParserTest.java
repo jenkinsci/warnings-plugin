@@ -9,12 +9,14 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import com.ullihafner.warningsparser.ParsingCanceledException;
+import com.ullihafner.warningsparser.jcreport.File;
+import com.ullihafner.warningsparser.jcreport.Item;
+import com.ullihafner.warningsparser.jcreport.Report;
+
 import hudson.plugins.analysis.util.model.FileAnnotation;
 import hudson.plugins.analysis.util.model.Priority;
-import hudson.plugins.warnings.parser.jcreport.File;
-import hudson.plugins.warnings.parser.jcreport.Item;
 import hudson.plugins.warnings.parser.jcreport.JcReportParser;
-import hudson.plugins.warnings.parser.jcreport.Report;
 
 import hudson.util.IOException2;
 
@@ -84,7 +86,7 @@ public class JcReportParserTest {
     public void testReportParserProperties() throws IOException {
         InputStreamReader readCorrectXml = new InputStreamReader(new FileInputStream(
                 "src/test/resources/hudson/plugins/warnings/parser/jcreport/testReportProps.xml"), "UTF-8");
-        Report testReportProps = new JcReportParser().createReport(readCorrectXml);
+        Report testReportProps = new com.ullihafner.warningsparser.jcreport.JcReportParser().createReport(readCorrectXml);
 
         assertEquals("Should be 1: ", 1, testReportProps.getFiles().size());
 

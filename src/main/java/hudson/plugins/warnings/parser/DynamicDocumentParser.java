@@ -1,16 +1,16 @@
 package hudson.plugins.warnings.parser;
 
-import java.util.regex.Matcher;
 
 /**
- * A multi-line parser that uses a configurable regular expression and Groovy
- * script to parse warnings.
+ * A multi-line parser that uses a configurable regular expression and Groovy script to parse warnings.
  *
  * @author Ulli Hafner
  */
-public class DynamicDocumentParser extends RegexpDocumentParser {
+public class DynamicDocumentParser extends AbstractWarningsParser {
     private static final long serialVersionUID = -690643673847390322L;
-    private final GroovyExpressionMatcher expressionMatcher;
+
+    private final String regexp;
+    private final String script;
 
     /**
      * Creates a new instance of {@link DynamicDocumentParser}.
@@ -26,22 +26,16 @@ public class DynamicDocumentParser extends RegexpDocumentParser {
      * @param trendName
      *            the name of the trend report
      */
-    public DynamicDocumentParser(final String name, final String regexp, final String script, final String linkName, final String trendName) {
-        super(localize(name), localize(linkName), localize(trendName), regexp, true);
+    public DynamicDocumentParser(final String name, final String regexp, final String script, final String linkName,
+            final String trendName) {
+        super(localize(name), localize(linkName), localize(trendName));
 
-        expressionMatcher = new GroovyExpressionMatcher(script, FALSE_POSITIVE);
+        this.regexp = regexp;
+        this.script = script;
     }
 
-    /**
-     * Creates a new annotation for the specified pattern.
-     *
-     * @param matcher
-     *            the regular expression matcher
-     * @return a new annotation for the specified pattern
-     */
     @Override
-    protected Warning createWarning(final Matcher matcher) {
-        return expressionMatcher.createWarning(matcher);
+    protected com.ullihafner.warningsparser.WarningsParser getParser() {
+        return new com.ullihafner.warningsparser.DynamicDocumentParser(regexp, script);
     }
 }
-

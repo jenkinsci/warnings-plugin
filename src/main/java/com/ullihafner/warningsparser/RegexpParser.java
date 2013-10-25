@@ -17,9 +17,9 @@ public abstract class RegexpParser extends AbstractWarningsParser {
     protected static final Warning FALSE_POSITIVE = new Warning(StringUtils.EMPTY, 0, StringUtils.EMPTY,
             StringUtils.EMPTY);
     /** Warning classification. */
-    protected static final String DEPRECATION = "Deprecation";
+    public static final String DEPRECATION = "Deprecation";
     /** Warning classification. */
-    protected static final String PROPRIETARY_API = "Proprietary API";
+    public static final String PROPRIETARY_API = "Proprietary API";
     /** Pattern identifying an ant task debug output prefix. */
     protected static final String ANT_TASK = "^(?:.*\\[.*\\])?\\s*";
 

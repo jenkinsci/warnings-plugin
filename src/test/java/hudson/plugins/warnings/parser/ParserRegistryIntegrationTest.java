@@ -7,12 +7,10 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.Collection;
 import java.util.List;
-import java.util.regex.Matcher;
 
 import org.junit.Test;
 import org.jvnet.hudson.test.HudsonTestCase;
 import org.jvnet.hudson.test.TestExtension;
-import org.jvnet.localizer.Localizable;
 
 import hudson.plugins.analysis.util.model.FileAnnotation;
 
@@ -171,23 +169,6 @@ public class ParserRegistryIntegrationTest extends HudsonTestCase {
     // CHECKSTYLE:OFF Test implementations
     @SuppressWarnings("javadoc")
     @TestExtension
-    public static class TestBothParser extends RegexpLineParser {
-        private static final Localizable DUMMY = Messages._Warnings_NotLocalizedName(MIXED_API);
-        private static final long serialVersionUID = 1L;
-
-        public TestBothParser() {
-            super(DUMMY, DUMMY, DUMMY, MIXED_API);
-        }
-
-        /** {@inheritDoc} */
-        @Override
-        protected Warning createWarning(final Matcher matcher) {
-            return null;
-        }
-
-    }
-    @SuppressWarnings("javadoc")
-    @TestExtension
     public static class TestNewParser extends AbstractWarningsParser {
         private static final long serialVersionUID = 1L;
 
@@ -197,9 +178,8 @@ public class ParserRegistryIntegrationTest extends HudsonTestCase {
 
         /** {@inheritDoc} */
         @Override
-        public Collection<FileAnnotation> parse(final Reader reader) throws IOException,
-                ParsingCanceledException {
-            return null;
+        protected com.ullihafner.warningsparser.WarningsParser getParser() {
+            return new com.ullihafner.warningsparser.NullWarnigsParser();
         }
     }
     @SuppressWarnings({"javadoc", "deprecation"})

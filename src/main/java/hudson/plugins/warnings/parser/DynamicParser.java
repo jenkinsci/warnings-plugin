@@ -1,16 +1,16 @@
 package hudson.plugins.warnings.parser;
 
-import java.util.regex.Matcher;
 
 /**
- * A line parser that uses a configurable regular expression and Groovy script
- * to parse warnings.
+ * A line parser that uses a configurable regular expression and Groovy script to parse warnings.
  *
  * @author Ulli Hafner
  */
-public class DynamicParser extends RegexpLineParser {
+public class DynamicParser extends AbstractWarningsParser {
     private static final long serialVersionUID = 2964204816541183471L;
-    private final GroovyExpressionMatcher expressionMatcher;
+
+    private final String regexp;
+    private final String script;
 
     /**
      * Creates a new instance of {@link DynamicParser}.
@@ -26,22 +26,16 @@ public class DynamicParser extends RegexpLineParser {
      * @param trendName
      *            the name of the trend report
      */
-    public DynamicParser(final String name, final String regexp, final String script, final String linkName, final String trendName) {
-        super(localize(name), localize(linkName), localize(trendName), regexp);
+    public DynamicParser(final String name, final String regexp, final String script, final String linkName,
+            final String trendName) {
+        super(localize(name), localize(linkName), localize(trendName));
 
-        expressionMatcher = new GroovyExpressionMatcher(script, FALSE_POSITIVE);
+        this.regexp = regexp;
+        this.script = script;
     }
 
-    /**
-     * Creates a new annotation for the specified pattern.
-     *
-     * @param matcher
-     *            the regular expression matcher
-     * @return a new annotation for the specified pattern
-     */
     @Override
-    protected Warning createWarning(final Matcher matcher) {
-        return expressionMatcher.createWarning(matcher);
+    protected com.ullihafner.warningsparser.WarningsParser getParser() {
+        return new com.ullihafner.warningsparser.DynamicParser(regexp, script);
     }
 }
-

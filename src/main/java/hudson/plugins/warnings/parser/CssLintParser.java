@@ -22,6 +22,6 @@ public class CssLintParser extends AbstractWarningsParser {
 
     @Override
     protected com.ullihafner.warningsparser.WarningsParser getParser() {
-        return new com.ullihafner.warningsparser.LintParser();
+        return new com.ullihafner.warningsparser.CppLintParser();
     }
 }

@@ -15,9 +15,8 @@ public class AcuCobolParser extends AbstractWarningsParser {
      * Creates a new instance of {@link AcuCobolParser}.
      */
     public AcuCobolParser() {
-        super(Messages._Warnings_AcuCobol_ParserName(),
-                Messages._Warnings_AcuCobol_LinkName(),
-                Messages._Warnings_AcuCobol_TrendName());
+        super(Messages._Warnings_AcuCobol_ParserName(), Messages._Warnings_AcuCobol_LinkName(), Messages
+                ._Warnings_AcuCobol_TrendName());
     }
 
     @Override
@@ -29,6 +28,4 @@ public class AcuCobolParser extends AbstractWarningsParser {
     protected com.ullihafner.warningsparser.WarningsParser getParser() {
         return new com.ullihafner.warningsparser.AcuCobolParser();
     }
-
 }
-

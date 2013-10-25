@@ -9,6 +9,9 @@ import java.util.Locale;
 import org.jvnet.localizer.Localizable;
 
 import com.google.common.collect.Lists;
+import com.ullihafner.warningsparser.ParsingCanceledException;
+import com.ullihafner.warningsparser.RegexpDocumentParser;
+import com.ullihafner.warningsparser.RegexpLineParser;
 import com.ullihafner.warningsparser.WarningsParser;
 
 import hudson.ExtensionPoint;
@@ -20,16 +23,13 @@ import hudson.plugins.warnings.Messages;
 import hudson.plugins.warnings.WarningsDescriptor;
 
 /**
- * Parses an input stream for compiler warnings and returns the found
- * warnings. If your parser is based on a regular expression you can extend
- * from the existing base classes {@link RegexpLineParser} or
- * {@link RegexpDocumentParser}.
+ * Parses an input stream for compiler warnings and returns the found warnings. If your parser is based on a regular
+ * expression you can extend from the existing base classes {@link RegexpLineParser} or {@link RegexpDocumentParser}.
  *
  * @see RegexpLineParser Parses files line by line
  * @see RegexpDocumentParser Parses files using mulit-line regular expression
  * @see GccParser example
  * @see JavacParser example
- *
  * @author Ulli Hafner
  * @since 4.0
  */
@@ -86,7 +86,8 @@ public abstract class AbstractWarningsParser implements ExtensionPoint, Serializ
      * @param trendName
      *            name of the trend graph
      */
-    protected AbstractWarningsParser(final Localizable parserName, final Localizable linkName, final Localizable trendName) {
+    protected AbstractWarningsParser(final Localizable parserName, final Localizable linkName,
+            final Localizable trendName) {
         this.parserName = parserName;
         this.linkName = linkName;
         this.trendName = trendName;
@@ -94,9 +95,8 @@ public abstract class AbstractWarningsParser implements ExtensionPoint, Serializ
     }
 
     /**
-     * Parses the specified input stream for compiler warnings and returns the
-     * found annotations. Note that the implementor of this method must not
-     * close the given reader, this is done by the framework.
+     * Parses the specified input stream for compiler warnings and returns the found annotations. Note that the
+     * implementor of this method must not close the given reader, this is done by the framework.
      *
      * @param reader
      *            the reader to get the text from
@@ -111,8 +111,8 @@ public abstract class AbstractWarningsParser implements ExtensionPoint, Serializ
 
         Collection<com.ullihafner.warningsparser.Warning> warnings = getParser().parse(reader);
         for (com.ullihafner.warningsparser.Warning orig : warnings) {
-            Warning warning = new Warning(orig.getFileName(), orig.getLineStart(), orig.getLineEnd(), firstNonNull(orig.getType(),
-                    getGroup()), orig.getCategory(), orig.getMessage(), toPriority(orig.getPriority()));
+            Warning warning = new Warning(orig.getFileName(), orig.getLineStart(), orig.getLineEnd(), firstNonNull(
+                    orig.getType(), getGroup()), orig.getCategory(), orig.getMessage(), toPriority(orig.getPriority()));
             warning.setToolTip(orig.getToolTip());
 
             if (orig.getOrigin() != null) {
@@ -168,11 +168,9 @@ public abstract class AbstractWarningsParser implements ExtensionPoint, Serializ
     protected abstract WarningsParser getParser();
 
     /**
-     * Gets the human readable name of this parser. This name is shown in the
-     * configuration screen of a job. If more parsers share the same name (using
-     * the English locale) then these parsers are considered as a group.
-     * Configuration, visualization and reporting of parsers is always based on
-     * the associated group.
+     * Gets the human readable name of this parser. This name is shown in the configuration screen of a job. If more
+     * parsers share the same name (using the English locale) then these parsers are considered as a group.
+     * Configuration, visualization and reporting of parsers is always based on the associated group.
      *
      * @return the name of parser
      */
@@ -181,9 +179,8 @@ public abstract class AbstractWarningsParser implements ExtensionPoint, Serializ
     }
 
     /**
-     * Gets the human readable name of this parser. This name is shown as link
-     * in Jenkin's project view, and as title in the project summary of the
-     * warnings plug-in.
+     * Gets the human readable name of this parser. This name is shown as link in Jenkin's project view, and as title in
+     * the project summary of the warnings plug-in.
      *
      * @return the name of parser
      */
@@ -208,7 +205,8 @@ public abstract class AbstractWarningsParser implements ExtensionPoint, Serializ
     /**
      * Returns whether this parser is in the specified group.
      *
-     * @param group the name of the group
+     * @param group
+     *            the name of the group
      * @return <code>true</code> if this parser is in the specified group
      */
     public boolean isInGroup(final String group) {
@@ -216,8 +214,8 @@ public abstract class AbstractWarningsParser implements ExtensionPoint, Serializ
     }
 
     /**
-     * Returns the group of this parser. Multiple parsers can share the same
-     * group in order to simplify the user interface.
+     * Returns the group of this parser. Multiple parsers can share the same group in order to simplify the user
+     * interface.
      *
      * @return the group of this parser
      */
@@ -226,9 +224,8 @@ public abstract class AbstractWarningsParser implements ExtensionPoint, Serializ
     }
 
     /**
-     * Returns the ID of this parser. Normally, there is no need to override
-     * this method since parser matching is based on the {@code group}. This
-     * method has been introduced to ensure backward compatibility.
+     * Returns the ID of this parser. Normally, there is no need to override this method since parser matching is based
+     * on the {@code group}. This method has been introduced to ensure backward compatibility.
      *
      * @return the ID of this parser
      */
@@ -255,4 +252,3 @@ public abstract class AbstractWarningsParser implements ExtensionPoint, Serializ
     }
 
 }
-

@@ -17,7 +17,8 @@ public class CodeAnalysisParser extends AbstractWarningsParser {
      * Creates a new instance of {@link CodeAnalysisParser}.
      */
     public CodeAnalysisParser() {
-        this(Messages._Warnings_CodeAnalysis_ParserName(), Messages._Warnings_CodeAnalysis_LinkName(),
+        this(Messages._Warnings_CodeAnalysis_ParserName(),
+                Messages._Warnings_CodeAnalysis_LinkName(),
                 Messages._Warnings_CodeAnalysis_TrendName());
     }
 

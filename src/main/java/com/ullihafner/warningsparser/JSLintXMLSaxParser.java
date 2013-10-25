@@ -16,9 +16,9 @@ public class JSLintXMLSaxParser extends DefaultHandler {
     private final List<Warning> warnings;
     private String fileName;
 
-    /** Categories. */
-    static final String CATEGORY_PARSING = "Parsing";
-    static final String CATEGORY_UNDEFINED_VARIABLE = "Undefined Variable";
+    /* Categories. */
+    public static final String CATEGORY_PARSING = "Parsing";
+    public static final String CATEGORY_UNDEFINED_VARIABLE = "Undefined Variable";
     static final String CATEGORY_FORMATTING = "Formatting";
 
     /**

@@ -14,6 +14,7 @@ import org.apache.commons.lang.StringUtils;
 import org.jvnet.localizer.Localizable;
 
 import com.google.common.collect.Lists;
+import com.ullihafner.warningsparser.ParsingCanceledException;
 
 import hudson.plugins.analysis.util.model.FileAnnotation;
 import hudson.plugins.analysis.util.model.Priority;
@@ -106,6 +107,11 @@ public class ViolationsAdapter extends AbstractWarningsParser {
             IOUtils.closeQuietly(output);
         }
         return temp;
+    }
+
+    @Override
+    protected com.ullihafner.warningsparser.WarningsParser getParser() {
+        throw new UnsupportedOperationException();
     }
 }
 
