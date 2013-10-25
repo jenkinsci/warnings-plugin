@@ -8,7 +8,7 @@ import hudson.Extension;
  * @author Ulli Hafner
  */
 @Extension
-public class CssLintParser extends AbstractWarningsParser {
+public class CssLintParser extends LintParser {
     private static final long serialVersionUID = 8613418992526753095L;
 
     /**
@@ -18,10 +18,5 @@ public class CssLintParser extends AbstractWarningsParser {
         super(Messages._Warnings_CssLint_ParserName(),
                 Messages._Warnings_CssLint_LinkName(),
                 Messages._Warnings_CssLint_TrendName());
-    }
-
-    @Override
-    protected com.ullihafner.warningsparser.WarningsParser getParser() {
-        return new com.ullihafner.warningsparser.CppLintParser();
     }
 }

@@ -46,6 +46,25 @@ public class Warning {
      *            the name of the file
      * @param start
      *            the first line of the line range
+     * @param type
+     *            the identifier of the warning type
+     * @param category
+     *            the warning category
+     * @param message
+     *            the message of the warning
+     */
+    public Warning(final String fileName, final int start, final String type, final String category,
+            final String message) {
+        this(fileName, start, start, type, category, message, Priority.NORMAL);
+    }
+
+    /**
+     * Creates a new instance of <code>Warning</code>.
+     *
+     * @param fileName
+     *            the name of the file
+     * @param start
+     *            the first line of the line range
      * @param category
      *            the warning category
      * @param message

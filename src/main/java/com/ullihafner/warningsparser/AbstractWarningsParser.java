@@ -30,10 +30,12 @@ public abstract class AbstractWarningsParser implements WarningsParser {
      * @return the collection of annotations
      * @throws IOException
      *             Signals that an I/O exception has occurred.
+     * @throws ParserException
+     *             Signals that an exception has occurred during parsing.
      * @throws ParsingCanceledException
      *             Signals that the user canceled this operation
      */
-    public abstract Collection<Warning> parse(final Reader reader) throws IOException, ParsingCanceledException;
+    public abstract Collection<Warning> parse(final Reader reader) throws IOException, ParserException, ParsingCanceledException;
 
     /**
      * Creates a new instance of {@link Warning} using the parser's group as warning type.

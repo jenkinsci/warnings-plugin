@@ -21,11 +21,10 @@ import hudson.plugins.analysis.util.model.FileAnnotation;
  */
 public class ParserRegistryIntegrationTest extends HudsonTestCase {
     /** If you add a new parser then this value needs to be adapted. */
-    private static final int NUMBER_OF_AVAILABLE_PARSERS = 48;
+    private static final int NUMBER_OF_AVAILABLE_PARSERS = 47;
     private static final String OLD_ID_ECLIPSE_JAVA_COMPILER = "Eclipse Java Compiler";
     private static final String JAVA_WARNINGS_FILE = "deprecations.txt";
     private static final String OLD_ID_JAVA_COMPILER = "Java Compiler";
-    private static final String MIXED_API = "Both APIs";
     private static final String NEW_API = "New Parser API";
     private static final String OLD_API = "Old Parser API";
 
@@ -46,7 +45,6 @@ public class ParserRegistryIntegrationTest extends HudsonTestCase {
     public void testRegistry() {
         assertEquals("Wrong new API implementations", 1, ParserRegistry.getParsers(NEW_API).size());
         assertEquals("Wrong old API implementations", 1, ParserRegistry.getParsers(OLD_API).size());
-        assertEquals("Wrong mixed API implementations", 1, ParserRegistry.getParsers(MIXED_API).size());
     }
 
     /**

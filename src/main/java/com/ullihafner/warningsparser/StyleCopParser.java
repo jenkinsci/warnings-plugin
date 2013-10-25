@@ -47,10 +47,10 @@ public class StyleCopParser extends AbstractWarningsParser {
             return parseViolations(XmlElementUtil.getNamedChildElements(rootElement, "Violation"));
         }
         catch (ParserConfigurationException exception) {
-            throw new IOException(exception);
+            throw new ParserException(exception);
         }
         catch (SAXException exception) {
-            throw new IOException(exception);
+            throw new ParserException(exception);
         }
     }
 

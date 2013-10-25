@@ -13,6 +13,7 @@ import javax.xml.parsers.SAXParserFactory;
 import org.apache.tools.ant.util.ReaderInputStream;
 import org.xml.sax.SAXException;
 
+
 /**
  * Class for parsers based on {@link JSLintXMLSaxParser}. Can parse CssLint and JSLint.
  *
@@ -21,7 +22,7 @@ import org.xml.sax.SAXException;
 public class LintParser extends AbstractWarningsParser {
 
     @Override
-    public Collection<Warning> parse(final Reader file) throws IOException, ParsingCanceledException {
+    public Collection<Warning> parse(final Reader file) throws IOException, ParserException {
         try {
             List<Warning> warnings = new ArrayList<Warning>();
             SAXParserFactory parserFactory = SAXParserFactory.newInstance();
@@ -32,10 +33,10 @@ public class LintParser extends AbstractWarningsParser {
             return warnings;
         }
         catch (SAXException exception) {
-            throw new IOException(exception);
+            throw new ParserException(exception);
         }
         catch (ParserConfigurationException exception) {
-            throw new IOException(exception);
+            throw new ParserException(exception);
         }
     }
 }

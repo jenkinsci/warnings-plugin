@@ -25,8 +25,10 @@ public interface WarningsParser {
      * @return the collection of annotations
      * @throws IOException
      *             Signals that an I/O exception has occurred.
+     * @throws ParserException
+     *             Signals that an exception has occurred during parsing.
      * @throws ParsingCanceledException
      *             Signals that the user canceled this operation
      */
-    Collection<Warning> parse(final Reader reader) throws IOException, ParsingCanceledException;
+    Collection<Warning> parse(final Reader reader) throws IOException, ParserException, ParsingCanceledException;
 }

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import com.ullihafner.warningsparser.ParserException;
 import com.ullihafner.warningsparser.ParsingCanceledException;
 import com.ullihafner.warningsparser.jcreport.File;
 import com.ullihafner.warningsparser.jcreport.Item;
@@ -17,8 +18,6 @@ import com.ullihafner.warningsparser.jcreport.Report;
 import hudson.plugins.analysis.util.model.FileAnnotation;
 import hudson.plugins.analysis.util.model.Priority;
 import hudson.plugins.warnings.parser.jcreport.JcReportParser;
-
-import hudson.util.IOException2;
 
 /**
  * Tests the JcReportParser-Class.
@@ -113,6 +112,8 @@ public class JcReportParserTest {
      * explains the expected = IOException.class.
      *
      * @author Johann Vierthaler, johann.vierthaler@web.de
+     * @throws ParserException
+     *             -> thrown by jcrp.parse();
      * @throws ParsingCanceledException
      *             -> thrown by jcrp.parse();
      * @throws IOException
@@ -120,8 +121,8 @@ public class JcReportParserTest {
      * @Coverage The missing coverage is a known issue with ECLEMMA. For further Information:
      *           http://www.eclemma.org/faq.html#trouble05
      */
-    @Test(expected = IOException2.class)
-    public void testSAXEception() throws ParsingCanceledException, IOException {
+    @Test(expected = ParserException.class)
+    public void testSAXEception() throws ParserException, ParsingCanceledException, IOException {
         new JcReportParser().parse(new InputStreamReader(new FileInputStream(
                 "src/test/resources/hudson/plugins/warnings/parser/jcreport/testCorrupt.xml"), "UTF-8"));
     }

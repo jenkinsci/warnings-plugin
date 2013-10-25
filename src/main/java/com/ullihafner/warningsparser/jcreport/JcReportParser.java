@@ -13,6 +13,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import com.ullihafner.warningsparser.AbstractWarningsParser;
+import com.ullihafner.warningsparser.ParserException;
 import com.ullihafner.warningsparser.ParsingCanceledException;
 import com.ullihafner.warningsparser.Warning;
 import com.ullihafner.warningsparser.Warning.Priority;
@@ -106,7 +107,7 @@ public class JcReportParser extends AbstractWarningsParser {
         }
 
         catch (SAXException exception) {
-            throw new IOException(exception);
+            throw new ParserException(exception);
         }
     }
 }

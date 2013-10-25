@@ -28,8 +28,8 @@ public class DynamicParserTest extends PhpParserTest {
     protected AbstractWarningsParser createParser() {
         return new DynamicParser(TYPE,
                 "^.*(PHP Warning|PHP Notice|PHP Fatal error):\\s+(.+ in (.+) on line (\\d+))$",
-                "        import hudson.plugins.analysis.util.model.Priority;\n"
-              + "        import hudson.plugins.warnings.parser.Warning\n"
+                "        import com.ullihafner.warningsparser.Warning.Priority;\n"
+              + "        import com.ullihafner.warningsparser.Warning\n"
               + "        String category = matcher.group(1);\n"
               + "        String message = matcher.group(2);\n"
               + "        String fileName = matcher.group(3);\n"
@@ -53,7 +53,7 @@ public class DynamicParserTest extends PhpParserTest {
     public void issue12280() throws IOException {
         Collection<FileAnnotation> warnings = new DynamicParser("issue12280",
                 "^.*: XmlDoc warning (\\w+): (.* type ([^\\s]+)\\..*)$",
-                "import hudson.plugins.warnings.parser.Warning\n"
+                "import com.ullihafner.warningsparser.Warning\n"
                 + "    String fileName = matcher.group(3)\n"
                 + "    String category = matcher.group(1)\n"
                 + "    String message = matcher.group(2)\n"
@@ -81,7 +81,7 @@ public class DynamicParserTest extends PhpParserTest {
     private DynamicParser createCustomParser() {
         return new DynamicParser("issue11926",
                 "FLMSG (\\S+)\\s+([0-9]+) ([^\\s,]+),([0-9]+) (\\S+)",
-                "import hudson.plugins.warnings.parser.Warning\n"
+                "import com.ullihafner.warningsparser.Warning\n"
                         + "String fileName = matcher.group(3)\n"
                         + "String code = matcher.group(2)\n"
                         + "String lineNumber = matcher.group(4)\n"

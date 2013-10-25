@@ -24,6 +24,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import com.ullihafner.warningsparser.AbstractWarningsParser;
+import com.ullihafner.warningsparser.ParserException;
 import com.ullihafner.warningsparser.ParsingCanceledException;
 import com.ullihafner.warningsparser.Warning;
 import com.ullihafner.warningsparser.Warning.Priority;
@@ -55,10 +56,10 @@ public class GendarmeParser extends AbstractWarningsParser {
             return parseViolations(XmlElementUtil.getNamedChildElements(resultsElement, "rule"), rules);
         }
         catch (ParserConfigurationException pce) {
-            throw new IOException(pce);
+            throw new ParserException(pce);
         }
         catch (SAXException se) {
-            throw new IOException(se);
+            throw new ParserException(se);
         }
     }
 

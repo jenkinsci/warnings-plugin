@@ -17,6 +17,7 @@ import org.xml.sax.SAXException;
 
 import com.google.common.collect.Lists;
 import com.ullihafner.warningsparser.AbstractWarningsParser;
+import com.ullihafner.warningsparser.ParserException;
 import com.ullihafner.warningsparser.ParsingCanceledException;
 import com.ullihafner.warningsparser.Warning;
 import com.ullihafner.warningsparser.Warning.Priority;
@@ -57,10 +58,10 @@ public class FxCopParser extends AbstractWarningsParser {
             return warnings;
         }
         catch (ParserConfigurationException exception) {
-            throw new IOException(exception);
+            throw new ParserException(exception);
         }
         catch (SAXException exception) {
-            throw new IOException(exception);
+            throw new ParserException(exception);
         }
     }
 
