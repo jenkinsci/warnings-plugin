@@ -12,7 +12,6 @@ import com.ullihafner.warningsparser.Warning.Priority;
  * @author Ulli Hafner
  */
 public class MsBuildParser extends RegexpLineParser {
-    public static final String WARNING_TYPE = "MSBuild";
     private static final String MS_BUILD_WARNING_PATTERN = ANT_TASK
             + "(?:\\s*\\d+>)?(?:(?:(?:(.*)\\((\\d*)(?:,(\\d+))?.*\\)|.*LINK)\\s*:|(.*):)\\s*([Nn]ote|[Ii]nfo|[Ww]arning|(?:fatal\\s*)?[Ee]rror)\\s*:?\\s*([A-Za-z0-9]+):\\s*(.*)|(.*)\\s*:.*error\\s*(LNK[0-9]+):\\s*(.*))$";
 

@@ -17,7 +17,7 @@ import hudson.plugins.analysis.util.model.Priority;
  * Tests the class {@link MsBuildParser}.
  */
 public class MsBuildParserTest extends ParserTester {
-    private static final String WARNING_TYPE = com.ullihafner.warningsparser.MsBuildParser.WARNING_TYPE;
+    private static final String WARNING_TYPE = "MSBuild";
 
     /**
      * Parses a file with 4 warnings of PCLint tools.
