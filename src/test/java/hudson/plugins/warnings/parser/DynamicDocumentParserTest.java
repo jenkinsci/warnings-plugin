@@ -15,9 +15,9 @@ public class DynamicDocumentParserTest extends AbstractEclipseParserTest {
         // CHECKSTYLE:OFF
         return new DynamicDocumentParser(TYPE,
                 "(WARNING|ERROR)\\s*in\\s*(.*)\\(at line\\s*(\\d+)\\).*(?:\\r?\\n[^\\^]*)+(?:\\r?\\n(.*)([\\^]+).*)\\r?\\n(?:\\s*\\[.*\\]\\s*)?(.*)",
-                "import hudson.plugins.warnings.parser.Warning\n" +
+                "import com.ullihafner.warningsparser.Warning\n" +
                 "import org.apache.commons.lang.StringUtils\n" +
-                "import hudson.plugins.analysis.util.model.Priority\n" +
+                "import com.ullihafner.warningsparser.Warning.Priority\n" +
                 "String type = matcher.group(1)\n" +
                 "Priority priority;\n" +
                 "if (\"warning\".equalsIgnoreCase(type)) {\n" +

@@ -1,10 +1,6 @@
 package hudson.plugins.warnings.parser;
 
-import java.util.regex.Matcher;
-
 import hudson.Extension;
-
-import hudson.plugins.analysis.util.model.Priority;
 
 /**
  * A parser for the Clang compiler warnings.
@@ -12,9 +8,8 @@ import hudson.plugins.analysis.util.model.Priority;
  * @author Neil Davis
  */
 @Extension
-public class ClangParser extends RegexpLineParser {
+public class ClangParser extends AbstractWarningsParser {
     private static final long serialVersionUID = -3015592762345283182L;
-    private static final String CLANG_WARNING_PATTERN = "^\\s*(?:\\d+%)?([^%]*?):(\\d+):(?:(\\d+):)?(?:(?:\\{\\d+:\\d+-\\d+:\\d+\\})+:)?\\s*(warning|.*error):\\s*(.*?)(?:\\[(.*)\\])?$";
 
     /**
      * Creates a new instance of {@link ClangParser}.
@@ -22,39 +17,16 @@ public class ClangParser extends RegexpLineParser {
     public ClangParser() {
         super(Messages._Warnings_AppleLLVMClang_ParserName(),
                 Messages._Warnings_AppleLLVMClang_LinkName(),
-                Messages._Warnings_AppleLLVMClang_TrendName(),
-                CLANG_WARNING_PATTERN);
-    }
-
-    @Override
-    protected Warning createWarning(final Matcher matcher) {
-        String filename = matcher.group(1);
-        int lineNumber = getLineNumber(matcher.group(2));
-        int column = getLineNumber(matcher.group(3));
-        String type = matcher.group(4);
-        String message = matcher.group(5);
-        String category = matcher.group(6);
-
-        Priority priority;
-        if (type.contains("error")) {
-            priority = Priority.HIGH;
-        }
-        else {
-            priority = Priority.NORMAL;
-        }
-        Warning warning;
-        if (category == null) {
-            warning = createWarning(filename, lineNumber, message, priority);
-        }
-        else {
-            warning = createWarning(filename, lineNumber, category, message, priority);
-        }
-        warning.setColumnPosition(column);
-        return warning;
+                Messages._Warnings_AppleLLVMClang_TrendName());
     }
 
     @Override
     protected String getId() {
         return "Apple LLVM Compiler (Clang)"; // old ID in serialization
+    }
+
+    @Override
+    protected com.ullihafner.warningsparser.WarningsParser getParser() {
+        return new com.ullihafner.warningsparser.ClangParser();
     }
 }

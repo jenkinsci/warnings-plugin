@@ -66,6 +66,31 @@ public class Warning extends AbstractAnnotation {
     }
 
     /**
+     * Creates a new instance of <code>Warning</code>.
+     *
+     * @param fileName
+     *            the name of the file
+     * @param start
+     *            the first line of the line range
+     * @param end
+     *            the last line of the line range
+     * @param type
+     *            the identifier of the warning type
+     * @param category
+     *            the warning category
+     * @param message
+     *            the message of the warning
+     * @param priority
+     *            the priority of the warning
+     */
+    public Warning(final String fileName, final int start, final int end, final String type, final String category, final String message, final Priority priority) {
+        super(priority, message, start, end, category, type);
+
+        setFileName(fileName);
+        setOrigin(ORIGIN);
+    }
+
+    /**
      * Creates a new instance of {@link Warning}. This warning is a copy of the
      * specified warning with the additional message text (at the specified
      * line).

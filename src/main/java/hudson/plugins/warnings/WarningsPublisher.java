@@ -12,6 +12,7 @@ import org.kohsuke.stapler.DataBoundConstructor;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import com.ullihafner.warningsparser.ParsingCanceledException;
 
 import hudson.Launcher;
 import hudson.matrix.MatrixAggregator;
@@ -33,7 +34,6 @@ import hudson.plugins.analysis.util.PluginLogger;
 import hudson.plugins.analysis.util.model.FileAnnotation;
 import hudson.plugins.warnings.parser.FileWarningsParser;
 import hudson.plugins.warnings.parser.ParserRegistry;
-import hudson.plugins.warnings.parser.ParsingCanceledException;
 
 /**
  * Publishes the results of the warnings analysis (freestyle project type).

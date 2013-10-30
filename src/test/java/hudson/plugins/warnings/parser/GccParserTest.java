@@ -16,7 +16,7 @@ import hudson.plugins.analysis.util.model.Priority;
  */
 public class GccParserTest extends ParserTester {
     private static final String TYPE = new GccParser().getGroup();
-    private static final String GCC_ERROR = GccParser.GCC_ERROR;
+    private static final String GCC_ERROR = com.ullihafner.warningsparser.GccParser.GCC_ERROR;
     private static final String GCC_WARNING = "GCC warning";
 
     /**
@@ -117,17 +117,17 @@ public class GccParserTest extends ParserTester {
                 12,
                 "file.h: No such file or directory",
                 "/dir1/dir2/file.c",
-                TYPE, GccParser.GCC_ERROR, Priority.HIGH);
+                TYPE, GCC_ERROR, Priority.HIGH);
         checkWarning(iterator.next(),
                 233,
                 "undefined reference to `MyInterface::getValue() const'",
                 "/dir1/dir3/file.cpp",
-                TYPE, GccParser.GCC_ERROR, Priority.HIGH);
+                TYPE, GCC_ERROR, Priority.HIGH);
         checkWarning(iterator.next(),
                 20,
                 "invalid preprocessing directive #incldue",
                 "/dir1/dir2/file.cpp",
-                TYPE, GccParser.GCC_ERROR, Priority.HIGH);
+                TYPE, GCC_ERROR, Priority.HIGH);
     }
 
     /**
@@ -206,7 +206,7 @@ public class GccParserTest extends ParserTester {
                 0,
                 "cannot find -lMyLib",
                 "MyLib",
-                TYPE, GccParser.LINKER_ERROR, Priority.HIGH);
+                TYPE, com.ullihafner.warningsparser.GccParser.LINKER_ERROR, Priority.HIGH);
     }
 
     /**

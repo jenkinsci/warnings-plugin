@@ -16,7 +16,7 @@ import hudson.plugins.analysis.util.model.Priority;
  */
 public class TnsdlParserTest extends ParserTester {
     private static final String TYPE = new TnsdlParser().getGroup();
-    private static final String WARNING_CATEGORY = TnsdlParser.WARNING_CATEGORY;
+    private static final String WARNING_CATEGORY = com.ullihafner.warningsparser.TnsdlParser.WARNING_CATEGORY;
 
     /**
      * Parses a file with four tnsdl warnings.

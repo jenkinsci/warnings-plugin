@@ -421,11 +421,9 @@ public class ParserRegistry {
 
         private static final long serialVersionUID = 1L;
 
-        /** {@inheritDoc} */
         @Override
-        public Collection<FileAnnotation> parse(final Reader reader) throws IOException,
-                ParsingCanceledException {
-            return Collections.emptyList();
+        protected com.ullihafner.warningsparser.WarningsParser getParser() {
+            return new com.ullihafner.warningsparser.NullWarnigsParser();
         }
     }
 

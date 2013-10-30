@@ -17,6 +17,8 @@ import hudson.plugins.analysis.util.model.Priority;
  * Tests the class {@link MsBuildParser}.
  */
 public class MsBuildParserTest extends ParserTester {
+    private static final String WARNING_TYPE = "MSBuild";
+
     /**
      * Parses a file with 4 warnings of PCLint tools.
      *
@@ -46,7 +48,7 @@ public class MsBuildParserTest extends ParserTester {
         FileAnnotation annotation = warnings.iterator().next();
         checkWarning(annotation,
                 54, "cannot open include file: 'Header.h': No such file or directory",
-                "..//..//..//xx_Source//file.c", MsBuildParser.WARNING_TYPE, "c1083", Priority.HIGH);
+                "..//..//..//xx_Source//file.c", WARNING_TYPE, "c1083", Priority.HIGH);
     }
 
     /**
@@ -79,7 +81,7 @@ public class MsBuildParserTest extends ParserTester {
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 5, warnings.size());
         FileAnnotation annotation = warnings.iterator().next();
         checkWarning(annotation, 2, "Using directives must be sorted alphabetically by the namespaces. [C:\\hudsonSlave\\workspace\\MyProject\\Source\\Common.Tests.Stubs.csproj]",
-                "MoqExtensions.cs", MsBuildParser.WARNING_TYPE, "SA1210", Priority.NORMAL);
+                "MoqExtensions.cs", WARNING_TYPE, "SA1210", Priority.NORMAL);
     }
 
     /**
@@ -96,7 +98,7 @@ public class MsBuildParserTest extends ParserTester {
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 1, warnings.size());
         FileAnnotation annotation = warnings.iterator().next();
         checkWarning(annotation, 1145, "The variable 'ex' is declared but never used", "Rules/TaskRules.cs",
-                MsBuildParser.WARNING_TYPE, "CS0168", Priority.NORMAL);
+                WARNING_TYPE, "CS0168", Priority.NORMAL);
     }
 
     /**
@@ -114,7 +116,7 @@ public class MsBuildParserTest extends ParserTester {
         FileAnnotation annotation = warnings.iterator().next();
         checkWarning(annotation, 125, "assignment within conditional expression",
                 "c:/jci/jobs/external_nvtristrip/workspace/compiler/cl/config/debug/platform/win32/tfields/live/external/nvtristrip/nvtristrip.cpp",
-                MsBuildParser.WARNING_TYPE, "C4706", Priority.NORMAL);
+                WARNING_TYPE, "C4706", Priority.NORMAL);
     }
 
     /**
@@ -135,13 +137,13 @@ public class MsBuildParserTest extends ParserTester {
                 0,
                 "unresolved external symbol \"public:",
                 "SynchronisationHeure.obj",
-                MsBuildParser.WARNING_TYPE, "LNK2001", Priority.HIGH);
+                WARNING_TYPE, "LNK2001", Priority.HIGH);
         annotation = iterator.next();
         checkWarning(annotation,
                 0,
                 "1 unresolved externals",
                 "Release/Navineo.exe",
-                MsBuildParser.WARNING_TYPE, "LNK1120", Priority.HIGH);
+                WARNING_TYPE, "LNK1120", Priority.HIGH);
     }
 
     /**
@@ -162,7 +164,7 @@ public class MsBuildParserTest extends ParserTester {
                 0,
                 "The Project Item \"StructureLibrary\" is included in the following Features: TypesAndLists, StructureBrowser [c:\\playpens\\Catalyst\\Platform\\src\\Ptc.Platform.Web\\Ptc.Platform.Web.csproj]",
                 "c:/playpens/Catalyst/Platform/src/Ptc.Platform.Web/Package/Package.package",
-                MsBuildParser.WARNING_TYPE, "SPT6", Priority.NORMAL);
+                WARNING_TYPE, "SPT6", Priority.NORMAL);
         annotation = iterator.next();
         annotation = iterator.next();
         annotation = iterator.next();
@@ -174,7 +176,7 @@ public class MsBuildParserTest extends ParserTester {
                 29,
                 "'Ptc.Ppm.PpmInstaller.PpmInstaller.InitializeComponent()' hides inherited member 'Ptc.Platform.Forms.Wizard.WizardControl.InitializeComponent()'. To make the current member override that implementation, add the override keyword. Otherwise add the new keyword. [c:\\playpens\\Catalyst\\PPM\\tools\\Ptc.Ppm.Configurator\\src\\Ptc.Ppm.PpmInstaller\\Ptc.Ppm.PpmInstaller.csproj]",
                 "PpmInstaller.Designer.cs",
-                MsBuildParser.WARNING_TYPE, "CS0114", Priority.NORMAL);
+                WARNING_TYPE, "CS0114", Priority.NORMAL);
     }
 
     /**
@@ -195,37 +197,37 @@ public class MsBuildParserTest extends ParserTester {
                 2242, 17,
                 "The variable 'type' is declared but never used",
                 "Src/Parser/CSharp/cs.ATG",
-                MsBuildParser.WARNING_TYPE, "CS0168", Priority.NORMAL);
+                WARNING_TYPE, "CS0168", Priority.NORMAL);
         annotation = iterator.next();
         checkWarning(annotation,
                 10,
                 "An error occurred",
                 "C:/Src/Parser/CSharp/file.cs",
-                MsBuildParser.WARNING_TYPE, "XXX", Priority.HIGH);
+                WARNING_TYPE, "XXX", Priority.HIGH);
         annotation = iterator.next();
         checkWarning(annotation,
                 1338,
                 "System.ComponentModel.Design.ComponentDesigner.OnSetComponentDefaults() : This method has been deprecated. Use InitializeNewComponent instead. http://go.microsoft.com/fwlink/?linkid=14202",
                 "Controls/MozItem.cs",
-                MsBuildParser.WARNING_TYPE, "CS0618", Priority.NORMAL);
+                WARNING_TYPE, "CS0618", Priority.NORMAL);
         annotation = iterator.next();
         checkWarning(annotation,
                 3001, 5,
                 "Hier kommt der Warnings Text",
                 "MediaPortal.cs",
-                MsBuildParser.WARNING_TYPE, "CS0162", Priority.NORMAL);
+                WARNING_TYPE, "CS0162", Priority.NORMAL);
         annotation = iterator.next();
         checkWarning(annotation,
                 18,
                 "Cannot open include file: xyz.h:...",
                 "x/a/b/include/abc.h",
-                MsBuildParser.WARNING_TYPE, "C1083", Priority.HIGH);
+                WARNING_TYPE, "C1083", Priority.HIGH);
         annotation = iterator.next();
         checkWarning(annotation,
                 5,
                 "This is an info message from PcLint",
                 "foo.h",
-                MsBuildParser.WARNING_TYPE, "701", Priority.LOW);
+                WARNING_TYPE, "701", Priority.LOW);
     }
 
     /**
@@ -255,13 +257,13 @@ public class MsBuildParserTest extends ParserTester {
                 2242,
                 "The variable 'type' is declared but never used",
                 "Src/Parser/CSharp/cs.ATG",
-                MsBuildParser.WARNING_TYPE, "CS0168", Priority.NORMAL);
+                WARNING_TYPE, "CS0168", Priority.NORMAL);
         annotation = iterator.next();
         checkWarning(annotation,
                 10,
                 "An error occurred",
                 "C:/Src/Parser/CSharp/file.cs",
-                MsBuildParser.WARNING_TYPE, "XXX", Priority.HIGH);
+                WARNING_TYPE, "XXX", Priority.HIGH);
 
     }
 

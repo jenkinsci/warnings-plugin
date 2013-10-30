@@ -41,7 +41,7 @@ public class JSLintParserTest extends ParserTester {
         Iterator<FileAnnotation> iterator = warnings.iterator();
         checkWarning(iterator.next(), 3, 5,
                 "'window' is not defined.", "C:/DVR/lint_Mobile-Localization_ws/evWebService/WebClientApi/api-v1.js",
-                JSLintXMLSaxParser.CATEGORY_UNDEFINED_VARIABLE, Priority.HIGH);
+                com.ullihafner.warningsparser.JSLintXMLSaxParser.CATEGORY_UNDEFINED_VARIABLE, Priority.HIGH);
     }
 
     /**
@@ -67,7 +67,7 @@ public class JSLintParserTest extends ParserTester {
 
         FileAnnotation firstWarning = results.iterator().next();
         checkWarning(firstWarning, 10, 3, "Expected 'Version' to have an indentation at 5 instead at 3.",
-                EXPECTED_FILE_NAME, JSLintXMLSaxParser.CATEGORY_PARSING, Priority.HIGH);
+                EXPECTED_FILE_NAME, com.ullihafner.warningsparser.JSLintXMLSaxParser.CATEGORY_PARSING, Priority.HIGH);
     }
 
     private void verifyFileName(final List<WorkspaceFile> sortedFiles, final String expectedName, final int position) {

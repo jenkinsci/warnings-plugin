@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.Collection;
 
+import com.ullihafner.warningsparser.ParsingCanceledException;
+
 import hudson.plugins.analysis.util.model.FileAnnotation;
 
 /**
@@ -34,6 +36,11 @@ public class ParserAdapter extends AbstractWarningsParser {
     @Override
     public Collection<FileAnnotation> parse(final Reader reader) throws IOException, ParsingCanceledException {
         return wrapped.parse(reader);
+    }
+
+    @Override
+    protected com.ullihafner.warningsparser.WarningsParser getParser() {
+        throw new UnsupportedOperationException();
     }
 }
 

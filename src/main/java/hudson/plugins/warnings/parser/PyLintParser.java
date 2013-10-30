@@ -1,7 +1,5 @@
 package hudson.plugins.warnings.parser;
 
-import java.util.regex.Matcher;
-
 import hudson.Extension;
 
 /**
@@ -10,10 +8,8 @@ import hudson.Extension;
  * @author Sebastian Hansbauer
  */
 @Extension
-public class PyLintParser extends RegexpLineParser {
+public class PyLintParser extends AbstractWarningsParser {
     private static final long serialVersionUID = 4464053085862883240L;
-
-    private static final String PYLINT_ERROR_PATTERN = "(.*):(\\d+): \\[(\\D\\d*).*\\] (.*)";
 
     /**
      * Creates a new instance of {@link PyLintParser}.
@@ -21,20 +17,11 @@ public class PyLintParser extends RegexpLineParser {
     public PyLintParser() {
         super(Messages._Warnings_PyLint_ParserName(),
                 Messages._Warnings_PyLint_LinkName(),
-                Messages._Warnings_PyLint_TrendName(),
-                PYLINT_ERROR_PATTERN, true);
+                Messages._Warnings_PyLint_TrendName());
     }
 
     @Override
-    protected boolean isLineInteresting(final String line) {
-        return line.contains("[");
-    }
-
-    @Override
-    protected Warning createWarning(final Matcher matcher) {
-        String message = matcher.group(4);
-        String category = classifyIfEmpty(matcher.group(3), message);
-
-        return createWarning(matcher.group(1), getLineNumber(matcher.group(2)), category, message);
+    protected com.ullihafner.warningsparser.WarningsParser getParser() {
+        return new com.ullihafner.warningsparser.PyLintParser();
     }
 }

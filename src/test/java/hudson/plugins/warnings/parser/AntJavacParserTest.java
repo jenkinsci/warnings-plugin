@@ -64,7 +64,7 @@ public class AntJavacParserTest extends ParserTester {
                 51,
                 "<T>stubVoid(T) in org.mockito.Mockito has been deprecated",
                 "/home/hudson/hudson/data/jobs/Mockito/workspace/trunk/test/org/mockitousage/stubbing/StubbingWithThrowablesTest.java",
-                WARNING_TYPE, RegexpParser.DEPRECATION, Priority.NORMAL);
+                WARNING_TYPE, com.ullihafner.warningsparser.RegexpParser.DEPRECATION, Priority.NORMAL);
     }
 
     /**

@@ -15,7 +15,7 @@ import hudson.plugins.analysis.util.model.Priority;
  * Tests the class {@link Gcc4LinkerParser}.
  */
 public class Gcc4LinkerParserTest extends ParserTester {
-    private static final String WARNING_CATEGORY = Gcc4LinkerParser.WARNING_CATEGORY;
+    private static final String WARNING_CATEGORY = com.ullihafner.warningsparser.Gcc4LinkerParser.WARNING_CATEGORY;
     private static final String WARNING_TYPE = new Gcc4LinkerParser().getGroup();
     private static final String THERE_ARE_WARNINGS_FOUND = "There are warnings found";
 

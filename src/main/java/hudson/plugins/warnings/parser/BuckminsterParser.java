@@ -1,10 +1,6 @@
 package hudson.plugins.warnings.parser;
 
-import java.util.regex.Matcher;
-
 import hudson.Extension;
-
-import hudson.plugins.analysis.util.model.Priority;
 
 /**
  * A parser for Buckminster compiler warnings.
@@ -12,9 +8,8 @@ import hudson.plugins.analysis.util.model.Priority;
  * @author Johannes Utzig
  */
 @Extension
-public class BuckminsterParser extends RegexpLineParser {
+public class BuckminsterParser extends AbstractWarningsParser {
     private static final long serialVersionUID = -3723799140297979579L;
-    private static final String BUCKMINSTER_WARNING_PATTERN = "^.*(Warning|Error): file (.*?)(, line )?(\\d*): (.*)$";
 
     /**
      * Creates a new instance of {@link BuckminsterParser}.
@@ -22,8 +17,7 @@ public class BuckminsterParser extends RegexpLineParser {
     public BuckminsterParser() {
         super(Messages._Warnings_Buckminster_ParserName(),
                 Messages._Warnings_Buckminster_LinkName(),
-                Messages._Warnings_Buckminster_TrendName(),
-        BUCKMINSTER_WARNING_PATTERN);
+                Messages._Warnings_Buckminster_TrendName());
     }
 
     @Override
@@ -32,10 +26,8 @@ public class BuckminsterParser extends RegexpLineParser {
     }
 
     @Override
-    protected Warning createWarning(final Matcher matcher) {
-        Priority priority = "Error".equalsIgnoreCase(matcher.group(1)) ? Priority.HIGH : Priority.NORMAL;
-        return createWarning(matcher.group(2), getLineNumber(matcher.group(4)), classifyWarning(matcher.group(5)), matcher.group(5), priority);
-
+    protected com.ullihafner.warningsparser.WarningsParser getParser() {
+        return new com.ullihafner.warningsparser.BuckminsterParser();
     }
 }
 

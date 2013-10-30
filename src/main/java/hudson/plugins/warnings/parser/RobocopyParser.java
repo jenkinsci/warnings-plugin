@@ -1,10 +1,6 @@
 package hudson.plugins.warnings.parser;
 
-import java.util.regex.Matcher;
-
 import hudson.Extension;
-
-import hudson.plugins.analysis.util.model.Priority;
 
 /**
  * A parser for Robocopy.
@@ -17,10 +13,8 @@ import hudson.plugins.analysis.util.model.Priority;
  *                 same                 0        a.log
  */
 @Extension
-public class RobocopyParser extends RegexpLineParser {
+public class RobocopyParser extends AbstractWarningsParser {
     private static final long serialVersionUID = -671744745118772873L;
-    /** Pattern of perforce compiler warnings. */
-    private static final String ROBOCOPY_WARNING_PATTERN = "^(.*)(EXTRA File|New File|same)\\s*(\\d*)\\s*(.*)$";
 
     /**
      * Creates a new instance of {@link RobocopyParser}.
@@ -28,8 +22,7 @@ public class RobocopyParser extends RegexpLineParser {
     public RobocopyParser() {
         super(Messages._Warnings_Robocopy_ParserName(),
                 Messages._Warnings_Robocopy_LinkName(),
-                Messages._Warnings_Robocopy_TrendName(),
-                ROBOCOPY_WARNING_PATTERN, true);
+                Messages._Warnings_Robocopy_TrendName());
     }
 
     @Override
@@ -38,16 +31,8 @@ public class RobocopyParser extends RegexpLineParser {
     }
 
     @Override
-    protected Warning createWarning(final Matcher matcher) {
-        String file = matcher.group(4).split("\\s{11}")[0];
-        String message = file;
-        String category = matcher.group(2);
-        return createWarning(file, 0, category, message, Priority.NORMAL);
-    }
-
-    @Override
-    protected boolean isLineInteresting(final String line) {
-        return line.contains("        ");
+    protected com.ullihafner.warningsparser.WarningsParser getParser() {
+        return new com.ullihafner.warningsparser.RobocopyParser();
     }
 }
 

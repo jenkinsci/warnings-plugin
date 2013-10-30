@@ -49,7 +49,7 @@ public class MavenParserTest extends ParserTester {
         checkWarning(annotation, lineNumber,
                 "com.sun.org.apache.xerces.internal.impl.dv.util.Base64 is Sun proprietary API and may be removed in a future release",
                 "/home/hudson/hudson/data/jobs/Hudson main/workspace/remoting/src/test/java/hudson/remoting/BinarySafeStreamTest.java",
-                WARNING_TYPE, RegexpParser.PROPRIETARY_API, Priority.NORMAL);
+                WARNING_TYPE, com.ullihafner.warningsparser.RegexpParser.PROPRIETARY_API, Priority.NORMAL);
     }
 
     @Override

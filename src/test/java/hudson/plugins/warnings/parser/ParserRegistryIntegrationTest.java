@@ -7,12 +7,10 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.Collection;
 import java.util.List;
-import java.util.regex.Matcher;
 
 import org.junit.Test;
 import org.jvnet.hudson.test.HudsonTestCase;
 import org.jvnet.hudson.test.TestExtension;
-import org.jvnet.localizer.Localizable;
 
 import hudson.plugins.analysis.util.model.FileAnnotation;
 
@@ -23,11 +21,10 @@ import hudson.plugins.analysis.util.model.FileAnnotation;
  */
 public class ParserRegistryIntegrationTest extends HudsonTestCase {
     /** If you add a new parser then this value needs to be adapted. */
-    private static final int NUMBER_OF_AVAILABLE_PARSERS = 48;
+    private static final int NUMBER_OF_AVAILABLE_PARSERS = 47;
     private static final String OLD_ID_ECLIPSE_JAVA_COMPILER = "Eclipse Java Compiler";
     private static final String JAVA_WARNINGS_FILE = "deprecations.txt";
     private static final String OLD_ID_JAVA_COMPILER = "Java Compiler";
-    private static final String MIXED_API = "Both APIs";
     private static final String NEW_API = "New Parser API";
     private static final String OLD_API = "Old Parser API";
 
@@ -48,7 +45,6 @@ public class ParserRegistryIntegrationTest extends HudsonTestCase {
     public void testRegistry() {
         assertEquals("Wrong new API implementations", 1, ParserRegistry.getParsers(NEW_API).size());
         assertEquals("Wrong old API implementations", 1, ParserRegistry.getParsers(OLD_API).size());
-        assertEquals("Wrong mixed API implementations", 1, ParserRegistry.getParsers(MIXED_API).size());
     }
 
     /**
@@ -171,23 +167,6 @@ public class ParserRegistryIntegrationTest extends HudsonTestCase {
     // CHECKSTYLE:OFF Test implementations
     @SuppressWarnings("javadoc")
     @TestExtension
-    public static class TestBothParser extends RegexpLineParser {
-        private static final Localizable DUMMY = Messages._Warnings_NotLocalizedName(MIXED_API);
-        private static final long serialVersionUID = 1L;
-
-        public TestBothParser() {
-            super(DUMMY, DUMMY, DUMMY, MIXED_API);
-        }
-
-        /** {@inheritDoc} */
-        @Override
-        protected Warning createWarning(final Matcher matcher) {
-            return null;
-        }
-
-    }
-    @SuppressWarnings("javadoc")
-    @TestExtension
     public static class TestNewParser extends AbstractWarningsParser {
         private static final long serialVersionUID = 1L;
 
@@ -197,9 +176,8 @@ public class ParserRegistryIntegrationTest extends HudsonTestCase {
 
         /** {@inheritDoc} */
         @Override
-        public Collection<FileAnnotation> parse(final Reader reader) throws IOException,
-                ParsingCanceledException {
-            return null;
+        protected com.ullihafner.warningsparser.WarningsParser getParser() {
+            return new com.ullihafner.warningsparser.NullWarnigsParser();
         }
     }
     @SuppressWarnings({"javadoc", "deprecation"})

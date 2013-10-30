@@ -1,21 +1,8 @@
 package hudson.plugins.warnings.parser;
 
-import java.io.IOException;
-import java.io.Reader;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-
-import org.apache.tools.ant.util.ReaderInputStream;
 import org.jvnet.localizer.Localizable;
-import org.kohsuke.stapler.framework.io.IOException2;
-import org.xml.sax.SAXException;
 
-import hudson.plugins.analysis.util.model.FileAnnotation;
+import com.ullihafner.warningsparser.JSLintXMLSaxParser;
 
 /**
  * Base class for parsers based on {@link JSLintXMLSaxParser}.
@@ -40,21 +27,7 @@ public abstract class LintParser extends AbstractWarningsParser {
     }
 
     @Override
-    public Collection<FileAnnotation> parse(final Reader file) throws IOException, ParsingCanceledException {
-        try {
-            List<FileAnnotation> warnings = new ArrayList<FileAnnotation>();
-            SAXParserFactory parserFactory = SAXParserFactory.newInstance();
-
-            SAXParser parser = parserFactory.newSAXParser();
-            parser.parse(new ReaderInputStream(file, "UTF-8"), new JSLintXMLSaxParser(getGroup(), warnings));
-
-            return warnings;
-        }
-        catch (SAXException exception) {
-            throw new IOException2(exception);
-        }
-        catch (ParserConfigurationException exception) {
-            throw new IOException2(exception);
-        }
+    protected com.ullihafner.warningsparser.WarningsParser getParser() {
+        return new com.ullihafner.warningsparser.LintParser();
     }
 }

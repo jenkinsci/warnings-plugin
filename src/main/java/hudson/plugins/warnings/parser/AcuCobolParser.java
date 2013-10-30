@@ -1,7 +1,5 @@
 package hudson.plugins.warnings.parser;
 
-import java.util.regex.Matcher;
-
 import hudson.Extension;
 
 /**
@@ -10,18 +8,15 @@ import hudson.Extension;
  * @author jerryshea
  */
 @Extension
-public class AcuCobolParser extends RegexpLineParser {
+public class AcuCobolParser extends AbstractWarningsParser {
     private static final long serialVersionUID = -894639209290549425L;
-    private static final String ACUCOBOL_WARNING_PATTERN = "^\\s*(\\[.*\\])?\\s*?(.*), line ([0-9]*): Warning: (.*)$";
 
     /**
      * Creates a new instance of {@link AcuCobolParser}.
      */
     public AcuCobolParser() {
-        super(Messages._Warnings_AcuCobol_ParserName(),
-                Messages._Warnings_AcuCobol_LinkName(),
-                Messages._Warnings_AcuCobol_TrendName(),
-                ACUCOBOL_WARNING_PATTERN, true);
+        super(Messages._Warnings_AcuCobol_ParserName(), Messages._Warnings_AcuCobol_LinkName(), Messages
+                ._Warnings_AcuCobol_TrendName());
     }
 
     @Override
@@ -30,15 +25,7 @@ public class AcuCobolParser extends RegexpLineParser {
     }
 
     @Override
-    protected boolean isLineInteresting(final String line) {
-        return line.contains("Warning");
-    }
-
-    @Override
-    protected Warning createWarning(final Matcher matcher) {
-        String message = matcher.group(4);
-        String category = classifyWarning(message);
-        return new Warning(matcher.group(2), getLineNumber(matcher.group(3)), getGroup(), category, message);
+    protected com.ullihafner.warningsparser.WarningsParser getParser() {
+        return new com.ullihafner.warningsparser.AcuCobolParser();
     }
 }
-
