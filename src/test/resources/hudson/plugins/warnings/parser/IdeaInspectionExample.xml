@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<problems>
+    <problem>
+        <file>file://$PROJECT_DIR$/src/main/java/hudson/plugins/warnings/WarningsDescriptor.java</file>
+        <line>92</line>
+        <module>warnings</module>
+        <package>hudson.plugins.warnings</package>
+        <entry_point TYPE="method" FQNAME="hudson.plugins.warnings.WarningsDescriptor java.lang.Object getDynamic(java.lang.String link, org.kohsuke.stapler.StaplerRequest request, org.kohsuke.stapler.StaplerResponse response)" />
+        <problem_class severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused method parameters</problem_class>
+        <hints>
+            <hint value="response" />
+        </hints>
+        <description>Parameter &lt;code&gt;response&lt;/code&gt; is not used  in either this method or any of its derived methods</description>
+    </problem>
+</problems>
+
