@@ -22,7 +22,6 @@ public class IdeaInspectionParser extends RegexpDocumentParser {
     private static final String IDEA_LARGE_ICON = WarningsDescriptor.IMAGE_PREFIX + "idea-48x48.png";
 
     private static final String IDEA_INSPECTION_PATTERN = "(?s)<problem>.*?<file>(.*?)</file>.*?<line>(.*?)</line>.*?<problem_class.*?severity=\"(.*?)\".*?>(.*?)</problem_class>.*?<description>(.*?)</description>.*?</problem>";
-    private static final int FILENAME_OFFSET = 21;
 
     /**
      * Creates a new instance of {@link IdeaInspectionParser}.
@@ -51,11 +50,10 @@ public class IdeaInspectionParser extends RegexpDocumentParser {
 
     @Override
     protected Warning createWarning(final Matcher matcher) {
-        final String file = matcher.group(1).substring(FILENAME_OFFSET);
         final String severity = matcher.group(3);
         final Priority priority = severity.equals("ERROR") ? Priority.HIGH : severity.equals("WARNING") ? Priority.NORMAL : Priority.LOW;
 
-        return createWarning(file, getLineNumber(matcher.group(2)), matcher.group(4), matcher.group(5), priority);
+        return createWarning(matcher.group(1), getLineNumber(matcher.group(2)), matcher.group(4), matcher.group(5), priority);
     }
 }
 

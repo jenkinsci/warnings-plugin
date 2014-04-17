@@ -34,7 +34,7 @@ public class IdeaInspectionParserTest extends ParserTester {
         checkWarning(annotation,
                 92,
                 "Parameter &lt;code&gt;response&lt;/code&gt; is not used  in either this method or any of its derived methods",
-                "src/main/java/hudson/plugins/warnings/WarningsDescriptor.java",
+                "file://$PROJECT_DIR$/src/main/java/hudson/plugins/warnings/WarningsDescriptor.java",
                 "Unused method parameters",
                 Priority.NORMAL);
     }
