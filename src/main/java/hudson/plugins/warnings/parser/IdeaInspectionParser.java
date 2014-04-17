@@ -3,7 +3,7 @@ package hudson.plugins.warnings.parser;
 import java.util.regex.Matcher;
 
 import hudson.plugins.warnings.WarningsDescriptor;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.StringEscapeUtils;
 
 import hudson.Extension;
 
@@ -52,8 +52,13 @@ public class IdeaInspectionParser extends RegexpDocumentParser {
     protected Warning createWarning(final Matcher matcher) {
         final String severity = matcher.group(3);
         final Priority priority = severity.equals("ERROR") ? Priority.HIGH : severity.equals("WARNING") ? Priority.NORMAL : Priority.LOW;
-
-        return createWarning(matcher.group(1), getLineNumber(matcher.group(2)), matcher.group(4), matcher.group(5), priority);
+        return createWarning(
+                matcher.group(1),
+                getLineNumber(matcher.group(2)),
+                StringEscapeUtils.unescapeXml(matcher.group(4)),
+                StringEscapeUtils.unescapeXml(matcher.group(5)),
+                priority
+        );
     }
 }
 
