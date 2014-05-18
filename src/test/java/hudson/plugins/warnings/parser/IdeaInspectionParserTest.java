@@ -12,9 +12,9 @@ import hudson.plugins.analysis.util.model.FileAnnotation;
 import hudson.plugins.analysis.util.model.Priority;
 
 /**
- * Tests the class {@link IdeaInspectionParser }.
+ * Tests {@link IdeaInspectionParser } parser class.
  *
- * @author Alex Lopashev
+ * @author Alex Lopashev, alexlopashev@gmail.com
  */
 public class IdeaInspectionParserTest extends ParserTester {
     /**
@@ -32,9 +32,9 @@ public class IdeaInspectionParserTest extends ParserTester {
         Iterator<FileAnnotation> iterator = inspections.iterator();
         FileAnnotation annotation = iterator.next();
         checkWarning(annotation,
-                92,
-                "Parameter <code>response</code> is not used  in either this method or any of its derived methods",
-                "file://$PROJECT_DIR$/src/main/java/hudson/plugins/warnings/WarningsDescriptor.java",
+                42,
+                "Parameter <code>intentionallyUnusedString</code> is not used  in either this method or any of its derived methods",
+                "file://$PROJECT_DIR$/src/main/java/org/lopashev/Test.java",
                 "Unused method parameters",
                 Priority.NORMAL);
     }
