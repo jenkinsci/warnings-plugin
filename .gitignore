@@ -4,3 +4,6 @@
 /target
 /npm-debug.log
 /Plug-Ins
+
+# emacs backups
+*~
