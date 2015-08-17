@@ -1,6 +1,8 @@
 /target/
 /work/
 .DS_Store
-/target
 /npm-debug.log
 /Plug-Ins
+
+.idea
+/warnings.iml
