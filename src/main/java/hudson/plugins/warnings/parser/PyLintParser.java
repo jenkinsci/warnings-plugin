@@ -15,7 +15,16 @@ import hudson.Extension;
 public class PyLintParser extends RegexpLineParser {
     private static final long serialVersionUID = 4464053085862883240L;
 
-    private static final String PYLINT_ERROR_PATTERN = "(.*):(\\d+): \\[(\\D\\d*).*\\] (.*)";
+    /**
+     * Parses lines of the type expected from PyLint parseable output.
+     * <br>
+     * Example line: <br>
+     * <pre>app/__init__.py:202: [(low) C0326(bad-whitespace), ] No space allowed around keyword argument assignment</pre>
+     * <br>
+     * The priority, eg (low), is optional.  If this is not included, then
+     * E/F/W defaults to high and everything else is normal priority.<br>
+     */
+    private static final String PYLINT_ERROR_PATTERN = "(.*):(\\d+): \\[(?:\\((\\w+)\\))?\\s*(\\D\\d*).*\\] (.*)";
 
     /**
      * Creates a new instance of {@link PyLintParser}.
@@ -34,12 +43,22 @@ public class PyLintParser extends RegexpLineParser {
 
     @Override
     protected Warning createWarning(final Matcher matcher) {
-        String message = matcher.group(4);
-        String category = classifyIfEmpty(matcher.group(3), message);
-        //First letter of the Pylint classification is one of F/E/W/R/C. E/F/W are high priority.
-        Priority priority = Priority.NORMAL;
-        if (category.charAt(0) == 'E' || category.charAt(0) == 'F' || category.charAt(0) == 'W') {
-            priority = Priority.HIGH;
+        String message = matcher.group(5);
+        String category = classifyIfEmpty(matcher.group(4), message);
+        Priority priority = null;
+        if (matcher.group(3) != null) {
+            try {
+                priority = Priority.fromString(matcher.group(3));
+            } catch (IllegalArgumentException e) {
+                // will fall back to E/F/W = high
+            }
+        }
+        if (priority == null) {
+            //First letter of the Pylint classification is one of F/E/W/R/C. E/F/W are high priority.
+            priority = Priority.NORMAL;
+            if (category.charAt(0) == 'E' || category.charAt(0) == 'F' || category.charAt(0) == 'W') {
+                priority = Priority.HIGH;
+            }
         }
         
         return createWarning(matcher.group(1), getLineNumber(matcher.group(2)), category, message, priority);

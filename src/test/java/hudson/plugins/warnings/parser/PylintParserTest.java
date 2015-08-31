@@ -28,7 +28,7 @@ public class PylintParserTest extends ParserTester {
     public void pyLintTest() throws IOException {
         Collection<FileAnnotation> warnings = new PyLintParser().parse(openFile());
 
-        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 6, warnings.size());
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 8, warnings.size());
 
         Iterator<FileAnnotation> iterator = warnings.iterator();
         FileAnnotation warning;
@@ -68,6 +68,24 @@ public class PylintParserTest extends ParserTester {
                 "trunk/src/python/tv.py",
                 WARNING_TYPE, "F0401", Priority.HIGH);
                 
+        warning = iterator.next();
+        checkWarning(warning,
+                39,
+                "Dangerous default value \"[]\" as argument",
+                "trunk/src/python/tv.py",
+                WARNING_TYPE, "W0102", Priority.HIGH);
+
+        // Test that the prority parsing assigns the correct priority
+        // if it is defined in the warning
+        warning = iterator.next();
+        checkWarning(warning,
+                39,
+                "Dangerous default value \"[]\" as argument",
+                "trunk/src/python/tv.py",
+                WARNING_TYPE, "W0102", Priority.LOW);
+
+        // Test that if the priority format gives an unexpected label,
+        // it falls back to the default parsing
         warning = iterator.next();
         checkWarning(warning,
                 39,

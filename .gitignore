@@ -3,3 +3,6 @@
 .DS_Store
 /npm-debug.log
 /Plug-Ins
+
+# emacs backups
+*~
