@@ -2,9 +2,10 @@ package hudson.plugins.warnings;
 
 import org.jvnet.localizer.Localizable;
 
-import hudson.model.Run;
-import hudson.plugins.analysis.core.AbstractResultAction;
+import hudson.model.AbstractBuild;
+
 import hudson.plugins.analysis.core.HealthDescriptor;
+import hudson.plugins.analysis.core.AbstractResultAction;
 import hudson.plugins.analysis.core.PluginDescriptor;
 import hudson.plugins.warnings.parser.ParserRegistry;
 
@@ -33,13 +34,12 @@ public class WarningsResultAction extends AbstractResultAction<WarningsResult> {
      *            the result in this build
      * @param parserName the name of the parser
      */
-    public WarningsResultAction(final Run<?, ?> owner, final HealthDescriptor healthDescriptor, final WarningsResult result, final String parserName) {
+    public WarningsResultAction(final AbstractBuild<?, ?> owner, final HealthDescriptor healthDescriptor, final WarningsResult result, final String parserName) {
         super(owner, new WarningsHealthDescriptor(healthDescriptor, ParserRegistry.getParser(parserName).getParserName()), result);
 
         this.parserName = parserName;
     }
 
-    @Exported
     @Override
     public String getUrlName() {
         return WarningsDescriptor.getResultUrl(parserName);
@@ -50,7 +50,6 @@ public class WarningsResultAction extends AbstractResultAction<WarningsResult> {
      *
      * @return the parser group
      */
-    @Exported
     public String getParser() {
         return parserName;
     }

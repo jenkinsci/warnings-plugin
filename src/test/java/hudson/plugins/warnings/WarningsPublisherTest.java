@@ -1,5 +1,7 @@
 package hudson.plugins.warnings;
 
+import static org.junit.Assert.*;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -8,8 +10,6 @@ import org.junit.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 
 import com.google.common.collect.Lists;
-
-import static org.junit.Assert.*;
 
 import hudson.model.Action;
 
@@ -77,12 +77,16 @@ public class WarningsPublisherTest {
     }
 
     private void checkFileOrder(final List<ParserConfiguration> fileParsers, final List<String> expected) {
-        WarningsPublisher publisher = new WarningsPublisher(fileParsers, null);
+        WarningsPublisher publisher = new WarningsPublisher(null, null, null, null, false, null, null, null, null, null,
+                null, null, null, null, null, null, null, null, null, null, null, false, false, false, false, false, null, null, null, false,
+                fileParsers, null);
         checkOrder(expected, publisher);
     }
 
     private void checkConsoleOrder(final List<ConsoleParser> consoleParsers, final List<String> expected) {
-        WarningsPublisher publisher = new WarningsPublisher(null, consoleParsers);
+        WarningsPublisher publisher = new WarningsPublisher(null, null, null, null, false, null, null, null, null, null,
+                null, null, null, null, null, null, null, null, null, null, null, false, false, false, false, false, null, null, null, false,
+                null, consoleParsers);
         checkOrder(expected, publisher);
     }
 

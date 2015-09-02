@@ -8,7 +8,6 @@ import org.kohsuke.stapler.StaplerRequest;
 
 import hudson.model.AbstractBuild;
 import hudson.model.AbstractProject;
-import hudson.model.Run;
 import hudson.plugins.analysis.core.AbstractProjectAction;
 import hudson.plugins.analysis.core.BuildHistory;
 import hudson.plugins.analysis.core.NullBuildHistory;
@@ -84,7 +83,7 @@ public class WarningsProjectAction extends AbstractProjectAction<WarningsResultA
 
     @Override
     protected WarningsResultAction getResultAction(final AbstractBuild<?, ?> lastBuild) {
-        return createHistory(lastBuild).getResultAction((Run<?, ?>) lastBuild);
+        return createHistory(lastBuild).getResultAction(lastBuild);
     }
 
     /**

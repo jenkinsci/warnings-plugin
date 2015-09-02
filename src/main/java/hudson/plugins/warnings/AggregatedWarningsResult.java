@@ -2,11 +2,12 @@ package hudson.plugins.warnings;
 
 import com.thoughtworks.xstream.XStream;
 
-import hudson.model.Run;
+import hudson.model.AbstractBuild;
+
 import hudson.plugins.analysis.core.BuildHistory;
-import hudson.plugins.analysis.core.BuildResult;
 import hudson.plugins.analysis.core.ParserResult;
 import hudson.plugins.analysis.core.ResultAction;
+import hudson.plugins.analysis.core.BuildResult;
 import hudson.plugins.warnings.parser.Warning;
 
 /**
@@ -31,8 +32,8 @@ public class AggregatedWarningsResult extends BuildResult {
      * @param defaultEncoding
      *            the default encoding to be used when reading and parsing files
      */
-    public AggregatedWarningsResult(final Run<?, ?> build, final BuildHistory history, final ParserResult result,
-                                    final String defaultEncoding) {
+    public AggregatedWarningsResult(final AbstractBuild<?, ?> build, final BuildHistory history, final ParserResult result,
+            final String defaultEncoding) {
         super(build, history, result, defaultEncoding);
 
         serializeAnnotations(result.getAnnotations());
