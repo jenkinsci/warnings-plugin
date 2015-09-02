@@ -1,5 +1,7 @@
 package hudson.plugins.warnings.parser;
 
+import static org.junit.Assert.*;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,13 +16,11 @@ import org.junit.Test;
 
 import com.google.common.collect.Lists;
 
-import static org.junit.Assert.*;
-
 import hudson.plugins.analysis.core.ParserResult;
 import hudson.plugins.analysis.util.NullLogger;
 import hudson.plugins.analysis.util.model.FileAnnotation;
-import hudson.plugins.warnings.GroovyParser;
 import hudson.plugins.warnings.GroovyParserTest;
+import hudson.plugins.warnings.GroovyParser;
 
 /**
  * Tests the class {@link ParserRegistry}.
@@ -113,7 +113,8 @@ public class ParserRegistryTest {
     private Collection<FileAnnotation> parseAndFilter(final ParserRegistry parserRegistry, final File file,
                                                       final String includePattern, final String excludePattern) throws IOException {
         Collection<FileAnnotation> annotations = parserRegistry.parse(file);
-        return new WarningsFilter().apply(annotations, includePattern, excludePattern, new NullLogger());
+        final String messagesPattern = null;
+        return new WarningsFilter().apply(annotations, includePattern, excludePattern, messagesPattern, new NullLogger());
     }
 
     /**

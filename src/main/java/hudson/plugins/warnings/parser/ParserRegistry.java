@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
-import jenkins.model.Jenkins;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.input.BOMInputStream;
 import org.apache.commons.lang.StringUtils;
@@ -53,7 +52,7 @@ public class ParserRegistry {
      */
     @SuppressWarnings("javadoc")
     private static List<AbstractWarningsParser> all() {
-        Jenkins instance = Jenkins.getInstance();
+        Hudson instance = Hudson.getInstance();
         if (instance == null) {
             return Lists.newArrayList();
         }
@@ -64,7 +63,7 @@ public class ParserRegistry {
     }
 
     @SuppressWarnings("deprecation")
-    private static void addParsersWithDeprecatedApi(final Jenkins instance, final List<AbstractWarningsParser> parsers) {
+    private static void addParsersWithDeprecatedApi(final Hudson instance, final List<AbstractWarningsParser> parsers) {
         for (WarningsParser parser : instance.getExtensionList(WarningsParser.class)) {
             if (!(parser instanceof AbstractWarningsParser)) {
                 parsers.add(new ParserAdapter(parser));
