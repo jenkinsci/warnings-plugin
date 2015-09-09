@@ -46,9 +46,7 @@ public class WarningsFilter {
      * @param excludePattern
      *            regexp pattern of files to exclude from report,
      *            <code>null</code> or an empty string do not filter the output
-     * @param messagesPattern
-     *            regexp pattern of warning messages to exclude from report,
-     *            <code>null</code> or an empty string do not filter the output
+     * @param string
      * @return the filtered annotations if there is a filter defined
      */
     public Collection<FileAnnotation> apply(final Collection<FileAnnotation> allAnnotations,

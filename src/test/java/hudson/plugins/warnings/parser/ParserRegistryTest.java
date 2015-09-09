@@ -105,15 +105,14 @@ public class ParserRegistryTest {
     public void issue2359() throws IOException {
         ParserRegistry parserRegistry = createRegistryUnderTest(FILE_NAME, createJavaParsers());
 
-        Collection<FileAnnotation> annotations = parseAndFilter(parserRegistry, DUMMY_FILE, StringUtils.EMPTY, ".*/clover.*");
+        Collection<FileAnnotation> annotations = parseAndFilter(parserRegistry, DUMMY_FILE, StringUtils.EMPTY, ".*/clover.*", StringUtils.EMPTY);
         int excludedNumberOfWarnings = 8;
         assertEquals(WRONG_NUMBER_OF_ANNOTATIONS_PARSED, computeTotalNumberOfWarnings(createJavaParsers()) - excludedNumberOfWarnings, annotations.size());
     }
 
     private Collection<FileAnnotation> parseAndFilter(final ParserRegistry parserRegistry, final File file,
-                                                      final String includePattern, final String excludePattern) throws IOException {
+                                                      final String includePattern, final String excludePattern, final String messagesPattern) throws IOException {
         Collection<FileAnnotation> annotations = parserRegistry.parse(file);
-        final String messagesPattern = null;
         return new WarningsFilter().apply(annotations, includePattern, excludePattern, messagesPattern, new NullLogger());
     }
 
@@ -158,7 +157,7 @@ public class ParserRegistryTest {
         ParserRegistry parserRegistry = createRegistryUnderTest(FILE_NAME, createJavaParsers());
 
         Collection<FileAnnotation> annotations = parseAndFilter(parserRegistry, DUMMY_FILE,
-                StringUtils.EMPTY, ".*/clover.*/.*, .*/renderers/.*");
+                StringUtils.EMPTY, ".*/clover.*/.*, .*/renderers/.*", StringUtils.EMPTY);
         assertEquals(WRONG_NUMBER_OF_ANNOTATIONS_PARSED, computeTotalNumberOfWarnings(createJavaParsers()) - 15, annotations.size());
     }
 
@@ -178,7 +177,7 @@ public class ParserRegistryTest {
         ParserRegistry parserRegistry = createRegistryUnderTest(FILE_NAME, parsers);
 
         Collection<FileAnnotation> annotations = parseAndFilter(parserRegistry, DUMMY_FILE,
-                "/tmp/clover*/**", StringUtils.EMPTY);
+                "/tmp/clover*/**", StringUtils.EMPTY, StringUtils.EMPTY);
         assertEquals(WRONG_NUMBER_OF_ANNOTATIONS_PARSED, 8, annotations.size());
     }
 
@@ -197,7 +196,7 @@ public class ParserRegistryTest {
         ParserRegistry parserRegistry = createRegistryUnderTest(FILE_NAME, parsers);
 
         Collection<FileAnnotation> annotations = parseAndFilter(parserRegistry, DUMMY_FILE,
-                "/tmp/clover*/**, **/renderers/*", StringUtils.EMPTY);
+                "/tmp/clover*/**, **/renderers/*", StringUtils.EMPTY, StringUtils.EMPTY);
         assertEquals(WRONG_NUMBER_OF_ANNOTATIONS_PARSED, 15, annotations.size());
     }
 
@@ -216,7 +215,7 @@ public class ParserRegistryTest {
         ParserRegistry parserRegistry = createRegistryUnderTest(FILE_NAME, parsers);
 
         Collection<FileAnnotation> annotations = parseAndFilter(parserRegistry, DUMMY_FILE,
-                "/tmp/clover*/**", "**/renderers/*");
+                "/tmp/clover*/**", "**/renderers/*", StringUtils.EMPTY);
         assertEquals(WRONG_NUMBER_OF_ANNOTATIONS_PARSED, 1, annotations.size());
     }
 
@@ -229,7 +228,7 @@ public class ParserRegistryTest {
      *            the parsers to use
      * @return the registry
      */
-    @edu.umd.cs.findbugs.annotations.SuppressWarnings("SIC")
+    @edu.umd.cs.findbugs.annotations.SuppressFBWarnings("SIC")
     private ParserRegistry createRegistryUnderTest(final String fileName,
                                                    final List<? extends AbstractWarningsParser> parsers) {
         ParserRegistry parserRegistry = new ParserRegistry(parsers, StringUtils.EMPTY) {

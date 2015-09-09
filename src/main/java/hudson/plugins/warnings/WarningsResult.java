@@ -4,12 +4,11 @@ import java.io.File;
 
 import com.thoughtworks.xstream.XStream;
 
-import hudson.model.AbstractBuild;
-
+import hudson.model.Run;
 import hudson.plugins.analysis.core.BuildHistory;
+import hudson.plugins.analysis.core.BuildResult;
 import hudson.plugins.analysis.core.ParserResult;
 import hudson.plugins.analysis.core.ResultAction;
-import hudson.plugins.analysis.core.BuildResult;
 import hudson.plugins.warnings.parser.ParserRegistry;
 import hudson.plugins.warnings.parser.Warning;
 
@@ -42,14 +41,14 @@ public class WarningsResult extends BuildResult {
      * @param group
      *            the parser group this result belongs to
      */
-    public WarningsResult(final AbstractBuild<?, ?> build, final BuildHistory history,
-            final ParserResult result, final String defaultEncoding, final String group) {
+    public WarningsResult(final Run<?, ?> build, final BuildHistory history,
+                          final ParserResult result, final String defaultEncoding, final String group) {
         this(build, history, result, defaultEncoding, group, group == null ? false : true);
     }
 
-    WarningsResult(final AbstractBuild<?, ?> build, final BuildHistory history,
-            final ParserResult result, final String defaultEncoding,
-            final String group, final boolean canSerialize) {
+    WarningsResult(final Run<?, ?> build, final BuildHistory history,
+                   final ParserResult result, final String defaultEncoding,
+                   final String group, final boolean canSerialize) {
         super(build, history, result, defaultEncoding);
 
         this.group = group;
@@ -59,7 +58,7 @@ public class WarningsResult extends BuildResult {
     }
 
     @Override
-    protected BuildHistory createHistory(final AbstractBuild<?, ?> build) {
+    protected BuildHistory createHistory(final Run<?, ?> build) {
         return new WarningsBuildHistory(build, group, false, false);
     }
 

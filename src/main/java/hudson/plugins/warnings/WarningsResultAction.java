@@ -1,11 +1,11 @@
 package hudson.plugins.warnings;
 
 import org.jvnet.localizer.Localizable;
+import org.kohsuke.stapler.export.Exported;
 
-import hudson.model.AbstractBuild;
-
-import hudson.plugins.analysis.core.HealthDescriptor;
+import hudson.model.Run;
 import hudson.plugins.analysis.core.AbstractResultAction;
+import hudson.plugins.analysis.core.HealthDescriptor;
 import hudson.plugins.analysis.core.PluginDescriptor;
 import hudson.plugins.warnings.parser.ParserRegistry;
 
@@ -34,13 +34,13 @@ public class WarningsResultAction extends AbstractResultAction<WarningsResult> {
      *            the result in this build
      * @param parserName the name of the parser
      */
-    public WarningsResultAction(final AbstractBuild<?, ?> owner, final HealthDescriptor healthDescriptor, final WarningsResult result, final String parserName) {
+    public WarningsResultAction(final Run<?, ?> owner, final HealthDescriptor healthDescriptor, final WarningsResult result, final String parserName) {
         super(owner, new WarningsHealthDescriptor(healthDescriptor, ParserRegistry.getParser(parserName).getParserName()), result);
 
         this.parserName = parserName;
     }
 
-    @Override
+    @Override @Exported
     public String getUrlName() {
         return WarningsDescriptor.getResultUrl(parserName);
     }
@@ -50,6 +50,7 @@ public class WarningsResultAction extends AbstractResultAction<WarningsResult> {
      *
      * @return the parser group
      */
+    @Exported
     public String getParser() {
         return parserName;
     }
@@ -77,6 +78,6 @@ public class WarningsResultAction extends AbstractResultAction<WarningsResult> {
     /** Backward compatibility. @deprecated */
     @Deprecated
     @SuppressWarnings("PMD")
-    @edu.umd.cs.findbugs.annotations.SuppressWarnings("")
+    @edu.umd.cs.findbugs.annotations.SuppressFBWarnings("")
     private transient Localizable actionName;
 }

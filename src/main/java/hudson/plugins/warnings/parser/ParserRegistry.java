@@ -24,7 +24,8 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-import hudson.model.Hudson;
+import jenkins.model.Jenkins;
+
 import hudson.plugins.analysis.core.PluginDescriptor;
 import hudson.plugins.analysis.util.EncodingValidator;
 import hudson.plugins.analysis.util.NullLogger;
@@ -50,9 +51,9 @@ public class ParserRegistry {
      *
      * @return the extension list
      */
-    @SuppressWarnings("javadoc")
+    @SuppressWarnings({"javadoc", "deprecation"})
     private static List<AbstractWarningsParser> all() {
-        Hudson instance = Hudson.getInstance();
+        Jenkins instance = Jenkins.getInstance();
         if (instance == null) {
             return Lists.newArrayList();
         }
@@ -63,7 +64,7 @@ public class ParserRegistry {
     }
 
     @SuppressWarnings("deprecation")
-    private static void addParsersWithDeprecatedApi(final Hudson instance, final List<AbstractWarningsParser> parsers) {
+    private static void addParsersWithDeprecatedApi(final Jenkins instance, final List<AbstractWarningsParser> parsers) {
         for (WarningsParser parser : instance.getExtensionList(WarningsParser.class)) {
             if (!(parser instanceof AbstractWarningsParser)) {
                 parsers.add(new ParserAdapter(parser));
@@ -210,7 +211,7 @@ public class ParserRegistry {
     }
 
     private static Iterable<GroovyParser> getDynamicParserDescriptions() {
-        Hudson instance = Hudson.getInstance();
+        Jenkins instance = Jenkins.getInstance();
         if (instance != null) {
             WarningsDescriptor descriptor = instance.getDescriptorByType(WarningsDescriptor.class);
             if (descriptor != null) {
@@ -318,7 +319,7 @@ public class ParserRegistry {
      * @return the reader
      * @throws FileNotFoundException if the file does not exist
      */
-    @edu.umd.cs.findbugs.annotations.SuppressWarnings("OBL")
+    @edu.umd.cs.findbugs.annotations.SuppressFBWarnings("OBL")
     protected Reader createReader(final File file) throws FileNotFoundException {
         return createReader(new FileInputStream(file));
     }
