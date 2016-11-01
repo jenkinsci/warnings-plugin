@@ -272,13 +272,8 @@ public class WarningsPublisher extends HealthAwarePublisher implements SimpleBui
     }
 
     @Override
-    // TODO benjamifuchs 2016-10-31 Quick test if this is causing the problem.
     public Collection<? extends Action> getProjectActions(final AbstractProject<?, ?> project) {
-        String parserName = "";
-        for (ParserConfiguration configuration : getParserConfigurations()) {
-            parserName = configuration.getParserName();
-        }
-        return Collections.<Action>singleton(new WarningsProjectAction(project, parserName));
+        return Collections.emptyList();
     }
 
     private List<String> getParsers() {
