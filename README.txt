@@ -4,8 +4,8 @@
   SUN Studio C++, Gnat (Ada), Erlang, PC-Lint compiler warnings (configuration of PcLint),
   Eclipse Buckminster, Oracle Invalids, Doxygen, Robocopy, Perforce, Cobol, PHP, Flex.
 
-  See: http://wiki.jenkins-ci.org/x/G4CGAQ
-
+  See: https://wiki.jenkins-ci.org/display/JENKINS/Warnings+Plugin
+  
   All source code is licensed under the MIT license.
 
   Maintainer: Dr. Ullrich Hafner
