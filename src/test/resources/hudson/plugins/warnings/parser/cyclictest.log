@@ -1,0 +1,4 @@
+WARN: Running on unknown kernel version...YMMV
+WARNING: Running on unknown kernel version...YMMV
+FATAL: numa and smp options are mutually exclusive
+FATAL: could not mount debugfs
