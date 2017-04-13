@@ -14,13 +14,14 @@ import hudson.plugins.analysis.util.model.Priority;
  *
  * @author Claus Klein
  * @author Ulli Hafner
+ * @author Kay van der Zander
  */
 @Extension
 public class IarParser extends RegexpLineParser {
     private static final long serialVersionUID = 7695540852439013425L;
 
     private static final String IAR_WARNING_PATTERN =
-    "^(?:\\[.*\\]\\s*)?\\\"?(.*?)\\\"?(?:,|\\()(\\d+)(?:\\s*|\\)\\s*:\\s*)(Error|Remark|Warning|Fatal error)\\[(\\w+)\\]: (.*)$";
+    "^(?:\\[.*\\]\\s*)?\\\"?(.*?)\\\"?(?:,|\\()(\\d+)(?:\\s*|\\)\\s*:\\s*)(Error|Remark|Warning|Fatal Error)\\[(\\w+)\\]: (.*)$";
 
     /**
      * Creates a new instance of {@link IarParser}.
@@ -34,12 +35,12 @@ public class IarParser extends RegexpLineParser {
 
     @Override
     protected boolean isLineInteresting(final String line) {
-        return line.contains("Warning") || line.contains("rror") || line.contains("Remark");
+        return line.contains("Warning") || line.contains("Error") || line.contains("Remark") || line.constains("Fatal Error");
     }
 
     @Override
     protected String getId() {
-        return "IAR compiler (C/C++)";
+        return "IAR compiler 6.X (C/C++)";
     }
 
     @Override
@@ -54,7 +55,7 @@ public class IarParser extends RegexpLineParser {
         else if ("Error".equals(matcher.group(3))) {
             priority = Priority.HIGH;
         }
-        else if ("Fatal error".equals(matcher.group(3))) {
+        else if ("Fatal Error".equals(matcher.group(3))) {
             priority = Priority.HIGH;
         }
         else {
