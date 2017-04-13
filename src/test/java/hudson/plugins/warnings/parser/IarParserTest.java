@@ -49,7 +49,7 @@ public class IarParserTest extends ParserTester {
 
         Iterator<FileAnnotation> iterator = warnings.iterator();
 
-        assertEquals("Wrong number of warnings detected.", 9, warnings.size());
+        assertEquals("Wrong number of warnings detected.", 8, warnings.size());
         checkWarning(iterator.next(), 3, "an inline function cannot be root as well",
                 "/tmp/x/icc-error-memory.c", TYPE, "Be031", Priority.HIGH);
     }
