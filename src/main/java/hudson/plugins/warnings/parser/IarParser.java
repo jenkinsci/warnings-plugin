@@ -35,7 +35,7 @@ public class IarParser extends RegexpLineParser {
 
     @Override
     protected boolean isLineInteresting(final String line) {
-        return line.contains("Warning") || line.contains("Error") || line.contains("Remark") || line.constains("Fatal Error");
+        return line.contains("Warning") || line.contains("Error") || line.contains("Remark") || line.contains("Fatal Error");
     }
 
     @Override
