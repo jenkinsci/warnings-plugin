@@ -40,7 +40,7 @@ public class IarParser extends RegexpLineParser {
 
     @Override
     protected String getId() {
-        return "IAR compiler 6.X (C/C++)";
+        return "IAR compiler (C/C++)";
     }
 
     @Override
