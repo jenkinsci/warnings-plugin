@@ -20,9 +20,8 @@ import hudson.plugins.analysis.util.model.Priority;
 public class IarParser extends RegexpLineParser {
     private static final long serialVersionUID = 7695540852439013425L;
 
-    private static final String IAR_WARNING_PATTERN =
-    "^(?:\\[.*\\]\\s*)?\\\"?(.*?)\\\"?(?:,|\\()(\\d+)(?:\\s*|\\)\\s*:\\s*)(Error|Remark|Warning|Fatal Error)\\[(\\w+)\\]: (.*)$";
-
+    private static final String IAR_WARNING_PATTERN = "^(?:\\[.*\\]\\s*)?\\\"?(.*?)\\\"?(?:,|\\()(\\d+)(?:\\s*|\\)\\s*:\\s*)(Error|Remark|Warning|Fatal [Ee]rror)\\[(\\w+)\\]: (.*)$)";
+    private static final String IAR_WARNING_PATTERN_SMALL = "|^(Error|Remark|Warning|Fatal [Ee]rror)\\[(\\w+)\\]: (.*)$";
     /**
      * Creates a new instance of {@link IarParser}.
      */
@@ -30,12 +29,12 @@ public class IarParser extends RegexpLineParser {
         super(Messages._Warnings_iar_ParserName(),
                 Messages._Warnings_iar_LinkName(),
                 Messages._Warnings_iar_TrendName(),
-                IAR_WARNING_PATTERN, true);
+                IAR_WARNING_PATTERN + IAR_WARNING_PATTERN_SMALL, true);
     }
 
     @Override
     protected boolean isLineInteresting(final String line) {
-        return line.contains("Warning") || line.contains("Error") || line.contains("Remark") || line.contains("Fatal Error");
+        return line.contains("Warning") || line.contains("rror") || line.contains("Remark");
     }
 
     @Override
@@ -55,7 +54,7 @@ public class IarParser extends RegexpLineParser {
         else if ("Error".equals(matcher.group(3))) {
             priority = Priority.HIGH;
         }
-        else if ("Fatal Error".equals(matcher.group(3))) {
+        else if ("error".equals(matcher.group(3))) {
             priority = Priority.HIGH;
         }
         else {
