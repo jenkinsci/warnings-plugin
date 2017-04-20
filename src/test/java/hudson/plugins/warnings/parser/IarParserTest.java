@@ -43,7 +43,7 @@ public class IarParserTest extends ParserTester {
      * @throws IOException
      *      if the file could not be read
      */
-    @Test
+   /*@Test
     public void testWarningsParser() throws IOException {
         Collection<FileAnnotation> warnings = new IarParser().parse(openFile());
 
@@ -52,7 +52,7 @@ public class IarParserTest extends ParserTester {
         assertEquals("Wrong number of warnings detected.", 5, warnings.size());
         checkWarning(iterator.next(), 3, "an inline function cannot be root as well",
                 "/tmp/x/icc-error-memory.c", TYPE, "Pe177", Priority.NORMAL);
-    }
+    }*/
 
     /**
      * Parses a file with one IAR warning in the new 6.3 format.
