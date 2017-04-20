@@ -51,7 +51,7 @@ public class IarParserTest extends ParserTester {
 
         assertEquals("Wrong number of warnings detected.", 3, warnings.size());
         checkWarning(iterator.next(), 3, "an inline function cannot be root as well",
-                "/tmp/x/icc-error-memory.c", TYPE, "Be031", Priority.NORMAL);
+                "/tmp/x/icc-error-memory.c", TYPE, "Pe177", Priority.NORMAL);
     }
 
     /**
