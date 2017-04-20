@@ -50,7 +50,7 @@ public class IarParser extends RegexpLineParser {
     protected Warning createWarning(final Matcher matcher) {
         Priority priority;
         
-        if(isFalsePositive(matcher.group(GROUP_NUMBER) == true) {
+        if(isFalsePositive(matcher.group(GROUP_NUMBER) == true)) {
             return FALSE_POSITIVE;
         }
            
