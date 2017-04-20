@@ -68,7 +68,7 @@ public class IarParserTest extends ParserTester {
 
         assertEquals("Wrong number of warnings detected.", 1, warnings.size());
         checkWarning(iterator.next(), 43, "variable \"pgMsgEnv\" was declared but never referenced",
-                "C:/dev/bsc/daqtask.c", TYPE, "Pe177", Priority.NORMAL);
+                "C:/dev/bsc/daqtask.c", TYPE, "[Pe177]:", Priority.NORMAL);
     }
 
     @Override
