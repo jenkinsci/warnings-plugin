@@ -102,7 +102,7 @@ public class IarParser extends RegexpLineParser {
     }
     
     private Boolean isSmallPattern(final String message) {
-        if (message == "") {
+        if (message == null) {
             return Boolean.TRUE;
         } else {
            return Boolean.FALSE;
