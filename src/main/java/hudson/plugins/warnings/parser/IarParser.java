@@ -19,9 +19,13 @@ import hudson.plugins.analysis.util.model.Priority;
 @Extension
 public class IarParser extends RegexpLineParser {
     private static final long serialVersionUID = 7695540852439013425L;
+    private static final int GROUP_NUMBER = 2
 
+    // search for: Fatal Error[Pe1696]: cannot open source file "c:\JenkinsJobs\900ZH\Workspace\Platform.900\Src\Safety\AirPressureSwitch.c"
+    // search for: c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\System\AdditionalResources.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
     private static final String IAR_WARNING_PATTERN = 
-"^(?:\\[.*\\]\\s*)?\\\"?(.*?)\\\"?(?:,|\\()(\\d+)(?:\\s*|\\)\\s*:\\s*)(Error|Remark|Warning|Fatal Error|Fatal error)\\[(\\w+)\\]: (.*)$";
+        "(.*?)(Error|Remark|Warning|Fatal Error|Fatal error)\\[(\\w+)\\]:(.*)$";
+    //     G1                         G2                         G3       G4
     /**
      * Creates a new instance of {@link IarParser}.
      */
@@ -45,27 +49,47 @@ public class IarParser extends RegexpLineParser {
     @Override
     protected Warning createWarning(final Matcher matcher) {
         Priority priority;
-        if ("Remark".equals(matcher.group(3))) {
+        if ("Remark".equals(matcher.group(GROUP_NUMBER))) {
             priority = Priority.LOW;
         }
-        else if ("Warning".equals(matcher.group(3))) {
+        else if ("Warning".equals(matcher.group(GROUP_NUMBER))) {
             priority = Priority.NORMAL;
         }
         // for "Fatal error", "Fatal Error", "Error" and "error"
-        else if ("rror".equals(matcher.group(3))) {
+        else if ("rror".equals(matcher.group(GROUP_NUMBER))) {
             priority = Priority.HIGH;
         }
-        else if ("Fatal".equals(matcher.group(0))) {
+        else if ("Fatal".equals(matcher.group(1))) {
             priority = Priority.HIGH;
         }
         else {
             return FALSE_POSITIVE;
         }
-        String message = normalizeWhitespaceInMessage(matcher.group(5));
-        return createWarning(matcher.group(1), getLineNumber(matcher.group(2)), matcher.group(4), message, priority);
-    }
+        
+        // report for: Fatal Error[Pe1696]: cannot open source file "c:\JenkinsJobs\900ZH\Workspace\Platform.900\Src\Safety\AirPressureSwitch.c"
+        if (isSmallPattern(matcher.group(1))) {
+            String message = normalizeWhitespaceInMessage(matcher.group(4));
+            String[] parts = message.split('"');
+            // createWarning( filename, line number, error number (Pe177), message, priority )
+            return createWarning(parts[1], getLineNumber(0), matcher.group(3), parts[0], priority);
+        }
 
+        // report for: c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\System\AdditionalResources.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
+        String message = normalizeWhitespaceInMessage(matcher.group(1));
+        String[] parts = message.split("()");
+        // createWarning( filename, line number, error number (Pe177), message, priority )
+        return createWarning(parts[0], getLineNumber(parts[1]), matcher.group(3), matcher.group(4), priority);
+    }
+   
     private String normalizeWhitespaceInMessage(final String message) {
         return message.replaceAll("\\s+", " ");
+    }
+    
+    private Boolean isSmallPattern(final String message) {
+        if (message = "") {
+            return true;
+        } else {
+           return false;
+        }
     }
 }
