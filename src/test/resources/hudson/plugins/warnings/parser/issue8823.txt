@@ -1,3 +1,24 @@
 [exec] D:\continuousIntegration\modifiedcomps\forcedproduct\MHSM-Cascade\Cascade-Config\config\src\RDR_Config.c(3767) : Warning[Pe188]: enumerated type mixed with another type
 [exec] D:\continuousIntegration\modifiedcomps\forcedproduct\MHSM-Cascade\Cascade-Config\config\src\RDR_Config.c(3767) : Warning[Pe188]: enumerated type mixed with another type
 [exec] D:\continuousIntegration\modifiedcomps\forcedproduct\MHSM-Cascade\Cascade-Config\config\src\RDR_Config.c(3918) : Warning[Pe188]: enumerated type mixed with another type
+c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\System\AdditionalResources.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
+            searched: "c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\System\"
+            searched: "c:\JenkinsJobs\900ZH\Workspace\Lib\GeneralAPI\"
+            searched: "c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\SystemTest\"
+            searched: "c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Workspace\..\..\Lib\"
+            searched: "c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Workspace\..\..\Lib\Bootloader\ARM\"
+            searched: "c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Workspace\..\..\Lib\Src\"
+            searched: "c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Workspace\..\..\Lib\Drivers\"
+            searched: "c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Workspace\..\..\Lib\Safety\"
+            searched: "c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Workspace\..\..\Product.900ZH\Src\"
+            searched: "c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Workspace\..\..\Product.900ZH\Src\Devices\FlowSensor\"
+            searched: "c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Workspace\..\..\Product.900ZH\Src\DeliveryControl\"
+            searched: "c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Workspace\..\..\Product.900ZH\Src\DemandControl\"
+            searched: "c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Workspace\..\..\Product.900ZH\Src\TransportControl\PumpControl\"
+            searched: "c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Workspace\..\..\Platform.900\Src\"
+            searched: "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4\arm\inc\"
+            searched: "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4\arm\inc\c\"
+Error while running C/C++ Compiler
+UartInterface.c 
+Fatal Error[Pe1696]: cannot open source file "c:\JenkinsJobs\900ZH\Workspace\Lib\Drivers\_Obsolete\Uart\UartInterface.c"
+Error while running C/C++ Compiler
