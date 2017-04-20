@@ -62,9 +62,9 @@ public class IarParser extends RegexpLineParser {
         // report for: Fatal Error[Pe1696]: cannot open source file "c:\JenkinsJobs\900ZH\Workspace\Platform.900\Src\Safety\AirPressureSwitch.c"
         if (isSmallPattern(matcher.group(1))) {
             String message = normalizeWhitespaceInMessage(matcher.group(4));
-            String[] parts = message.split('"');
+            String[] parts = message.split(""");
             // createWarning( filename, line number, error number (Pe177), message, priority )
-            return createWarning(parts[1], getLineNumber(0), matcher.group(3), parts[0], priority);
+            return createWarning(parts[1], 0, matcher.group(3), parts[0], priority);
         }
 
         // report for: c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\System\AdditionalResources.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
@@ -75,14 +75,14 @@ public class IarParser extends RegexpLineParser {
     }
       
     private Boolean isFalsePositive(final String message) {
-        if ("Remark".equals(matcher.group(GROUP_NUMBER))) {
-            return False;
-        } else if ("Warning".equals(matcher.group(GROUP_NUMBER))) {
-            return False;
-        } else if ("rror".equals(matcher.group(GROUP_NUMBER))) {
-            return False;
+        if ("Remark".equals(message)) {
+            return FALSE;
+        } else if ("Warning".equals(message)) {
+            return FALSE;
+        } else if ("rror".equals(message)) {
+            return FALSE;
         } else {
-            return True;
+            return TRUE;
         }
     }
     
@@ -103,9 +103,9 @@ public class IarParser extends RegexpLineParser {
     
     private Boolean isSmallPattern(final String message) {
         if (message == "") {
-            return True;
+            return TRUE;
         } else {
-           return False;
+           return FALSE;
         }
     }
 }
