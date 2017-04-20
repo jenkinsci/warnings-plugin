@@ -1,5 +1,6 @@
 package hudson.plugins.warnings.parser;
 
+import java.util.regex.Matcher;
 import java.util.*;
 
 import hudson.Extension;
