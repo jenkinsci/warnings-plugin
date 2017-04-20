@@ -1,9 +1,8 @@
 package hudson.plugins.warnings.parser;
 
-import java.util.regex.Matcher;
+import java.util.*;
 
 import hudson.Extension;
-
 import hudson.plugins.analysis.util.model.Priority;
 
 /**
@@ -50,7 +49,7 @@ public class IarParser extends RegexpLineParser {
     protected Warning createWarning(final Matcher matcher) {
         Priority priority;
         
-        if(isFalsePositive(matcher.group(GROUP_NUMBER) == true)) {
+        if(isFalsePositive(matcher.group(GROUP_NUMBER))) {
             return FALSE_POSITIVE;
         }
            
@@ -76,13 +75,13 @@ public class IarParser extends RegexpLineParser {
       
     private Boolean isFalsePositive(final String message) {
         if ("Remark".equals(matcher.group(GROUP_NUMBER))) {
-            return false;
+            return False;
         } else if ("Warning".equals(matcher.group(GROUP_NUMBER))) {
-            return false;
+            return False;
         } else if ("rror".equals(matcher.group(GROUP_NUMBER))) {
-            return false;
+            return False;
         } else {
-            return true;
+            return True;
         }
     }
     
@@ -103,9 +102,9 @@ public class IarParser extends RegexpLineParser {
     
     private Boolean isSmallPattern(final String message) {
         if (message == "") {
-            return true;
+            return True;
         } else {
-           return false;
+           return False;
         }
     }
 }
