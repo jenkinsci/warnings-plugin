@@ -62,7 +62,7 @@ public class IarParser extends RegexpLineParser {
         // report for: Fatal Error[Pe1696]: cannot open source file "c:\JenkinsJobs\900ZH\Workspace\Platform.900\Src\Safety\AirPressureSwitch.c"
         if (isSmallPattern(matcher.group(1))) {
             String message = normalizeWhitespaceInMessage(matcher.group(4));
-            String[] parts = message.split(""");
+            String[] parts = message.split(Character.toString('"'));
             // createWarning( filename, line number, error number (Pe177), message, priority )
             return createWarning(parts[1], 0, matcher.group(3), parts[0], priority);
         }
