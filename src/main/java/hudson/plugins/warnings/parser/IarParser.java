@@ -19,7 +19,7 @@ import hudson.plugins.analysis.util.model.Priority;
 @Extension
 public class IarParser extends RegexpLineParser {
     private static final long serialVersionUID = 7695540852439013425L;
-    private static final int GROUP_NUMBER = 2
+    private static final int GROUP_NUMBER = 2;
 
     // search for: Fatal Error[Pe1696]: cannot open source file "c:\JenkinsJobs\900ZH\Workspace\Platform.900\Src\Safety\AirPressureSwitch.c"
     // search for: c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\System\AdditionalResources.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
@@ -49,23 +49,16 @@ public class IarParser extends RegexpLineParser {
     @Override
     protected Warning createWarning(final Matcher matcher) {
         Priority priority;
-        if ("Remark".equals(matcher.group(GROUP_NUMBER))) {
-            priority = Priority.LOW;
-        }
-        else if ("Warning".equals(matcher.group(GROUP_NUMBER))) {
-            priority = Priority.NORMAL;
-        }
-        // for "Fatal error", "Fatal Error", "Error" and "error"
-        else if ("rror".equals(matcher.group(GROUP_NUMBER))) {
-            priority = Priority.HIGH;
-        }
-        else if ("Fatal".equals(matcher.group(1))) {
-            priority = Priority.HIGH;
-        }
-        else {
+        
+        if(isFalsePositive(matcher.group(GROUP_NUMBER) == true) {
             return FALSE_POSITIVE;
         }
-        
+           
+        priority = determinePriority(matcher.group(GROUP_NUMBER));
+        return composeWarning(matcher, priority);
+    }
+           
+    private Warning composeWarning(final Matcher matcher, final Priority priority) {
         // report for: Fatal Error[Pe1696]: cannot open source file "c:\JenkinsJobs\900ZH\Workspace\Platform.900\Src\Safety\AirPressureSwitch.c"
         if (isSmallPattern(matcher.group(1))) {
             String message = normalizeWhitespaceInMessage(matcher.group(4));
@@ -80,7 +73,30 @@ public class IarParser extends RegexpLineParser {
         // createWarning( filename, line number, error number (Pe177), message, priority )
         return createWarning(parts[0], getLineNumber(parts[1]), matcher.group(3), matcher.group(4), priority);
     }
-   
+      
+    private Boolean isFalsePositive(final String message) {
+        if ("Remark".equals(matcher.group(GROUP_NUMBER))) {
+            return false;
+        } else if ("Warning".equals(matcher.group(GROUP_NUMBER))) {
+            return false;
+        } else if ("rror".equals(matcher.group(GROUP_NUMBER))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    private Priority determinePriority(final String message) {
+        // for "Fatal error", "Fatal Error", "Error" and "error"
+        if ("rror".equals(matcher.group(GROUP_NUMBER))) {
+            return Priority.HIGH;
+        } else if ("Warning".equals(matcher.group(GROUP_NUMBER))) {
+            return Priority.NORMAL;
+        } else {
+            return Priority.LOW;
+        }
+    }
+           
     private String normalizeWhitespaceInMessage(final String message) {
         return message.replaceAll("\\s+", " ");
     }
