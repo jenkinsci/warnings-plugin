@@ -30,7 +30,7 @@ public class IarParserTest extends ParserTester {
     public void issue8823() throws IOException {
         Collection<FileAnnotation> warnings = new IarParser().parse(openFile("issue8823.txt"));
 
-        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 5, warnings.size());
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 3, warnings.size());
         FileAnnotation annotation = warnings.iterator().next();
         /*checkWarning(annotation, 3767, "enumerated type mixed with another type",
                 "D:/continuousIntegration/modifiedcomps/forcedproduct/MHSM-Cascade/Cascade-Config/config/src/RDR_Config.c",
@@ -68,7 +68,7 @@ public class IarParserTest extends ParserTester {
 
         assertEquals("Wrong number of warnings detected.", 1, warnings.size());
         checkWarning(iterator.next(), 43, "variable \"pgMsgEnv\" was declared but never referenced",
-                "C:/dev/bsc/daqtask.c", TYPE, "[Pe177]:", Priority.NORMAL);
+                "C:/dev/bsc/daqtask.c", TYPE, "Pe177", Priority.NORMAL);
     }
 
     @Override
