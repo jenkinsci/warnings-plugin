@@ -60,16 +60,18 @@ public class IarParser extends RegexpLineParser {
            
     private Warning composeWarning(final Matcher matcher, final Priority priority) {
         // report for: Fatal Error[Pe1696]: cannot open source file "c:\JenkinsJobs\900ZH\Workspace\Platform.900\Src\Safety\AirPressureSwitch.c"
-        if (isSmallPattern(matcher.group(1))) {
-            String message = normalizeWhitespaceInMessage(matcher.group(5));
-            String[] parts = message.split(Character.toString('"'));
+        
+        String message = normalizeWhitespaceInMessage(matcher.group(5));
+        String[] parts = message.split(Character.toString('"'));
+        
+        if(parts.length > 1) {
             // createWarning( filename, line number, error number (Pe177), message, priority )
             return createWarning(parts[1], 0, matcher.group(4), parts[0], priority);
         }
 
         // report for: c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\System\AdditionalResources.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
-        String message = normalizeWhitespaceInMessage(matcher.group(1));
-        String[] parts = message.split("()");
+        message = normalizeWhitespaceInMessage(matcher.group(1));
+        parts = message.split("()");
         // createWarning( filename, line number, error number (Pe177), message, priority )
         return createWarning(parts[0], getLineNumber(parts[1]), matcher.group(4), matcher.group(5), priority);
     }
