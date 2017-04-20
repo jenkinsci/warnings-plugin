@@ -24,7 +24,7 @@ public class IarParser extends RegexpLineParser {
     // search for: Fatal Error[Pe1696]: cannot open source file "c:\JenkinsJobs\900ZH\Workspace\Platform.900\Src\Safety\AirPressureSwitch.c"
     // search for: c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\System\AdditionalResources.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
     private static final String IAR_WARNING_PATTERN = 
-        "^(.*?)(Error|Remark|Warning|Fatal Error|Fatal error)\\[(\\w+)\\]:(.*)$";
+        "^(.*)(Error|Remark|Warning|Fatal Error|Fatal error)\\[(\\w+)\\]:(.*)$";
     //     G1                         G2                         G3       G4
     /**
      * Creates a new instance of {@link IarParser}.
