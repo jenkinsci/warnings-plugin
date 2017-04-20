@@ -30,7 +30,7 @@ public class IarParserTest extends ParserTester {
     public void issue8823() throws IOException {
         Collection<FileAnnotation> warnings = new IarParser().parse(openFile("issue8823.txt"));
 
-        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 3, warnings.size());
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 5, warnings.size());
         FileAnnotation annotation = warnings.iterator().next();
         /*checkWarning(annotation, 3767, "enumerated type mixed with another type",
                 "D:/continuousIntegration/modifiedcomps/forcedproduct/MHSM-Cascade/Cascade-Config/config/src/RDR_Config.c",
