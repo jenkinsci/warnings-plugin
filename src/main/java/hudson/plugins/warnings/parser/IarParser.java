@@ -76,21 +76,21 @@ public class IarParser extends RegexpLineParser {
       
     private Boolean isFalsePositive(final String message) {
         if ("Remark".equals(message)) {
-            return FALSE;
+            return Boolean.FALSE;
         } else if ("Warning".equals(message)) {
-            return FALSE;
+            return Boolean.FALSE;
         } else if ("rror".equals(message)) {
-            return FALSE;
+            return Boolean.FALSE;
         } else {
-            return TRUE;
+            return Boolean.TRUE;
         }
     }
     
     private Priority determinePriority(final String message) {
         // for "Fatal error", "Fatal Error", "Error" and "error"
-        if ("rror".equals(matcher.group(GROUP_NUMBER))) {
+        if ("rror".equals(message)) {
             return Priority.HIGH;
-        } else if ("Warning".equals(matcher.group(GROUP_NUMBER))) {
+        } else if ("Warning".equals(message)) {
             return Priority.NORMAL;
         } else {
             return Priority.LOW;
@@ -103,9 +103,9 @@ public class IarParser extends RegexpLineParser {
     
     private Boolean isSmallPattern(final String message) {
         if (message == "") {
-            return TRUE;
+            return Boolean.TRUE;
         } else {
-           return FALSE;
+           return Boolean.FALSE;
         }
     }
 }
