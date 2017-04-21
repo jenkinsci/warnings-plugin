@@ -19,13 +19,12 @@ import hudson.plugins.analysis.util.model.Priority;
 @Extension
 public class IarParser extends RegexpLineParser {
     private static final long serialVersionUID = 7695540852439013425L;
-    private static final int GROUP_NUMBER = 2;
-
+    private static final int GROUP_NUMBER = 5;
+    //  (.*)(\\((\\d*)\\).*)([eE]rror|Remark|Warning)(\\[(.*)\\])(\\: )(.*)(\\\".*h\\\"|\\\".*c\\\")|(.*)([eE]rror|Remark|Warning)(\\[(.*)\\])(.*)(\\\".*h\\\"|\\\".*c\\\"|.*)
     // search for: Fatal Error[Pe1696]: cannot open source file "c:\JenkinsJobs\900ZH\Workspace\Platform.900\Src\Safety\AirPressureSwitch.c"
     // search for: c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\System\AdditionalResources.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
     private static final String IAR_WARNING_PATTERN = 
-        "(.*)([eE]rror|Remark|Warning)(\\[(.*)\\]: )(.*)";
-    //    G1           G2              G3  G4       G5
+        "(\\[.*\\] )|(.*\\((\\d*)\\).*|)([Ee]rror|Warning|Remark|Fatal [Ee]rror)\\[(\\w+)\\]: ((.*) \\\"(.*(c|h))\\\"|.*)";
     /**
      * Creates a new instance of {@link IarParser}.
      */
@@ -60,18 +59,16 @@ public class IarParser extends RegexpLineParser {
            
     private Warning composeWarning(final Matcher matcher, final Priority priority) {
         // report for: Fatal Error[Pe1696]: cannot open source file "c:\JenkinsJobs\900ZH\Workspace\Platform.900\Src\Safety\AirPressureSwitch.c"
-        String message = matcher.group(1);
-        String message2 = matcher.group(5);
-        String[] parts = message2.split(Character.toString('"'));
+        String message = matcher.group(3);
+        String small_message = matcher.group(9);
         
-        if( (parts.length > 1) && (message.length() < 8) ) {
+        if(  ( message == "" || matcher.group(4) == "" ) && small_message != "" ) {
             // createWarning( filename, line number, error number (Pe177), message, priority )
-            return createWarning(parts[1], 0, matcher.group(4), parts[0], priority);
+            return createWarning(small_message, 0, matcher.group(6), matcher.group(7), priority);
         }
         // report for: c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\System\AdditionalResources.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
-        parts = message.split("()");
         // createWarning( filename, line number, error number (Pe177), message, priority )
-        return createWarning(parts[0], getLineNumber(parts[1]), matcher.group(4), matcher.group(5), priority);
+        return createWarning(message, getLineNumber(matcher.group(4)), matcher.group(6), matcher.group(7), priority);
     }
       
     private Boolean isFalsePositive(final String message) {
