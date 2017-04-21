@@ -60,17 +60,15 @@ public class IarParser extends RegexpLineParser {
            
     private Warning composeWarning(final Matcher matcher, final Priority priority) {
         // report for: Fatal Error[Pe1696]: cannot open source file "c:\JenkinsJobs\900ZH\Workspace\Platform.900\Src\Safety\AirPressureSwitch.c"
+        String message = matcher.group(1);
+        String message2 = matcher.group(5);
+        String[] parts = message2.split(Character.toString('"'));
         
-        String message = normalizeWhitespaceInMessage(matcher.group(5));
-        String[] parts = message.split(Character.toString('"'));
-        
-        if(parts.length > 1) {
+        if( (parts.length > 1) && (message.length < 8) ) {
             // createWarning( filename, line number, error number (Pe177), message, priority )
             return createWarning(parts[1], 0, matcher.group(4), parts[0], priority);
         }
-
         // report for: c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\System\AdditionalResources.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
-        message = normalizeWhitespaceInMessage(matcher.group(1));
         parts = message.split("()");
         // createWarning( filename, line number, error number (Pe177), message, priority )
         return createWarning(parts[0], getLineNumber(parts[1]), matcher.group(4), matcher.group(5), priority);
@@ -97,9 +95,5 @@ public class IarParser extends RegexpLineParser {
         } else {
             return Priority.LOW;
         }
-    }
-           
-    private String normalizeWhitespaceInMessage(final String message) {
-        return message.replaceAll("\\s+", " ");
     }
 }
