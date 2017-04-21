@@ -24,8 +24,8 @@ public class IarParser extends RegexpLineParser {
     // search for: Fatal Error[Pe1696]: cannot open source file "c:\JenkinsJobs\900ZH\Workspace\Platform.900\Src\Safety\AirPressureSwitch.c"
     // search for: c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\System\AdditionalResources.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
     private static final String IAR_WARNING_PATTERN = 
-        "(.*)(Fatal [eE]rror|Remark|Warning)(\\[(\\w*)]:)(.*)";
-    //     G1       G2                       G3    G4     G5
+        "(.*)([eE]rror|Remark|Warning)(\\[(.*)\\]:)(.*)";
+    //    G1           G2              G3  G4       G5
     /**
      * Creates a new instance of {@link IarParser}.
      */
@@ -101,13 +101,5 @@ public class IarParser extends RegexpLineParser {
            
     private String normalizeWhitespaceInMessage(final String message) {
         return message.replaceAll("\\s+", " ");
-    }
-    
-    private Boolean isSmallPattern(final String message) {
-        if (message.length() > 5) {
-            return Boolean.TRUE;
-        } else {
-           return Boolean.FALSE;
-        }
     }
 }
