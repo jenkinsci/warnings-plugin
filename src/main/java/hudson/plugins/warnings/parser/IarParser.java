@@ -64,7 +64,7 @@ public class IarParser extends RegexpLineParser {
         String message2 = matcher.group(5);
         String[] parts = message2.split(Character.toString('"'));
         
-        if( (parts.length > 1) && (message.length < 8) ) {
+        if( (parts.length > 1) && (message.length() < 8) ) {
             // createWarning( filename, line number, error number (Pe177), message, priority )
             return createWarning(parts[1], 0, matcher.group(4), parts[0], priority);
         }
