@@ -4,9 +4,9 @@ import java.util.regex.Matcher;
 
 import org.apache.commons.lang.StringUtils;
 
-import hudson.Extension;
-
 import hudson.plugins.analysis.util.model.Priority;
+
+import hudson.Extension;
 
 /**
  * A parser for the GHS Multi compiler warnings.
@@ -16,7 +16,7 @@ import hudson.plugins.analysis.util.model.Priority;
 @Extension
 public class GhsMultiParser extends RegexpDocumentParser {
     private static final long serialVersionUID = 8149238560432255036L;
-    private static final String GHS_MULTI_WARNING_PATTERN = "\\.(.*)\\,\\s*line\\s*(\\d+):\\s*(warning|error)\\s*([^:]+):\\s*(?m)([^\\^]*)\\s*\\^";
+    private static final String GHS_MULTI_WARNING_PATTERN = "\\.(.*)\\,\\s*line\\s*(\\d+):\\s*(warning|error|fatal error)\\s*([^:]+):\\s*(?m)([^\\^]*)\\s*\\^";
 
     /**
      * Creates a new instance of {@link GhsMultiParser}.
@@ -31,6 +31,11 @@ public class GhsMultiParser extends RegexpDocumentParser {
     @Override
     protected Warning createWarning(final Matcher matcher) {
         String fileName = matcher.group(1);
+
+        if(fileName.substring(fileName.length() - 1).equals("\"") ) {
+            fileName = fileName.substring(0, fileName.length() - 1);
+        }
+
         int lineNumber = getLineNumber(matcher.group(2));
         String type = StringUtils.capitalize(matcher.group(3));
         String category = matcher.group(4);
