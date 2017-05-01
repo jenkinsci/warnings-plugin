@@ -28,9 +28,9 @@ public class IarParserTest extends ParserTester {
      */
     @Test
     public void IAR_error_size() throws IOException {
-        Collection<FileAnnotation> annotations = new IarParser().parse(openFile("issue8823.txt"));
+        Collection<FileAnnotation> warnings = new IarParser().parse(openFile("issue8823.txt"));
 
-        assertEquals("Wrong number of annotations detected.", 6, annotations.size());
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 6, warnings.size());
     }
 
     /**
