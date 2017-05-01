@@ -24,7 +24,7 @@ public class IarParser extends RegexpLineParser {
     // search for: Fatal Error[Pe1696]: cannot open source file "c:\filename.c"
     // search for: c:\filename.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
     private static final String IAR_WARNING_PATTERN = 
-"(\\[\\w+\\])?(.*?)?\\((\\d+)\\).*?(Fatal [Ee]rror|Remark|Warning)?\\[(.*)\\]: (.*) |(Fatal [Ee]rror|Remark|Warning)?\\[(.*)\\]: (.*)";
+"(\\[\\w+\\])?(.*?)?\\((\\d+)\\).*?(Fatal [Ee]rror|Remark|Warning)?\\[(.*)\\]: (.*)|(Fatal [Ee]rror|Remark|Warning)?\\[(.*)\\]: (.*)";
     /**
      * Creates a new instance of {@link IarParser}.
      */
