@@ -21,8 +21,8 @@ public class IarParser extends RegexpLineParser {
     private static final long serialVersionUID = 7695540852439013425L;
     private static int GROUP_NUMBER = 3;
     
-    // search for: Fatal Error[Pe1696]: cannot open source file "c:\JenkinsJobs\900ZH\Workspace\Platform.900\Src\Safety\AirPressureSwitch.c"
-    // search for: c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\System\AdditionalResources.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
+    // search for: Fatal Error[Pe1696]: cannot open source file "c:\filename.c"
+    // search for: c:\filename.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
     private static final String IAR_WARNING_PATTERN = 
         "^(?:\\[.*\\]\\s*)?\\\"?(.*?)\\\"?(?:,|\\()(\\d+)(?:\\s*|\\)\\s*:\\s*)([Ee]rror|Remark|Warning|Fatal [Ee]rror)\\[(\\w+)\\]: (.*)|(.*?)([Ee]rror|Remark|Warning|Fatal [Ee]rror)\\[(\\w+)\\]: (.*)$";
     /**
@@ -62,17 +62,18 @@ public class IarParser extends RegexpLineParser {
     }
            
     private Warning composeWarning(final Matcher matcher, final Priority priority) {
-        // report for: Fatal Error[Pe1696]: cannot open source file "c:\JenkinsJobs\900ZH\Workspace\Platform.900\Src\Safety\AirPressureSwitch.c"
-        String message = matcher.group(3);
+        // report for: Fatal Error[Pe1696]: cannot open source file "c:\filename.c"
+        String message = matcher.group(5);
         String small_message = matcher.group(9);
         
-        if(  ( message == "" || matcher.group(4) == "" ) && small_message != "" ) {
+        if( message == null && small_message != null ) {
             // createWarning( filename, line number, error number (Pe177), message, priority )
-            return createWarning(small_message, 0, matcher.group(6), matcher.group(7), priority);
+            // General error , there is no filename. only a compiler error. 
+            return createWarning("", 0, matcher.group(8), small_message, priority);
         }
-        // report for: c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\System\AdditionalResources.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
+        // report for: c:\name.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
         // createWarning( filename, line number, error number (Pe177), message, priority )
-        return createWarning(message, getLineNumber(matcher.group(4)), matcher.group(6), matcher.group(7), priority);
+        return createWarning(matcher.group(1), getLineNumber(matcher.group(2)), matcher.group(4), message, priority);
     }
       
     private Boolean isFalsePositive(final String message) {
