@@ -19,7 +19,7 @@ import hudson.plugins.analysis.util.model.Priority;
 @Extension
 public class IarParser extends RegexpLineParser {
     private static final long serialVersionUID = 7695540852439013425L;
-    private static int GROUP_NUMBER = 3;
+    private static int GROUP_NUMBER = 4;
     
     // search for: Fatal Error[Pe1696]: cannot open source file "c:\filename.c"
     // search for: c:\filename.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
@@ -73,7 +73,7 @@ public class IarParser extends RegexpLineParser {
         }
         // report for: c:\name.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
         // createWarning( filename, line number, error number (Pe177), message, priority )
-        return createWarning(matcher.group(1), getLineNumber(matcher.group(2)), matcher.group(4), message, priority);
+        return createWarning(matcher.group(2), getLineNumber(matcher.group(3)), matcher.group(5), message, priority);
     }
       
     private Boolean isFalsePositive(final String message) {
