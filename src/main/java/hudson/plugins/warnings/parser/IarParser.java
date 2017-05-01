@@ -19,7 +19,7 @@ import hudson.plugins.analysis.util.model.Priority;
 @Extension
 public class IarParser extends RegexpLineParser {
     private static final long serialVersionUID = 7695540852439013425L;
-    private static final int GROUP_NUMBER = 5;
+    private static final int GROUP_NUMBER = 3;
     
     // search for: Fatal Error[Pe1696]: cannot open source file "c:\JenkinsJobs\900ZH\Workspace\Platform.900\Src\Safety\AirPressureSwitch.c"
     // search for: c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\System\AdditionalResources.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
@@ -48,6 +48,10 @@ public class IarParser extends RegexpLineParser {
     @Override
     protected Warning createWarning(final Matcher matcher) {
         Priority priority;
+        
+        if(matcher.group(GROUP_NUMBER)) == NULL) {
+            GROUP_NUMBER = 7;
+        }
         
         if(isFalsePositive(matcher.group(GROUP_NUMBER))) {
             return FALSE_POSITIVE;
