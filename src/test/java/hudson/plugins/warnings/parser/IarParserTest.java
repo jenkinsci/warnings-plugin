@@ -34,7 +34,7 @@ public class IarParserTest extends ParserTester {
     }
 
     /**
-     * Parses a file and check error number 1
+     * Parsesa file and check error number 1
      *
      * @throws IOException
      *      if the file could not be read
