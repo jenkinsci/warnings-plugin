@@ -20,11 +20,11 @@ import hudson.plugins.analysis.util.model.Priority;
 public class IarParser extends RegexpLineParser {
     private static final long serialVersionUID = 7695540852439013425L;
     private static final int GROUP_NUMBER = 5;
-    //  (.*)(\\((\\d*)\\).*)([eE]rror|Remark|Warning)(\\[(.*)\\])(\\: )(.*)(\\\".*h\\\"|\\\".*c\\\")|(.*)([eE]rror|Remark|Warning)(\\[(.*)\\])(.*)(\\\".*h\\\"|\\\".*c\\\"|.*)
+    
     // search for: Fatal Error[Pe1696]: cannot open source file "c:\JenkinsJobs\900ZH\Workspace\Platform.900\Src\Safety\AirPressureSwitch.c"
     // search for: c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\System\AdditionalResources.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
     private static final String IAR_WARNING_PATTERN = 
-        "(\\[.*\\] )|(.*\\((\\d*)\\).*|)([Ee]rror|Warning|Remark|Fatal [Ee]rror)\\[(\\w+)\\]: ((.*) \\\"(.*(c|h))\\\"|.*)";
+        "(.*\\((\\d*)\\).*|)([Ee]rror|Warning|Remark|Fatal [Ee]rror)\\[(\\w+)\\]: ((.*) \\\"(.*(c|h))\\\"|.*)";
     /**
      * Creates a new instance of {@link IarParser}.
      */
