@@ -49,7 +49,7 @@ public class IarParser extends RegexpLineParser {
     protected Warning createWarning(final Matcher matcher) {
         Priority priority;
         
-        if(matcher.group(GROUP_NUMBER)) == NULL) {
+        if(matcher.group(GROUP_NUMBER) == NULL) {
             GROUP_NUMBER = 7;
         }
         
