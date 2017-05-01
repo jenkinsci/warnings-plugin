@@ -97,7 +97,7 @@ public class IarParserTest extends ParserTester {
 
         FileAnnotation annotation = warnings.iterator().next().next().next();
         checkWarning(annotation, 17, "cannot open source file \"System/ProcDef_LPC17xx.h\"",
-                "c:\JenkinsJobs\900ZH\Workspace\Product.900ZH\Src\System\AdditionalResources.h",
+                "c:/JenkinsJobs/900ZH/Workspace/Product.900ZH/Src/System/AdditionalResources.h",
                 "Pe1696", Priority.HIGH);
     }
     
@@ -114,7 +114,7 @@ public class IarParserTest extends ParserTester {
 
         FileAnnotation annotation = warnings.iterator().next().next().next().next();
         checkWarning(annotation, 43, "variable \"pgMsgEnv\" was declared but never referenced",
-                "C:\dev\bsc\daqtask.c",
+                "C:/dev/bsc/daqtask.c",
                 "Pe177", Priority.NORMAL);
     }
 
