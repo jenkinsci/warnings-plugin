@@ -19,7 +19,7 @@ import hudson.plugins.analysis.util.model.Priority;
 @Extension
 public class IarParser extends RegexpLineParser {
     private static final long serialVersionUID = 7695540852439013425L;
-    private static int GROUP_NUMBER = 4;
+    private static int GROUP_NUMBER = 5;
     
     // search for: Fatal Error[Pe1696]: cannot open source file "c:\filename.c"
     // search for: c:\filename.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
@@ -48,14 +48,6 @@ public class IarParser extends RegexpLineParser {
     @Override
     protected Warning createWarning(final Matcher matcher) {
         Priority priority;
-        
-        if(matcher.group(GROUP_NUMBER) == null) {
-            GROUP_NUMBER = 7;
-        }
-        
-        if(isFalsePositive(matcher.group(GROUP_NUMBER))) {
-            return FALSE_POSITIVE;
-        }
            
         priority = determinePriority(matcher.group(GROUP_NUMBER));
         return composeWarning(matcher, priority);
@@ -63,31 +55,17 @@ public class IarParser extends RegexpLineParser {
            
     private Warning composeWarning(final Matcher matcher, final Priority priority) {
         // report for: Fatal Error[Pe1696]: cannot open source file "c:\filename.c"
-        String message = matcher.group(5);
-        String small_message = matcher.group(9);
+        String message = matcher.group(7);
         
-        if( message == null && small_message != null ) {
+        if( matcher.group(3) == null ) {
             // createWarning( filename, line number, error number (Pe177), message, priority )
-            // General error , there is no filename. only a compiler error. 
-            return createWarning("", 0, matcher.group(8), small_message, priority);
+            return createWarning(matcher.group(8), 0, matcher.group(6), small_message, priority);
         }
         // report for: c:\name.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
         // createWarning( filename, line number, error number (Pe177), message, priority )
-        return createWarning(matcher.group(2), getLineNumber(matcher.group(3)), matcher.group(5), message, priority);
+        return createWarning(matcher.group(3), getLineNumber(matcher.group(4)), matcher.group(6), message, priority);
     }
-      
-    private Boolean isFalsePositive(final String message) {
-        if ("Remark".equals(message)) {
-            return Boolean.FALSE;
-        } else if ("Warning".equals(message)) {
-            return Boolean.FALSE;
-        } else if ("rror".equals(message)) {
-            return Boolean.FALSE;
-        } else {
-            return Boolean.TRUE;
-        }
-    }
-    
+          
     private Priority determinePriority(final String message) {
         // for "Fatal error", "Fatal Error", "Error" and "error"
         if ("rror".equals(message)) {
