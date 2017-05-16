@@ -32,7 +32,7 @@ public class IarParser extends RegexpLineParser {
         super(Messages._Warnings_iar_ParserName(),
                 Messages._Warnings_iar_LinkName(),
                 Messages._Warnings_iar_TrendName(),
-                IAR_WARNING_PATTERN, true);
+                IAR_WARNING_PATTERN);
     }
 
     @Override
