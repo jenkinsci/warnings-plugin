@@ -59,7 +59,7 @@ public class IarParser extends RegexpLineParser {
         
         if( matcher.group(3) == null ) {
             // createWarning( filename, line number, error number (Pe177), message, priority )
-            return createWarning(matcher.group(8), 0, matcher.group(6), small_message, priority);
+            return createWarning(matcher.group(8), 0, matcher.group(6), message, priority);
         }
         // report for: c:\name.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
         // createWarning( filename, line number, error number (Pe177), message, priority )
