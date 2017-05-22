@@ -47,9 +47,9 @@ public class IarParserTest extends ParserTester {
         Iterator<FileAnnotation> iterator = warnings.iterator();
 
         FileAnnotation annotation = iterator.next();
-       /*checkWarning(annotation, 3767, "Pe188",
+       checkWarning(annotation, 3767, "Pe188",
                 "D:/continuousIntegration/modifiedcomps/forcedproduct/MHSM-Cascade/Cascade-Config/config/src/RDR_Config.c",
-                "enumerated type mixed with another type", Priority.NORMAL);*/
+                "enumerated type mixed with another type", Priority.NORMAL);
     }
     
      /**
@@ -59,7 +59,7 @@ public class IarParserTest extends ParserTester {
      *      if the file could not be read
      * @see <a href="http://issues.jenkins-ci.org/browse/JENKINS-8823">Issue 8823</a>
      */
-  /* @Test
+   @Test
     public void IAR_error2() throws IOException {
         Collection<FileAnnotation> warnings = new IarParser().parse(openFile("issue8823.txt"));
 
@@ -76,7 +76,7 @@ public class IarParserTest extends ParserTester {
      *      if the file could not be read
      * @see <a href="http://issues.jenkins-ci.org/browse/JENKINS-8823">Issue 8823</a>
      */
-  /* @Test
+   @Test
     public void IAR_error3() throws IOException {
         Collection<FileAnnotation> warnings = new IarParser().parse(openFile("issue8823.txt"));
 
@@ -93,7 +93,7 @@ public class IarParserTest extends ParserTester {
      *      if the file could not be read
      * @see <a href="http://issues.jenkins-ci.org/browse/JENKINS-8823">Issue 8823</a>
      */
-  /* @Test
+   @Test
     public void IAR_error4() throws IOException {
         Collection<FileAnnotation> warnings = new IarParser().parse(openFile("issue8823.txt"));
 
@@ -110,7 +110,7 @@ public class IarParserTest extends ParserTester {
      *      if the file could not be read
      * @see <a href="http://issues.jenkins-ci.org/browse/JENKINS-8823">Issue 8823</a>
      */
-   /*@Test
+   @Test
     public void IAR_error5() throws IOException {
         Collection<FileAnnotation> warnings = new IarParser().parse(openFile("issue8823.txt"));
 
@@ -118,7 +118,7 @@ public class IarParserTest extends ParserTester {
         checkWarning(annotation, 43, "variable \"pgMsgEnv\" was declared but never referenced",
                 "C:/dev/bsc/daqtask.c",
                 "Pe177", Priority.NORMAL);
-    }*/
+    }
 
     @Override
     protected String getWarningsFile() {
