@@ -54,23 +54,21 @@ public class IarParser extends RegexpLineParser {
     }
            
     private Warning composeWarning(final Matcher matcher, final Priority priority) {
-        // report for: Fatal Error[Pe1696]: cannot open source file "c:\filename.c"
         String message = matcher.group(7);
         
         if( matcher.group(3) == null ) {
             // createWarning( filename, line number, error number (Pe177), message, priority )
             return createWarning(matcher.group(8), 0, matcher.group(6), message, priority);
         }
-        // report for: c:\name.h(17) : Fatal Error[Pe1696]: cannot open source file "System/ProcDef_LPC17xx.h"
         // createWarning( filename, line number, error number (Pe177), message, priority )
         return createWarning(matcher.group(3), getLineNumber(matcher.group(4)), matcher.group(6), message, priority);
     }
           
     private Priority determinePriority(final String message) {
-        // for "Fatal error", "Fatal Error", "Error" and "error"
-        if ("rror".equals(message)) {
+        // for "Fatal error", "Fatal Error", "Error" and "error" and "warning"
+        if (message.toLowerCase().contains("error")) {
             return Priority.HIGH;
-        } else if ("Warning".equals(message)) {
+        } else if (message.toLowerCase().contains("warning")) {
             return Priority.NORMAL;
         } else {
             return Priority.LOW;
