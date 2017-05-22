@@ -47,9 +47,9 @@ public class IarParserTest extends ParserTester {
 
         FileAnnotation annotation = iterator.next();
         
-       checkWarning(annotation, 3767, "Pe188",
+       checkWarning(annotation, 3767, "enumerated type mixed with another type",
                 "D:/continuousIntegration/modifiedcomps/forcedproduct/MHSM-Cascade/Cascade-Config/config/src/RDR_Config.c",
-                "enumerated type mixed with another type", Priority.NORMAL);
+                "Pe188", Priority.HIGH);
     }
     
      /**
@@ -69,7 +69,7 @@ public class IarParserTest extends ParserTester {
         
         checkWarning(annotation, 3767, "enumerated type mixed with another type",
                 "D:/continuousIntegration/modifiedcomps/forcedproduct/MHSM-Cascade/Cascade-Config/config/src/RDR_Config.c",
-                "Pe188", Priority.NORMAL);
+                "Pe188", Priority.HIGH);
     }
     
      /**
@@ -135,7 +135,31 @@ public class IarParserTest extends ParserTester {
         
         checkWarning(annotation, 43, "variable \"pgMsgEnv\" was declared but never referenced",
                 "C:/dev/bsc/daqtask.c",
-                "Pe177", Priority.NORMAL);
+                "Pe177", Priority.HIGH);
+    }
+    
+     /**
+     * Parses a file and check error number 5
+     *
+     * @throws IOException
+     *      if the file could not be read
+     * @see <a href="http://issues.jenkins-ci.org/browse/JENKINS-8823">Issue 8823</a>
+     */
+   @Test
+    public void IAR_error6() throws IOException {
+        Collection<FileAnnotation> warnings = new IarParser().parse(openFile("issue8823.txt"));
+        Iterator<FileAnnotation> iterator = warnings.iterator();
+        
+        FileAnnotation annotation = iterator.next();
+        annotation = iterator.next();
+        annotation = iterator.next();
+        annotation = iterator.next();
+        annotation = iterator.next();
+        annotation = iterator.next();
+        
+        checkWarning(annotation, 0, "cannot open source file \"c:\JenkinsJobs\900ZH\Workspace\Lib\Drivers\_Obsolete\Uart\UartInterface.c\"",
+                "c:\JenkinsJobs\900ZH\Workspace\Lib\Drivers\_Obsolete\Uart\UartInterface.c",
+                "Pe1696", Priority.HIGH);
     }
 
     @Override
