@@ -157,7 +157,7 @@ public class IarParserTest extends ParserTester {
         annotation = iterator.next();
         annotation = iterator.next();
         
-        checkWarning(annotation, 0, "cannot open source file \"c:\JenkinsJobs\900ZH\Workspace\Lib\Drivers\_Obsolete\Uart\UartInterface.c\"",
+        checkWarning(annotation, 0, "cannot open source file \"c:/JenkinsJobs/900ZH/Workspace/Lib/Drivers/_Obsolete/Uart/UartInterface.c\"",
                 "c:\JenkinsJobs\900ZH\Workspace\Lib\Drivers\_Obsolete\Uart\UartInterface.c",
                 "Pe1696", Priority.HIGH);
     }
