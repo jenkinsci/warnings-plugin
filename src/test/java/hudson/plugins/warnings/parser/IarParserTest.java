@@ -45,7 +45,7 @@ public class IarParserTest extends ParserTester {
         Collection<FileAnnotation> warnings = new IarParser().parse(openFile("issue8823.txt"));
         Iterator<FileAnnotation> iterator = warnings.iterator();
 
-        FileAnnotation annotation = iterator;
+        FileAnnotation annotation = iterator.next();
         
        checkWarning(annotation, 3767, "Pe188",
                 "D:/continuousIntegration/modifiedcomps/forcedproduct/MHSM-Cascade/Cascade-Config/config/src/RDR_Config.c",
@@ -65,6 +65,7 @@ public class IarParserTest extends ParserTester {
         Iterator<FileAnnotation> iterator = warnings.iterator();
         
         FileAnnotation annotation = iterator.next();
+        annotation = iterator.next();
         
         checkWarning(annotation, 3767, "enumerated type mixed with another type",
                 "D:/continuousIntegration/modifiedcomps/forcedproduct/MHSM-Cascade/Cascade-Config/config/src/RDR_Config.c",
@@ -83,8 +84,9 @@ public class IarParserTest extends ParserTester {
         Collection<FileAnnotation> warnings = new IarParser().parse(openFile("issue8823.txt"));
         Iterator<FileAnnotation> iterator = warnings.iterator();
         
-        FileAnnotation annotation = iterator().next();
-        annotation = iterator().next();
+        FileAnnotation annotation = iterator.next();
+        annotation = iterator.next();
+        annotation = iterator.next();
         
         checkWarning(annotation, 3918, "enumerated type mixed with another type",
                 "D:/continuousIntegration/modifiedcomps/forcedproduct/MHSM-Cascade/Cascade-Config/config/src/RDR_Config.c",
@@ -106,6 +108,7 @@ public class IarParserTest extends ParserTester {
         FileAnnotation annotation = iterator.next();
         annotation = iterator.next();
         annotation = iterator.next();
+        annotation = iterator.next();
         
         checkWarning(annotation, 17, "cannot open source file \"System/ProcDef_LPC17xx.h\"",
                 "c:/JenkinsJobs/900ZH/Workspace/Product.900ZH/Src/System/AdditionalResources.h",
@@ -125,6 +128,7 @@ public class IarParserTest extends ParserTester {
         Iterator<FileAnnotation> iterator = warnings.iterator();
         
         FileAnnotation annotation = iterator.next();
+        annotation = iterator.next();
         annotation = iterator.next();
         annotation = iterator.next();
         annotation = iterator.next();
