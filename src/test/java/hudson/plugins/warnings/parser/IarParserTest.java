@@ -49,7 +49,7 @@ public class IarParserTest extends ParserTester {
         
        checkWarning(annotation, 3767, "enumerated type mixed with another type",
                 "D:/continuousIntegration/modifiedcomps/forcedproduct/MHSM-Cascade/Cascade-Config/config/src/RDR_Config.c",
-                "Pe188", Priority.HIGH);
+                "Pe188", Priority.NORMAL);
     }
     
      /**
@@ -69,7 +69,7 @@ public class IarParserTest extends ParserTester {
         
         checkWarning(annotation, 3767, "enumerated type mixed with another type",
                 "D:/continuousIntegration/modifiedcomps/forcedproduct/MHSM-Cascade/Cascade-Config/config/src/RDR_Config.c",
-                "Pe188", Priority.HIGH);
+                "Pe188", Priority.NORMAL);
     }
     
      /**
@@ -135,7 +135,7 @@ public class IarParserTest extends ParserTester {
         
         checkWarning(annotation, 43, "variable \"pgMsgEnv\" was declared but never referenced",
                 "C:/dev/bsc/daqtask.c",
-                "Pe177", Priority.HIGH);
+                "Pe177", Priority.NORMAL);
     }
     
      /**
