@@ -26,7 +26,7 @@ public class RTTestsParser extends RegexpLineParser {
         super(Messages._Warnings_RTTests_ParserName(),
               Messages._Warnings_RTTests_LinkName(),
               Messages._Warnings_RTTests_TrendName(),
-              CYCLICTEST_WARNING_PATTERN, true);
+              CYCLICTEST_WARNING_PATTERN);
     }
 
     @Override
