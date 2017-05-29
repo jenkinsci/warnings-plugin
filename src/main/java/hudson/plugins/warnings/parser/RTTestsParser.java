@@ -2,9 +2,11 @@ package hudson.plugins.warnings.parser;
 
 import java.util.regex.Matcher;
 
-import hudson.Extension;
+import org.apache.commons.lang.StringUtils;
 
+import hudson.Extension;
 import hudson.plugins.analysis.util.model.Priority;
+
 
 /**
  * A parser for RTTests Error Messages.
@@ -31,12 +33,17 @@ public class RTTestsParser extends RegexpLineParser {
 
     @Override
     protected Warning createWarning(final Matcher matcher) {
-        String category = matcher.group(1).trim();
-        String message = matcher.group(3).trim();
+        String category = StringUtils.trim(matcher.group(1));
+        String message = StringUtils.trim(matcher.group(3));
         Priority priority = Priority.NORMAL;
 
-        if (category.equals("FATAL"))
+        if (category == null | message == null) {
+            return FALSE_POSITIVE;
+        }
+
+        if ("FATAL".equals(category)) {
             priority = Priority.HIGH;
+        }
 
         return createWarning("Nil", 0, category, message, priority);
     }
