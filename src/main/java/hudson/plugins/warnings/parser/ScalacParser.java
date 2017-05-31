@@ -17,7 +17,7 @@ public class ScalacParser extends RegexpLineParser {
     static final String SCALA_SMALL_ICON = WarningsDescriptor.IMAGE_PREFIX + "scala-24x24.png";
     static final String SCALA_LARGE_ICON = WarningsDescriptor.IMAGE_PREFIX + "scala-48x48.png";
 
-    private static final String JAVAC_WARNING_PATTERN = "^(\\[WARNING\\]|\\[ERROR\\])\\s*(.*):(\\d+):\\s*([a-z]*):\\s*(.*)$";
+    private static final String JAVAC_WARNING_PATTERN = "^(\\[WARNING\\]|\\[ERROR\\]|\\[warn\\]|\\[error\\])\\s*(.*):(\\d+):\\s*([a-z]*):\\s*(.*)$";
 
     /**
      * Creates a new instance of {@link ScalacParser}.
