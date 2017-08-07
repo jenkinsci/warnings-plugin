@@ -13,6 +13,8 @@ import hudson.plugins.analysis.util.model.Priority;
 
 /**
  * Tests the class {@link RTTestsParser}.
+ *
+ * @author Benedikt Spranger
  */
 public class RTTestsParserTest extends ParserTester {
     private static final String TYPE = new RTTestsParser().getGroup();
@@ -20,8 +22,6 @@ public class RTTestsParserTest extends ParserTester {
 
     /**
      * Parses a file with three RTTests warnings.
-     *
-     * @author Benedikt Spranger
      *
      * @throws IOException
      *      if the file could not be read
