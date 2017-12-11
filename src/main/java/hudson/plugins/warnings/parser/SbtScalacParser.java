@@ -17,7 +17,7 @@ public class SbtScalacParser extends RegexpLineParser {
     private static final String SCALA_SMALL_ICON = WarningsDescriptor.IMAGE_PREFIX + "scala-24x24.png";
     private static final String SCALA_LARGE_ICON = WarningsDescriptor.IMAGE_PREFIX + "scala-48x48.png";
 
-    private static final String SBT_WARNING_PATTERN = "^(\\[warn\\]|\\[error\\])\\s*(.*):(\\d+):\\s*(.*)$";
+    private static final String SBT_WARNING_PATTERN = "^(\\[warn\\]|\\[error\\])\\s*(.*?):(\\d+)(?::\\d+)?:\\s*(.*)$";
 
     /**
      * Creates a new instance of {@link SbtScalacParser}.
