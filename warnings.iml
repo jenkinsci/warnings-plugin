@@ -61,7 +61,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.jenkins-ci.plugins.workflow:workflow-scm-step:1.14.2" level="project" />
     <orderEntry type="library" name="Maven: org.jenkins-ci.plugins:mailer:1.16" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jenkins-ci.plugins:git:tests:2.5.2" level="project" />
-    <orderEntry type="module" module-name="analysis-test" scope="TEST" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jvnet.hudson.plugins:analysis-test:1.20" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-core:2.7.11" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: net.bytebuddy:byte-buddy:1.6.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: net.bytebuddy:byte-buddy-agent:1.6.5" level="project" />
