@@ -73,7 +73,7 @@ public class MavenConsoleParser extends RegexpLineParser {
                         condensed.add(new Warning(previous, warning.getPrimaryLineNumber()));
                     }
                     else {
-                        condensed.add(new Warning(previous, warning.getMessage(), warning.getPrimaryLineNumber()));
+                        condensed.add(new Warning(previous, previous.getMessage() + "\n" + warning.getMessage(), warning.getPrimaryLineNumber()));
                     }
                 }
                 else {
