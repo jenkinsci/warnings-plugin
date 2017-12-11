@@ -20,12 +20,16 @@ public class SbtScalacParserTest extends ParserTester {
     @Test
     public void basicFunctionality() throws IOException {
         Collection<FileAnnotation> warnings = new SbtScalacParser().parse(openFile());
-        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 2, warnings.size());
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 4, warnings.size());
         Iterator<FileAnnotation> iter = warnings.iterator();
         checkWarning(iter.next(), 111, "method stop in class Thread is deprecated: see corresponding Javadoc for more information.",
                 "/home/user/.jenkins/jobs/job/workspace/path/SomeFile.scala", DEFAULT_CATEGORY, Priority.NORMAL);
         checkWarning(iter.next(), 9, "';' expected but identifier found.",
                 "/home/user/.jenkins/jobs/job/workspace/another/path/SomeFile.scala", DEFAULT_CATEGORY, Priority.HIGH);
+        checkWarning(iter.next(), 4, "implicit numeric widening",
+                     "/home/user/.jenkins/jobs/job/workspace/Main.scala", DEFAULT_CATEGORY, Priority.NORMAL);
+        checkWarning(iter.next(), 5, "Invalid literal number",
+                     "/home/user/.jenkins/jobs/job/workspace/Main.scala", DEFAULT_CATEGORY, Priority.HIGH);
     }
 
     @Override
