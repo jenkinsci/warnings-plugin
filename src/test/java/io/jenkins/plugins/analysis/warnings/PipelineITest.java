@@ -2,6 +2,8 @@ package io.jenkins.plugins.analysis.warnings;
 
 import java.io.IOException;
 
+import edu.hm.hafner.analysis.assertj.IssueAssert;
+import edu.hm.hafner.analysis.assertj.IssuesAssert;
 import org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition;
 import org.jenkinsci.plugins.workflow.job.WorkflowJob;
 import org.jenkinsci.plugins.workflow.job.WorkflowRun;
@@ -32,6 +34,25 @@ public class PipelineITest extends IntegrationTest {
     private static final String PUBLISH_ISSUES_STEP = "publishIssues issues:[issues]";
 
     /**
+     * testing suit.
+     * allows to write simple Integration test with a specific parser and testfile
+     * it do just verify the size of the result and the number of Issues
+     * @param filename name of the testFile with the content
+     * @param parser class which analysis the test-file
+     * @param totalSize size of scheduled Job
+     * @param issuesSize number of Issues
+     * @throws Exception from scheduleBuild and createJobWithWorkspaceFile
+     */
+    private void parserIntegrationTest(final String filename, Class parser, int totalSize, int issuesSize) throws Exception {
+        WorkflowJob job = createJobWithWorkspaceFile(filename);
+        job.setDefinition(parseAndPublish(parser));
+        AnalysisResult result = scheduleBuild(job);
+
+        assertThat(result.getTotalSize()).isEqualTo(totalSize);
+        assertThat(result.getIssues()).hasSize(issuesSize);
+    }
+
+    /**
      * Runs the Eclipse parser on an output file that contains several issues: the build should report 8 issues.
      *
      * @throws Exception
@@ -46,8 +67,18 @@ public class PipelineITest extends IntegrationTest {
 
         assertThat(result.getTotalSize()).isEqualTo(8);
         assertThat(result.getIssues()).hasSize(8);
+
     }
 
+    @Test public void shouldFindAllErlcIssues() throws Exception {
+        parserIntegrationTest("erlc.txt",Erlc.class,2,2);
+    }
+    @Test public void shouldFindAllFlexSDKIssues() throws Exception {
+        parserIntegrationTest("flexsdk.txt",FlexSDK.class,5,5);
+    }
+    @Test public void shouldFindAllFxcopSDKIssues() throws Exception {
+        parserIntegrationTest("fxcop.xml",Fxcop.class,2,2);
+    }
     /**
      * Runs the JavaC parser on an output file of the Eclipse compiler: the build should report no issues.
      *
