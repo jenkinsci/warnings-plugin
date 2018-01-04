@@ -13,6 +13,10 @@ import java.util.List;
 public class Report {
     private List<File> files = new ArrayList<File>();
 
+    public Report() {
+        this.files = new ArrayList<>();
+    }
+
     /**
      * Returns an unmodifiable Collection.
      * @return files -> getter

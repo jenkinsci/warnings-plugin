@@ -6,13 +6,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.commons.digester3.Digester;
-import org.apache.commons.digester3.binder.DigesterLoader;
 import org.apache.commons.lang.StringUtils;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import hudson.Extension;
+import hudson.plugins.analysis.util.SecureDigester;
 import hudson.plugins.analysis.util.model.FileAnnotation;
 import hudson.plugins.analysis.util.model.Priority;
 import hudson.plugins.warnings.parser.AbstractWarningsParser;
@@ -42,13 +41,10 @@ public class JcReportParser extends AbstractWarningsParser {
      * This overwritten method passes the reader to createReport() and starts adding all the warnings to the Collection
      * that will be returned at the end of the method.
      *
+     * @param reader the reader that parses from the source-file.
      * @return the collection of Warnings parsed from the Report.
-     * @param reader
-     *            the reader that parses from the source-file.
-     * @exception IOException
-     *                thrown by createReport()
-     * @exception ParsingCanceledException
-     *                thrown by createReport()
+     * @throws IOException              thrown by createReport()
+     * @throws ParsingCanceledException thrown by createReport()
      */
     @Override
     public Collection<FileAnnotation> parse(final Reader reader) throws IOException, ParsingCanceledException {
@@ -76,8 +72,7 @@ public class JcReportParser extends AbstractWarningsParser {
     /**
      * The severity-level parsed from the JcReport will be matched with a priority.
      *
-     * @param issueLevel
-     *            the severity-level parsed from the JcReport.
+     * @param issueLevel the severity-level parsed from the JcReport.
      * @return the priority-enum matching with the issueLevel.
      */
     private Priority getPriority(final String issueLevel) {
@@ -105,18 +100,33 @@ public class JcReportParser extends AbstractWarningsParser {
     /**
      * Creates a Report-Object out of the content within the JcReport.xml.
      *
-     * @param source
-     *            the Reader-object that is the source to build the Report-Object.
+     * @param source the Reader-object that is the source to build the Report-Object.
      * @return the finished Report-Object that creates the Warnings.
-     * @throws IOException
-     *              due to digester.parse(new InputSource(source))
+     * @throws IOException due to digester.parse(new InputSource(source))
      */
     public Report createReport(final Reader source) throws IOException {
         try {
-            DigesterLoader digesterLoader = DigesterLoader.newLoader(new JcReportModule());
-            digesterLoader.setClassLoader(JcReportModule.class.getClassLoader());
+            SecureDigester digester = new SecureDigester(JcReportParser.class);
 
-            Digester digester = digesterLoader.newDigester();
+            String report = "report";
+            digester.addObjectCreate(report, Report.class);
+            digester.addSetProperties(report);
+
+            String file = "report/file";
+            digester.addObjectCreate(file, File.class);
+            digester.addSetProperties(file,  "package", "packageName");
+            digester.addSetProperties(file,  "src-dir", "srcdir");
+            digester.addSetProperties(file);
+            digester.addSetNext(file, "addFile", File.class.getName());
+
+            String item = "report/file/item";
+            digester.addObjectCreate(item, Item.class);
+            digester.addSetProperties(item);
+            digester.addSetProperties(item,  "finding-type", "findingtype");
+            digester.addSetProperties(item,  "end-line", "endline");
+            digester.addSetProperties(item,  "end-column", "endcolumn");
+            digester.addSetNext(item, "addItem", Item.class.getName());
+
             return digester.parse(new InputSource(source));
         }
         catch (SAXException exception) {
