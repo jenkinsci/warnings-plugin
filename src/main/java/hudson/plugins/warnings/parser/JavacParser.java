@@ -41,7 +41,7 @@ public class JavacParser extends RegexpLineParser {
 
     @Override
     protected boolean isLineInteresting(final String line) {
-        return line.contains("[");
+        return line.contains("[") || line.contains("w:");
     }
 
     @Override
