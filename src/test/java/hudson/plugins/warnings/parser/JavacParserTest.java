@@ -51,9 +51,21 @@ public class JavacParserTest extends ParserTester {
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 62, java7.size());
     }
 
+    /**
+     * Parses a warning log written by Maven containing Kotlin 4 warnings.
+     */
     @Test
     public void kotlinMavenPlugin() throws IOException {
         Collection<FileAnnotation> warnings = parse("kotlin-maven-plugin.txt");
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 4, warnings.size());
+    }
+
+    /**
+     * Parses a warning log written by Gradle containing Kotlin 4 warnings.
+     */
+    @Test
+    public void kotlinGradle() throws IOException {
+        Collection<FileAnnotation> warnings = parse("kotlin-gradle.txt");
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 4, warnings.size());
     }
 
