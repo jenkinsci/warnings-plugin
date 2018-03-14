@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Collection;
 
 import org.jenkinsci.Symbol;
-import org.kohsuke.stapler.*;
+
 
 import jenkins.model.Jenkins;
 import net.sf.json.JSONObject;
@@ -18,7 +18,13 @@ import hudson.plugins.analysis.graph.GraphConfiguration;
 import hudson.plugins.warnings.parser.ParserRegistry;
 import hudson.util.CopyOnWriteList;
 import hudson.util.FormValidation;
-
+import org.kohsuke.stapler.Ancestor;
+import org.kohsuke.stapler.AncestorInPath;
+import org.kohsuke.stapler.QueryParameter;
+import org.kohsuke.stapler.StaplerProxy;
+import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.StaplerResponse;
+import org.kohsuke.stapler.DataBoundSetter;
 /**
  * Descriptor for the class {@link WarningsPublisher}. Used as a singleton. The
  * class is marked as public so that it can be accessed from views.
@@ -57,12 +63,10 @@ public final class WarningsDescriptor extends PluginDescriptor implements Staple
     }
 
     /**
-     * Used in Configuration as code plugin
-     * https://github.com/jenkinsci/configuration-as-code-plugin
+     * Setter for the list of user defined Groovy parsers in the global configuration.
      *
-     * Needed in order to set the parsers in the .yml configuration file
-     *
-     * @param parsers List of parsers to configure
+     * @since TODO
+     * @param parsers List of custom {@link GroovyParser}s to configure
      */
     @DataBoundSetter
     public void setParsers(GroovyParser[] parsers) {
