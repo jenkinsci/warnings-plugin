@@ -4,12 +4,7 @@ import java.io.IOException;
 import java.util.Collection;
 
 import org.jenkinsci.Symbol;
-import org.kohsuke.stapler.Ancestor;
-import org.kohsuke.stapler.AncestorInPath;
-import org.kohsuke.stapler.QueryParameter;
-import org.kohsuke.stapler.StaplerProxy;
-import org.kohsuke.stapler.StaplerRequest;
-import org.kohsuke.stapler.StaplerResponse;
+import org.kohsuke.stapler.*;
 
 import jenkins.model.Jenkins;
 import net.sf.json.JSONObject;
@@ -59,6 +54,19 @@ public final class WarningsDescriptor extends PluginDescriptor implements Staple
         else {
             return PLUGIN_ID + ParserRegistry.getUrl(group) + RESULT_URL_SUFFIX;
         }
+    }
+
+    /**
+     * Used in Configuration as code plugin
+     * https://github.com/jenkinsci/configuration-as-code-plugin
+     *
+     * Needed in order to set the parsers in the .yml configuration file
+     *
+     * @param parsers List of parsers to configure
+     */
+    @DataBoundSetter
+    public void setParsers(GroovyParser[] parsers) {
+        groovyParsers.replaceBy(parsers);
     }
 
     /**
