@@ -23,7 +23,7 @@ public class SdccParser extends RegexpLineParser {
     // search for: ..\..\Src\main.c:27: syntax error: token -> 'Modbus_UpdateTimers' ; column 21.
     // search for: ..\..\..\Lib\Src\AlBus\AlBus.c:806: warning 116: left shifting more than size of object changed to zero
     private static final String WARNING_PATTERN = 
-    "(.*\\.c):(\\d+):?(\\d+)?:\\s(Warning|warning|syntax error):?(\\s\\d+)?:(.*)";
+    "(.*\\.c):(\\d+):?(\\d+)?:\\s(Warning|warning|syntax error):?\\s(\\d+)?:(.*)";
     /**
      * Creates a new instance of {@link IarParser}.
      */
