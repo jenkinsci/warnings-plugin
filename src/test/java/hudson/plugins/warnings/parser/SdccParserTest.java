@@ -23,7 +23,7 @@ public class SdccParserTest extends ParserTester {
      */
     @Test
     public void Sdcc_error_size() throws IOException {
-        Collection<FileAnnotation> warnings = new IarParser().parse(openFile("sdcc_Output.txt"));
+        Collection<FileAnnotation> warnings = new SdccParser().parse(openFile("sdcc_Output.txt"));
 
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 5, warnings.size());
     }
@@ -99,7 +99,7 @@ public class SdccParserTest extends ParserTester {
     }
 
     protected FileAnnotation getErrorNumber( final int number) throws IOException {
-        Collection<FileAnnotation> warnings = new IarParser().parse(openFile("sdcc_Output.txt"));
+        Collection<FileAnnotation> warnings = new SdccParser().parse(openFile("sdcc_Output.txt"));
         Iterator<FileAnnotation> iterator = warnings.iterator();
         FileAnnotation annotation = iterator.next();
 
