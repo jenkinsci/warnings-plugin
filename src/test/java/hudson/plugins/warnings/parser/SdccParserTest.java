@@ -41,7 +41,7 @@ public class SdccParserTest extends ParserTester {
     public void Sdcc_warning1() throws IOException {
         FileAnnotation annotation = getErrorNumber(1);
        checkWarning(annotation, 806, "left shifting more than size of object changed to zero",
-                "..\..\..\Lib\Src\AlBus\AlBus.c", "warning", Priority.NORMAL);
+                "..\\..\\..\\Lib\\Src\\AlBus\\AlBus.c", "warning", Priority.NORMAL);
     }
 
     /**
@@ -54,7 +54,7 @@ public class SdccParserTest extends ParserTester {
     public void Sdcc_warning2() throws IOException {
         FileAnnotation annotation = getErrorNumber(2);
        checkWarning(annotation, 125, "backslash-newline at end of file",
-                "..\..\Src\HrCommunication\HrAlTagList.c", "warning", Priority.NORMAL);
+                "..\\..\\Src\\HrCommunication\\HrAlTagList.c", "warning", Priority.NORMAL);
     }
 
     /**
@@ -67,7 +67,7 @@ public class SdccParserTest extends ParserTester {
     public void Sdcc_warning3() throws IOException {
         FileAnnotation annotation = getErrorNumber(3);
        checkWarning(annotation, 144, " #warning \"There is a rounding error in the denominator for ST_Cycles_T to SystemTimer period conversion!\"",
-                "..\..\Src\TriacModulation\TriacModulation.c", "warning", Priority.NORMAL);
+                "..\\..\\Src\\TriacModulation\\TriacModulation.c", "warning", Priority.NORMAL);
     }
     
     /**
@@ -80,7 +80,7 @@ public class SdccParserTest extends ParserTester {
     public void Sdcc_warning4() throws IOException {
         FileAnnotation annotation = getErrorNumber(3);
        checkWarning(annotation, 150, " #warning \"There is a rounding error in the denominator for AcPeriod_T to SystemTimer period conversion!\"",
-                "..\..\Src\TriacModulation\TriacModulation.c", "warning", Priority.NORMAL);
+                "..\\..\\Src\\TriacModulation\\TriacModulation.c", "warning", Priority.NORMAL);
     }
 
     /**
@@ -93,7 +93,7 @@ public class SdccParserTest extends ParserTester {
     public void Sdcc_error1() throws IOException {
         FileAnnotation annotation = getErrorNumber(3);
        checkWarning(annotation, 27, " token -> 'Modbus_UpdateTimers' ; column 21",
-                "..\..\Src\main.c", "syntax error", Priority.HIGH);
+                "..\\..\\Src\\main.c", "syntax error", Priority.HIGH);
     }
 
     @Override
