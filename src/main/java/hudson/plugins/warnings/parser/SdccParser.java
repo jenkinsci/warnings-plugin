@@ -22,9 +22,9 @@ public class SdccParser extends RegexpLineParser {
     // search for: ..\..\Src\main.c:27: syntax error: token -> 'Modbus_UpdateTimers' ; column 21.
     // search for: ..\..\..\Lib\Src\AlBus\AlBus.c:806: warning 116: left shifting more than size of object changed to zero
     private static final String WARNING_PATTERN = 
-    "(.*\\.c):(\\d+):?(\\d+)?:\\s(warning|syntax error):?\\s?(\\d+)?:\\s(.*)";
+    "(.*\\.c).(\\d+).*:\\s(warning|syntax error).*:(.*)";
     /**
-     * Creates a new instance of {@link IarParser}.
+     * Creates a new instance of {@link SdccParser}.
      */
     public SdccParser() {
         super(Messages._Warnings_sdcc_ParserName(),
@@ -40,12 +40,12 @@ public class SdccParser extends RegexpLineParser {
 
     @Override
     protected Warning createWarning(final Matcher matcher) {
-        return createWarning(matcher.group(1), getLineNumber(matcher.group(2)), matcher.group(4), matcher.group(6), determinePriority(matcher.group(4)));
+        return createWarning(matcher.group(1), getLineNumber(matcher.group(2)), matcher.group(3), matcher.group(4), determinePriority(matcher.group(3)));
     }
           
     private Priority determinePriority(final String message) {
         // for "Fatal error", "Fatal Error", "Error" and "error" and "warning"
-        if (message.toLowerCase().contains("error")) {
+        if (message.toLowerCase().contains("syntax error")) {
             return Priority.HIGH;
         } else if (message.toLowerCase().contains("warning")) {
             return Priority.NORMAL;
