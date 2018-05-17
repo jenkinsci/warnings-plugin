@@ -44,8 +44,7 @@ public class SdccParser extends RegexpLineParser {
     }
           
     private Priority determinePriority(final String message) {
-        // for "Fatal error", "Fatal Error", "Error" and "error" and "warning"
-        if (message.toLowerCase().contains("syntax error")) {
+        if (message.toLowerCase().contains("error")) {
             return Priority.HIGH;
         } else if (message.toLowerCase().contains("warning")) {
             return Priority.NORMAL;
