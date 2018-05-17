@@ -18,12 +18,11 @@ import hudson.plugins.analysis.util.model.Priority;
 @Extension
 public class SdccParser extends RegexpLineParser {
     private static final long serialVersionUID = 7695540852439013422L;
-    private static final int GROUP_NUMBER = 4;
     
     // search for: ..\..\Src\main.c:27: syntax error: token -> 'Modbus_UpdateTimers' ; column 21.
     // search for: ..\..\..\Lib\Src\AlBus\AlBus.c:806: warning 116: left shifting more than size of object changed to zero
     private static final String WARNING_PATTERN = 
-    "(.*\\.c):(\\d+):?(\\d+)?:\\s(Warning|warning|syntax error):?\\s(\\d+)?:(.*)";
+    "(.*\\.c):(\\d+):?(\\d+)?:\\s(warning|syntax error):?\\s?(\\d+)?:\\s(.*)";
     /**
      * Creates a new instance of {@link IarParser}.
      */
@@ -31,31 +30,17 @@ public class SdccParser extends RegexpLineParser {
         super(Messages._Warnings_sdcc_ParserName(),
                 Messages._Warnings_sdcc_LinkName(),
                 Messages._Warnings_sdcc_TrendName(),
-                WARNING_PATTERN, true);
-    }
-
-    @Override
-    protected boolean isLineInteresting(final String line) {
-        return line.contains("Warning") || line.contains("warning") || line.contains("error");
+                WARNING_PATTERN);
     }
 
     @Override
     protected String getId() {
-        return "SDCC compiler";
+        return "SDCC C compiler";
     }
 
     @Override
     protected Warning createWarning(final Matcher matcher) {
-        Priority priority;
-           
-        priority = determinePriority(matcher.group(GROUP_NUMBER));
-        return composeWarning(matcher, priority);
-    }
-           
-    private Warning composeWarning(final Matcher matcher, final Priority priority) {
-        String message = matcher.group(6);
-        
-        return createWarning(matcher.group(1), getLineNumber(matcher.group(2)), matcher.group(4), message, priority);
+        return createWarning(matcher.group(1), getLineNumber(matcher.group(2)), matcher.group(4), matcher.group(6), determinePriority(matcher.group(4)));
     }
           
     private Priority determinePriority(final String message) {

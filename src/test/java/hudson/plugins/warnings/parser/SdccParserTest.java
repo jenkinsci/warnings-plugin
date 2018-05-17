@@ -3,11 +3,8 @@ package hudson.plugins.warnings.parser;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
-
 import org.junit.Test;
-
 import static org.junit.Assert.*;
-
 import hudson.plugins.analysis.util.model.FileAnnotation;
 import hudson.plugins.analysis.util.model.Priority;
 
@@ -37,7 +34,7 @@ public class SdccParserTest extends ParserTester {
      *
      * @throws IOException
      */
-   @Test
+    @Test
     public void Sdcc_warning1() throws IOException {
         FileAnnotation annotation = getErrorNumber(1);
        checkWarning(annotation, 806, "left shifting more than size of object changed to zero",
