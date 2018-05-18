@@ -29,7 +29,7 @@ public class ClangTidyParserTest extends ParserTester {
     public void testWarningsParser() throws IOException {
         Collection<FileAnnotation> warnings = new ClangTidyParser().parse(openFile());
 
-        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 6, warnings.size());
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 7, warnings.size());
 
         Iterator<FileAnnotation> iterator = warnings.iterator();
 
@@ -92,6 +92,15 @@ public class ClangTidyParserTest extends ParserTester {
                 TYPE,
                 "clang-diagnostic-error",
                 Priority.HIGH);
+        annotation = iterator.next();
+        checkWarning(annotation,
+                50,
+                57,
+                "implicit conversion turns string literal into bool: 'const char [28]' to 'bool'",
+                "/var/lib/jenkins/workspace/job/user/project.cpp",
+                TYPE,
+                "clang-diagnostic-string-conversion",
+                Priority.NORMAL);
     }
 
     @Override
