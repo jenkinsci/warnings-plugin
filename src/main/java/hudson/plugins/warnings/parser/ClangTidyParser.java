@@ -15,7 +15,7 @@ import hudson.plugins.analysis.util.model.Priority;
 public class ClangTidyParser extends RegexpLineParser {
     private static final long serialVersionUID = -3015592762345283182L;
     private static final String CLANG_TIDY_WARNING_PATTERN =
-        "([^\\s]+):(\\d+):(\\d+): (warning|error): (.*?) \\[(.*?)\\]$";
+        "([^\\s]+):(\\d+):(\\d+): (warning|error): (.*?) \\[([^\\s]*?)\\]$";
 
     /**
      * Creates a new instance of {@link ClangTidyParser}.
