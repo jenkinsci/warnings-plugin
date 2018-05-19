@@ -4,9 +4,11 @@
   <f:section title="${%Compiler Warnings}">
       <j:choose>
         <j:when test="${descriptor.canEditParsers()}">
-          <f:entry title="${%Parsers}" description="${%title.description}">
-            <u:repeatable field="parsers"/>
-          </f:entry>
+          <f:advanced title="${%Parsers}" align="left">
+            <f:entry title="${%Parsers}" description="${%title.description}">
+              <u:repeatable field="parsers"/>
+            </f:entry>
+          </f:advanced>
         </j:when>
         <j:otherwise>
           <f:block>
