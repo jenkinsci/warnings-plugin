@@ -18,6 +18,29 @@ import hudson.plugins.analysis.util.model.Priority;
  */
 public class MsBuildParserTest extends ParserTester {
     /**
+     * Parses a file generated with the visualstuido formatter of sass-lint
+     *
+     * @throws IOException
+     *      if the file could not be read
+     * @see <a href="https://issues.jenkins-ci.org/browse/JENKINS-51485">Issue 51485</a>
+     */
+    @Test
+    public void issue51485() throws IOException {
+        Collection<FileAnnotation> warnings = new MsBuildParser().parse(openFile("issue51485.txt"));
+
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 2, warnings.size());
+
+        Iterator<FileAnnotation> iterator = warnings.iterator();
+        FileAnnotation annotation = iterator.next();
+        checkWarning(annotation, 41, "Property `margin` should be written more concisely as `5px 0 0` instead of `5px 0 0 0`",
+                "src/search-list.component.scss", "shorthand-values", Priority.NORMAL);
+
+        annotation = iterator.next();
+        checkWarning(annotation, 41, "Property `margin` should be written more concisely as `5px 0 0` instead of `5px 0 0 0`",
+                "src/search-list.component.scss", "shorthand_values", Priority.NORMAL);
+    }
+
+    /**
      * MSBuildParser should make relative paths absolute, based on the project name listed in the message.
      * @throws IOException
      *          if the stream could not be read
