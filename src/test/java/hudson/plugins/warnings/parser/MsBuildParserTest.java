@@ -18,11 +18,11 @@ import hudson.plugins.analysis.util.model.Priority;
  */
 public class MsBuildParserTest extends ParserTester {
     /**
-     * Parses a file with warnings of Stylecop.
+     * Parses a file generated with the visualstuido formatter of sass-lint
      *
      * @throws IOException
      *      if the file could not be read
-     * @see <a href="http://issues.jenkins-ci.org/browse/JENKINS-8347">Issue 8347</a>
+     * @see <a href="https://issues.jenkins-ci.org/browse/JENKINS-51485">Issue 51485</a>
      */
     @Test
     public void issue51485() throws IOException {
