@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.function.Consumer;
 
+import io.jenkins.plugins.analysis.core.views.JobAction;
 import org.junit.Test;
 import org.jvnet.hudson.test.JenkinsRule.WebClient;
 import org.xml.sax.SAXException;
@@ -175,5 +176,25 @@ public class IssuesRecorderITest extends IntegrationTest {
         catch (Exception e) {
             throw new AssertionError(e);
         }
+    }
+
+    // JobActionTests -------------------------------------------------------------------------------------
+
+    /**
+     * Checks if the toString Method is working properly
+     */
+    @Test
+    public void shouldReturnClassNameAndLabelProviderName() {
+        String asserted = "io.jenkins.plugins.analysis.core.views.JobAction (Eclipse ECJ)";
+
+        FreeStyleProject project = createJob();
+        enableWarnings(project);
+
+        AnalysisResult result = scheduleBuildAndAssertStatus(project, Result.SUCCESS);
+
+        JobAction jobAction = project.getAction(JobAction.class);
+        String jobActionString = jobAction.toString();
+
+        assertThat(jobActionString).isEqualTo(asserted);
     }
 }
