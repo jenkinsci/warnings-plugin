@@ -49,9 +49,9 @@ public class MavenConsoleParser extends RegexpLineParser {
      */
     public MavenConsoleParser() {
         super(Messages._Warnings_Maven_ParserName(),
-              Messages._Warnings_Maven_LinkName(),
-              Messages._Warnings_Maven_TrendName(),
-              PATTERN, true);
+                Messages._Warnings_Maven_LinkName(),
+                Messages._Warnings_Maven_TrendName(),
+                PATTERN, true);
     }
 
     @Override
