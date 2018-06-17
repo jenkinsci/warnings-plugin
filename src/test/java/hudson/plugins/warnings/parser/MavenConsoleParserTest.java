@@ -29,10 +29,10 @@ public class MavenConsoleParserTest extends ParserTester {
     public void testParsing() throws IOException {
         Collection<FileAnnotation> warnings = new MavenConsoleParser().parse(openFile());
 
-        assertEquals("Wrong number of warnings detected.", 4, warnings.size());
+        assertEquals("Wrong number of warnings detected.", 5, warnings.size());
         AnnotationContainer result = new DefaultAnnotationContainer(warnings);
         assertEquals("Wrong number of errors detected.", 2, result.getNumberOfAnnotations(Priority.HIGH));
-        assertEquals("Wrong number of warnings detected.", 2, result.getNumberOfAnnotations(Priority.NORMAL));
+        assertEquals("Wrong number of warnings detected.", 3, result.getNumberOfAnnotations(Priority.NORMAL));
     }
 
     /**
