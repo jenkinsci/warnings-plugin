@@ -10,9 +10,9 @@ import org.junit.Test;
 import hudson.plugins.analysis.util.model.FileAnnotation;
 
 /**
- * Tests the class {@link SonarqubeIssuesParser}.
+ * Tests the class {@link SonarQubeIssuesParser}.
  */
-public class SonarqubeDiffParserTest extends ParserTester {
+public class SonarQubeDiffParserTest extends ParserTester {
 
     private static final String FILENAME_API = "sonarqube-differential.json";
     private static final String FILENAME_API_MULTIMODULE = "sonarqube-differential-multimodule.json";
@@ -56,7 +56,7 @@ public class SonarqubeDiffParserTest extends ParserTester {
     }
 
     private Collection<FileAnnotation> parseFile (final String name) throws IOException {
-        return new SonarqubeDiffParser().parse(openFile(name));
+        return new SonarQubeDiffParser().parse(openFile(name));
     }
 
 }

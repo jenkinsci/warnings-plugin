@@ -10,9 +10,9 @@ import org.junit.Test;
 import hudson.plugins.analysis.util.model.FileAnnotation;
 
 /**
- * Tests the class {@link SonarqubeIssuesParser}.
+ * Tests the class {@link SonarQubeIssuesParser}.
  */
-public class SonarqubeIssuesParserTest extends ParserTester {
+public class SonarQubeIssuesParserTest extends ParserTester {
 
     private static final String FILENAME_API = "sonarqube-api.json";
     private static final String FILENAME_API_MULTIMODULE = "sonarqube-api-multimodule.json";
@@ -33,6 +33,7 @@ public class SonarqubeIssuesParserTest extends ParserTester {
 
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 32, warnings.size());
 
+        System.out.println("Issues Test\n============================================");
         for (FileAnnotation warning : warnings) {
             System.out.println(warning.toString());
         }
@@ -49,13 +50,14 @@ public class SonarqubeIssuesParserTest extends ParserTester {
 
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 106, warnings.size());
 
+        System.out.println("Issues Multimodule Test\n============================================");
         for (FileAnnotation warning : warnings) {
             System.out.println(warning.toString());
         }
     }
 
     private Collection<FileAnnotation> parseFile (final String name) throws IOException {
-        return new SonarqubeIssuesParser().parse(openFile(name));
+        return new SonarQubeIssuesParser().parse(openFile(name));
     }
 
 }
