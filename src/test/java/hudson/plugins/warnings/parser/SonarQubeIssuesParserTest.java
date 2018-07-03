@@ -32,12 +32,6 @@ public class SonarQubeIssuesParserTest extends ParserTester {
         Collection<FileAnnotation> warnings = parseFile(getWarningsFile());
 
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 32, warnings.size());
-
-        System.out.println("Issues Test\n============================================");
-        for (FileAnnotation warning : warnings) {
-            System.out.println(warning.toString());
-        }
-
     }
 
     /**
@@ -49,11 +43,6 @@ public class SonarQubeIssuesParserTest extends ParserTester {
         Collection<FileAnnotation> warnings = parseFile(FILENAME_API_MULTIMODULE);
 
         assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 106, warnings.size());
-
-        System.out.println("Issues Multimodule Test\n============================================");
-        for (FileAnnotation warning : warnings) {
-            System.out.println(warning.toString());
-        }
     }
 
     private Collection<FileAnnotation> parseFile (final String name) throws IOException {
