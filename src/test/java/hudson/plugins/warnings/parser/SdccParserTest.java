@@ -1,8 +1,7 @@
 package hudson.plugins.warnings.parser;
 
 import java.io.IOException;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import hudson.plugins.analysis.util.model.FileAnnotation;
