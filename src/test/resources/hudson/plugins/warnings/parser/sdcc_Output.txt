@@ -1,0 +1,13 @@
+..\..\..\Lib\Src\AlBus\AlBus.c:806: warning 116: left shifting more than size of object changed to zero
+..\..\Src\HrCommunication\HrAlTagList.c:125:216: warning: backslash-newline at end of file
+Warning: Non-connected liverange found and extended to connected component of the CFG:iTemp0. Please contact sdcc authors with source code to reproduce.
+Warning: Non-connected liverange found and extended to connected component of the CFG:iTemp0. Please contact sdcc authors with source code to reproduce.
+Warning: Non-connected liverange found and extended to connected component of the CFG:iTemp0. Please contact sdcc authors with source code to reproduce.
+Warning: Non-connected liverange found and extended to connected component of the CFG:iTemp0. Please contact sdcc authors with source code to reproduce.
+..\..\Src\TriacModulation\TriacModulation.c:144:6: warning: #warning "There is a rounding error in the denominator for ST_Cycles_T to SystemTimer period conversion!"
+..\..\Src\TriacModulation\TriacModulation.c:150:6: warning: #warning "There is a rounding error in the denominator for AcPeriod_T to SystemTimer period conversion!"
+..\..\Src\main.c:27: syntax error: token -> 'Modbus_UpdateTimers' ; column 21
+
+?ASlink-Warning-Undefined Global '_TIM1_IRQHandler' referenced by module 'main'
+
+?ASlink-Warning-Undefined Global '_SPI1_IRQHandler' referenced by module 'main'
