@@ -27,7 +27,7 @@ public class GhsMultiParserTest extends ParserTester {
     public void parseMultiLine() throws IOException {
         Collection<FileAnnotation> warnings = new GhsMultiParser().parse(openFile());
 
-        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 3, warnings.size());
+        assertEquals(WRONG_NUMBER_OF_WARNINGS_DETECTED, 4, warnings.size());
 
         Iterator<FileAnnotation> iterator = warnings.iterator();
         FileAnnotation annotation = iterator.next();
@@ -44,6 +44,11 @@ public class GhsMultiParserTest extends ParserTester {
         checkWarning(annotation, 9,
                 "extra\n          \";\" ignored\n  TEST_DSS( CHECK_4TH_CONFIG_DATA, 18, 142, 'F');",
                 "/maindir/tests/TestCase_1601.cpp\"", TYPE, "#381-D",
+                Priority.NORMAL);
+        annotation = iterator.next();
+        checkWarning(annotation, 23,
+                "variable \"myvar\" was declared but never referenced\n  static const uint32 myvar",
+                "/workspace/TEST/mytest.c\"", TYPE, "#177-D",
                 Priority.NORMAL);
     }
 
