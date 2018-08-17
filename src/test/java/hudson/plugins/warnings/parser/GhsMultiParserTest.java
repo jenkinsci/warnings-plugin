@@ -45,7 +45,7 @@ public class GhsMultiParserTest extends ParserTester {
                 "extra\n          \";\" ignored\n  TEST_DSS( CHECK_4TH_CONFIG_DATA, 18, 142, 'F');",
                 "/maindir/tests/TestCase_1601.cpp\"", TYPE, "#381-D",
                 Priority.NORMAL);
-	annotation = iterator.next();
+        annotation = iterator.next();
         checkWarning(annotation, 23,
                 "variable \"myvar\" was declared but never referenced\n\n  static const uint32 myvar",
                 "/workspace/TEST/mytest.c\"", TYPE, "#177-D",
