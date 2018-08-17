@@ -48,7 +48,7 @@ public class GhsMultiParserTest extends ParserTester {
 	annotation = iterator.next();
         checkWarning(annotation, 23,
                 "variable \"myvar\" was declared but never referenced\n\n  static const uint32 myvar",
-                "D:/workspace/TEST/mytest.c\"", TYPE, "#177-D",
+                "/workspace/TEST/mytest.c\"", TYPE, "#177-D",
                 Priority.NORMAL);
     }
 
