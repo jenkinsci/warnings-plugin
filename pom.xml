@@ -26,7 +26,7 @@
     <jenkins-test-harness.version>2.42</jenkins-test-harness.version>
 
     <!-- Project Dependencies Configuration -->
-    <warnings-ng.version>1.0.0-beta1-SNAPSHOT</warnings-ng.version>
+    <warnings-ng.version>1.0.0-beta1</warnings-ng.version>
 
     <commons.lang.version>3.8</commons.lang.version>
     <commons.io.version>2.6</commons.io.version>
