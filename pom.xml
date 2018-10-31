@@ -26,8 +26,7 @@
     <jenkins-test-harness.version>2.42</jenkins-test-harness.version>
 
     <!-- Project Dependencies Configuration -->
-    <analysis-model-api.version>1.0.0-beta3</analysis-model-api.version>
-    <analysis-model.version>1.0.0-RC9</analysis-model.version>
+    <warnings-ng.version>1.0.0-beta1-SNAPSHOT</warnings-ng.version>
 
     <commons.lang.version>3.8</commons.lang.version>
     <commons.io.version>2.6</commons.io.version>
@@ -97,9 +96,10 @@
   <dependencies>
     <!-- Project Dependencies -->
     <dependency>
-      <groupId>org.jenkins-ci.plugins</groupId>
-      <artifactId>analysis-model-api</artifactId>
-      <version>${analysis-model-api.version}</version>
+      <!-- TODO: remove before 5.0.0 version -->
+      <groupId>io.jenkins.plugins</groupId>
+      <artifactId>warnings-ng</artifactId>
+      <version>${warnings-ng.version}</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.collections</groupId>
@@ -311,13 +311,6 @@
       <groupId>net.javacrumbs.json-unit</groupId>
       <artifactId>json-unit-fluent</artifactId>
       <version>${json-unit-fluent.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>edu.hm.hafner</groupId>
-      <artifactId>analysis-model</artifactId>
-      <version>${analysis-model.version}</version>
-      <type>test-jar</type>
       <scope>test</scope>
     </dependency>
 

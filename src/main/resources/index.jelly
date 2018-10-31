@@ -1,6 +1,6 @@
 <?jelly escape-by-default='true'?>
 
 <div>
-  This plug-in collects the compiler warnings of the project modules and 
-  visualizes the results.
+  The Warnings plug-in reached end-of-life. All functionality has been integrated
+  into the <a href="https://wiki.jenkins.io/x/1YTeCQ">Warnings Next Generation Plugin</a>.
 </div>
