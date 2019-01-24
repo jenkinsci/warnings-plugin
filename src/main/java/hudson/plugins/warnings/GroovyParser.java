@@ -11,6 +11,7 @@ import org.apache.commons.lang.StringUtils;
 import org.codehaus.groovy.control.CompilationFailedException;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.QueryParameter;
+import org.kohsuke.stapler.interceptor.RequirePOST;
 
 import jenkins.model.Jenkins;
 
@@ -298,6 +299,7 @@ public class GroovyParser extends AbstractDescribableImpl<GroovyParser> {
          *            the script
          * @return the validation result
          */
+        @RequirePOST
         public FormValidation doCheckScript(@QueryParameter(required = true) final String script) {
             if (!canRunScripts()) {
                 return NO_RUN_SCRIPT_PERMISSION_WARNING;

@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 
 import org.codehaus.groovy.control.CompilationFailedException;
+import org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.GroovySandbox;
 
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
@@ -63,7 +64,8 @@ public class GroovyExpressionMatcher implements Serializable {
     public Script compile() throws CompilationFailedException {
         Binding binding = new Binding();
         binding.setVariable("falsePositive", falsePositive);
-        GroovyShell shell = new GroovyShell(WarningsDescriptor.class.getClassLoader(), binding);
+        GroovyShell shell = new GroovyShell(GroovySandbox.createSecureClassLoader(WarningsDescriptor.class.getClassLoader()),
+                binding, GroovySandbox.createSecureCompilerConfiguration());
         return shell.parse(script);
     }
 
