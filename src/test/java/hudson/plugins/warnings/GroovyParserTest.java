@@ -229,26 +229,6 @@ public class GroovyParserTest {
         assertOk(descriptor.doCheckExample(MULTI_LINE_EXAMPLE, MULTI_LINE_REGEXP, MULTILINE_SCRIPT));
     }
 
-    @Issue("SECURITY-1295")
-    @Test
-    public void blockASTTest() throws Exception {
-        DescriptorImpl d = createDescriptor();
-        assertThat(d.doCheckScript("import groovy.transform.*\n" +
-                "import jenkins.model.Jenkins\n" +
-                "import hudson.model.FreeStyleProject\n" +
-                "@ASTTest(value={ assert Jenkins.getInstance().createProject(FreeStyleProject.class, \"should-not-exist\") })\n" +
-                "@Field int x\n" +
-                "echo 'hello'\n").toString(), containsString("Annotation ASTTest cannot be used in the sandbox"));
-    }
-
-    @Issue("SECURITY-1295")
-    @Test
-    public void blockGrab() throws Exception {
-        DescriptorImpl d = createDescriptor();
-        assertThat(d.doCheckScript("@Grab(group='foo', module='bar', version='1.0')\ndef foo\n").toString(),
-                containsString("Annotation Grab cannot be used in the sandbox"));
-    }
-
     private DescriptorImpl createDescriptor() {
         return new DescriptorImpl();
     }

@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 
 import org.codehaus.groovy.control.CompilationFailedException;
-import org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.GroovySandbox;
 
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
@@ -16,6 +15,10 @@ import hudson.plugins.warnings.WarningsDescriptor;
 
 /**
  * Creates a warning based on a regular expression match and groovy script.
+ *
+ * This class does not use any sandboxing mechanisms to parse or run the Grooy
+ * script. Instead, only users with Overall/Run Scripts permission are able to
+ * configure parsers that use custom Groovy scripts.
  *
  * @author Ullrich Hafner
  * @deprecated use the new analysis-model library
@@ -64,8 +67,7 @@ public class GroovyExpressionMatcher implements Serializable {
     public Script compile() throws CompilationFailedException {
         Binding binding = new Binding();
         binding.setVariable("falsePositive", falsePositive);
-        GroovyShell shell = new GroovyShell(GroovySandbox.createSecureClassLoader(WarningsDescriptor.class.getClassLoader()),
-                binding, GroovySandbox.createSecureCompilerConfiguration());
+        GroovyShell shell = new GroovyShell(WarningsDescriptor.class.getClassLoader(), binding);
         return shell.parse(script);
     }
 
